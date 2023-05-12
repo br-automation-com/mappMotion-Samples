@@ -1,0 +1,4 @@
+(*Generic variables used in multiple actions*)
+VAR
+	n : UINT;
+END_VAR
