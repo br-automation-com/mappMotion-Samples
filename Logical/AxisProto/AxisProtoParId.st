@@ -12,7 +12,6 @@ ACTION ParID:
 		ELSE
 			MC_BR_ProcessParID_AcpAx_1.Mode := mcACPAX_PARID_GET;
 		END_IF		
-		MC_BR_ProcessParID_AcpAx_1();
 		
 		// Finish when done
 		IF MC_BR_ProcessParID_AcpAx_1.Done OR MC_BR_ProcessParID_AcpAx_1.Error THEN
@@ -20,7 +19,6 @@ ACTION ParID:
 			AxisParId.ErrId := MC_BR_ProcessParID_AcpAx_1.ErrorID;
 			
 			MC_BR_ProcessParID_AcpAx_1.Execute := 0;
-			MC_BR_ProcessParID_AcpAx_1();
 			
 			AxisParId.CmdGetPar := FALSE;
 			AxisParId.CmdSetPar := FALSE;
@@ -36,4 +34,7 @@ ACTION ParID:
 	mcACPAX_UINT;
 	mcACPAX_UDINT;
 	mcACPAX_REAL;
+	
+	// Cyclic function calls
+	MC_BR_ProcessParID_AcpAx_1();
 END_ACTION
