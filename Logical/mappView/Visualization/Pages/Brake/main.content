@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="contentBrake" height="650" width="1400" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.Label" id="labBrake_Error" top="20" left="1170" width="70" zIndex="0" text="Error" textAlign="right" fontSize="16px" padding="0px 5px 0px 5px" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="numBrake_Error" top="20" left="1240" width="130" zIndex="1" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':10},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" borderWidth="1px" textAlign="left" padding="0px 0px 0px 0px" />
+    <Widget xsi:type="widgets.brease.Button" id="btnBrakeOpen" top="20" left="290" width="150" zIndex="2" text="Open Brake" />
+    <Widget xsi:type="widgets.brease.Button" id="btnBrakeClose" top="20" left="460" width="150" zIndex="3" text="Close Brake" />
+    <Widget xsi:type="widgets.brease.Label" id="labBrake_Status" top="20" left="10" width="70" zIndex="4" text="Status" textAlign="right" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.DropDownBox" id="ddbBrake_Status" top="20" left="90" width="140" zIndex="5" dataProvider="[{'value':'0','text':'Unknown'},{'value':'1','text':'Closed'},{'value':'2','text':'Opened'}]" selectedValue="1" backColor="rgba(255, 255, 255, 1)" disabledBackColor="rgba(255, 255, 255, 1)" disabledTextColor="rgba(0, 0, 0, 1)" enable="false" />
+  </Widgets>
+</Content>

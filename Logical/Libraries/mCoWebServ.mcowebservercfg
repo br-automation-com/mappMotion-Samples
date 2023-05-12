@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="mCoWebServerCfg" Type="mcowebservercfg">
+    <Selector ID="HTTP_Server">
+      <Property ID="Enabled" Value="TRUE" />
+    </Selector>
+    <Selector ID="HTTPS_Server">
+      <Property ID="Enabled" Value="FALSE" />
+    </Selector>
+    <Group ID="DocumentRoot">
+      <Property ID="TransferGroup" Value="mappCockpit" />
+      <Property ID="FilePath" />
+    </Group>
+  </Element>
+</Configuration>

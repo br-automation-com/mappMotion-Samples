@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gAxis_2" Type="axis">
+    <Property ID="BaseTypeIsReadOnly" Value="0" />
+    <Selector ID="BaseType" Value="Rotary">
+      <Property ID="MeasurementUnitIsReadOnly" Value="0" />
+      <Property ID="MeasurementUnit" Value="17476" />
+      <Property ID="MeasurementResolutionIsReadOnly" Value="0" />
+      <Property ID="MeasurementResolution" Value="0.010000" />
+      <Property ID="CountDirectionIsReadOnly" Value="0" />
+      <Property ID="CountDirection" Value="Standard" />
+    </Selector>
+    <Property ID="MovementLimitsIsReadOnly" Value="0" />
+    <Selector ID="MovementLimits" Value="Internal">
+      <Group ID="Position">
+        <Property ID="LowerLimitMin" Value="-17976931348623099202083765866295897644998378684266083703805195052047022504132823196914091663318780" />
+        <Property ID="UpperLimitMax" Value="179769313486230992020837658662958976449983786842660837038051950520470225041328231969140916633187800" />
+        <Property ID="LowerLimit" Value="-1000.000000" />
+        <Property ID="UpperLimit" Value="1000.000000" />
+      </Group>
+      <Property ID="VelocityIsReadOnly" Value="0" />
+      <Selector ID="Velocity">
+        <Property ID="VelocityMax" Value="339999995214436424907732413799364296704.000000" />
+        <Property ID="Velocity" Value="60000" />
+      </Selector>
+      <Property ID="AccelerationIsReadOnly" Value="0" />
+      <Selector ID="Acceleration">
+        <Property ID="AccelerationMax" Value="339999995214436424907732413799364296704.000000" />
+        <Property ID="Acceleration" Value="360000" />
+      </Selector>
+      <Property ID="DecelerationIsReadOnly" Value="0" />
+      <Selector ID="Deceleration">
+        <Property ID="DecelerationMax" Value="339999995214436424907732413799364296704.000000" />
+        <Property ID="Deceleration" Value="360000" />
+      </Selector>
+    </Selector>
+    <Selector ID="Alarms" Value="None" />
+  </Element>
+</Configuration>

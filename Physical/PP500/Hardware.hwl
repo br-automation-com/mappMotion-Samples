@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?AutomationStudio FileVersion="4.9"?>
+<BR.AS.HardwareTopology>
+  <TimeStamps>
+    <TimeStamp LogicalPath="PP500.Hardware.hw" LastWriteTime="03/28/2023 09:34:21" />
+  </TimeStamps>
+  <Modules>
+    <Module Name="5PP520.0702-00" Type="5PP520.0702-00" X="100" Y="100" />
+    <Module Name="5PP5IF.FPLM-00" Type="5PP5IF.FPLM-00" X="216.4" Y="133" />
+    <Module Name="5PP5CP_US15_00" Type="5PP5CP.US15-00" X="216.4" Y="110" />
+    <Module Name="80VD100PD.C000-01" Type="80VD100PD.C000-01" X="261.4" Y="267.2" />
+  </Modules>
+  <Links>
+    <Link From="5PP5IF.FPLM-00" To="80VD100PD.C000-01" FromPort="IF1" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="257.4" Y="141" />
+      <Point X="257.4" Y="141" />
+      <Point X="262.4" Y="141" />
+      <Point X="325" Y="141" />
+      <Point X="325" Y="326.2" />
+      <Point X="319.4" Y="326.2" />
+      <Point X="300.4" Y="326.2" />
+      <Point X="300.4" Y="341.2" />
+    </Link>
+  </Links>
+  <InfoElements />
+</BR.AS.HardwareTopology>

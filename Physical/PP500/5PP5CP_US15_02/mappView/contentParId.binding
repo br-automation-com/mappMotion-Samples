@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="contentParId_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Bindings>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParIds[1].ParID" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParIds[1].DataType" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="ddbParID1" attribute="selectedIndex" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_BOOL[1]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_BOOL1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_SINT[1]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_SINT1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_INT[1]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_INT1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_DINT[1]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_DINT1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_USINT[1]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_USINT1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_UINT[1]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_UINT1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_UDINT[1]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_UDINT1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_REAL[1]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_REAL1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParIds[2].ParID" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParIds[2].DataType" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="ddbParID2" attribute="selectedIndex" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_BOOL[2]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_BOOL2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_SINT[2]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_SINT2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_INT[2]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_INT2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_DINT[2]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_DINT2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_USINT[2]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_USINT2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_UINT[2]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_UINT2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_UDINT[2]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_UDINT2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_REAL[2]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_REAL2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParIds[3].ParID" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_3" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParIds[3].DataType" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="ddbParID3" attribute="selectedIndex" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_BOOL[3]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_BOOL3" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_SINT[3]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_SINT3" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_INT[3]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_INT3" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_DINT[3]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_DINT3" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_USINT[3]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_USINT3" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_UINT[3]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_UINT3" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_UDINT[3]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_UDINT3" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_REAL[3]" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_REAL3" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ErrId" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_Error" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParNum" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_Num" attribute="value" />
+		</Binding>
+	</Bindings>
+</BindingsSet>

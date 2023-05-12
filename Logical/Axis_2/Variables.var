@@ -1,0 +1,4 @@
+VAR
+	MpAxisBasic_1 : MpAxisBasic;
+	MpAxisBasicPar : MpAxisBasicParType;
+END_VAR
