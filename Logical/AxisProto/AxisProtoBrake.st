@@ -7,16 +7,12 @@ ACTION Brake:
 		MC_BR_BrakeSetPar_AcpAx_1.Execute := 1;
 		MC_BR_BrakeSetPar_AcpAx_1.Axis := ADR(AxisBrake.ParAxis);
 		MC_BR_BrakeSetPar_AcpAx_1.Parameters := AxisBrake.ParBrake;
-		MC_BR_BrakeSetPar_AcpAx_1();
 		
 		// Finish when done
 		IF MC_BR_BrakeSetPar_AcpAx_1.Done OR MC_BR_BrakeSetPar_AcpAx_1.Error THEN
 			// Transfer error id, reset funtion block, reset command
-			AxisBrake.ErrId := MC_BR_BrakeSetPar_AcpAx_1.ErrorID;
-			
+			AxisBrake.ErrId := MC_BR_BrakeSetPar_AcpAx_1.ErrorID;		
 			MC_BR_BrakeSetPar_AcpAx_1.Execute := 0;
-			MC_BR_BrakeSetPar_AcpAx_1();
-			
 			AxisBrake.CmdSetPar := FALSE;
 		END_IF
 	END_IF
@@ -24,39 +20,49 @@ ACTION Brake:
 	// --------------------------------------------------------------------------
 	// Open or close brake
 	IF AxisBrake.CmdOpen OR AxisBrake.CmdClose THEN
-		CASE StateOpenClose OF
-				// --------------------------------------------------------------------------
-				// Set brake state
-			STATE_OPEN_CLOSE:
-				// Preset function block
-				MC_BR_BrakeOperation_1.Execute := 1;
-				MC_BR_BrakeOperation_1.Axis := ADR(AxisBrake.ParAxis);
+		CASE AxisBrakeState OF
+			// --------------------------------------------------------------------------
+			// Wait state
+			STATE_BRAKE_WAIT:
+				// Command open brake
 				IF AxisBrake.CmdOpen THEN
 					MC_BR_BrakeOperation_1.Command := mcBRAKE_OPEN;
-				ELSE
-					MC_BR_BrakeOperation_1.Command := mcBRAKE_CLOSE;
+					AxisBrakeState := STATE_BRAKE_OPEN_CLOSE;
 				END_IF
-				MC_BR_BrakeOperation_1();
+
+				// Command close brake
+				IF AxisBrake.CmdClose THEN
+					MC_BR_BrakeOperation_1.Command := mcBRAKE_CLOSE;
+					AxisBrakeState := STATE_BRAKE_OPEN_CLOSE;
+				END_IF
+
+			// --------------------------------------------------------------------------
+			// Set brake state
+			STATE_BRAKE_OPEN_CLOSE:
+				// Preset function block
+				MC_BR_BrakeOperation_1.Execute := TRUE;
+				MC_BR_BrakeOperation_1.Axis := ADR(AxisBrake.ParAxis);
 		
 				// Finish when done
 				IF MC_BR_BrakeOperation_1.Done OR MC_BR_BrakeOperation_1.Error THEN
-					// Transfer error id, reset funtion block, reset command
-					AxisBrake.ErrId := MC_BR_BrakeOperation_1.ErrorID;
-			
-					MC_BR_BrakeOperation_1.Execute := 0;
-					MC_BR_BrakeOperation_1();
+					// Transfer error id, reset function block
+					AxisBrake.ErrId := MC_BR_BrakeOperation_1.ErrorID;		
+					MC_BR_BrakeOperation_1.Execute := FALSE;
 			
 					// Abort when error
 					IF MC_BR_BrakeOperation_1.Error THEN
 						AxisBrake.CmdOpen := FALSE;
 						AxisBrake.CmdClose := FALSE;
+						
+						AxisBrakeState := STATE_BRAKE_WAIT;
 					ELSE
-						StateOpenClose := STATE_STATUS;
+						AxisBrakeState := STATE_BRAKE_STATUS;
 					END_IF
 				END_IF
-				// --------------------------------------------------------------------------
-				// Get brake status
-			STATE_STATUS:
+				
+			// --------------------------------------------------------------------------
+			// Get brake status
+			STATE_BRAKE_STATUS:
 				// Preset function block
 				MC_BR_BrakeOperation_1.Execute := 1;
 				MC_BR_BrakeOperation_1.Axis := ADR(AxisBrake.ParAxis);
@@ -70,15 +76,17 @@ ACTION Brake:
 					AxisBrake.StaBrake := MC_BR_BrakeOperation_1.BrakeStatus;
 			
 					MC_BR_BrakeOperation_1.Execute := 0;
-					MC_BR_BrakeOperation_1();
 			
 					AxisBrake.CmdOpen := FALSE;
 					AxisBrake.CmdClose := FALSE;
 					
-					StateOpenClose := STATE_OPEN_CLOSE;
+					AxisBrakeState := STATE_BRAKE_WAIT;
 				END_IF
 		END_CASE;
-
 	END_IF
+	
+	// Cyclic function calls
+	MC_BR_BrakeSetPar_AcpAx_1();
+	MC_BR_BrakeOperation_1();
 	
 END_ACTION

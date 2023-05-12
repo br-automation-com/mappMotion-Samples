@@ -6,5 +6,5 @@ END_VAR
 VAR
 	MC_BR_BrakeSetPar_AcpAx_1 : MC_BR_BrakeSetPar_AcpAx;
 	MC_BR_BrakeOperation_1 : MC_BR_BrakeOperation;
-	StateOpenClose : StateOpenCloseEnum;
+	AxisBrakeState : AxisBrakeStateEnum;
 END_VAR
