@@ -42,6 +42,7 @@ PROGRAM _CYCLIC
 
 	// --------------------------------------------------------------------------
 	// Call axis actions used for this drive
+	Common;
 	Brake;
 	ParID;
 	MotorCfg;
