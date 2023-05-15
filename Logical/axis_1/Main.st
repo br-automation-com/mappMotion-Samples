@@ -22,7 +22,7 @@ PROGRAM _INIT
 	AxisParId.ParIds[1].VariableAddress := ADR(mcACPAX_UDINT);
 	AxisParId.ParIds[1].DataType := mcACPAX_PARTYPE_UDINT;
 	AxisParId.CmdSetPar := TRUE;
-	 
+	
 END_PROGRAM
 
 PROGRAM _CYCLIC
@@ -33,7 +33,7 @@ PROGRAM _CYCLIC
 	MpAxisBasic_1.MpLink := ADR(gAxis_1);
 	MpAxisBasic_1.Parameters := ADR(MpAxisBasicPar);
 	MpAxisBasic_1();
-	
+
 	// --------------------------------------------------------------------------
 	// Call axis actions used for this drive
 	Brake;
@@ -42,7 +42,9 @@ PROGRAM _CYCLIC
 END_PROGRAM
 
 PROGRAM _EXIT
-	(* Insert code here *)
+	MpAxisBasic_1.Enable := 0;
+	MpAxisBasic_1.MpLink := ADR(gAxis_1);
+	MpAxisBasic_1();
 	 
 END_PROGRAM
 

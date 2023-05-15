@@ -27,21 +27,6 @@
         <Variable Name="MpAxisBasic_1" RecursiveEnable="2" />
         <Variable Name="MpAxisBasicPar" RecursiveEnable="2" />
       </Task>
-      <Task Name="Axis_2">
-        <Variable Name="AxisParNum" />
-        <Variable Name="mcACPAX_BOOL" />
-        <Variable Name="mcACPAX_DINT" />
-        <Variable Name="mcACPAX_INT" />
-        <Variable Name="mcACPAX_REAL" />
-        <Variable Name="mcACPAX_SINT" />
-        <Variable Name="mcACPAX_UDINT" />
-        <Variable Name="mcACPAX_UINT" />
-        <Variable Name="mcACPAX_USINT" />
-        <Variable Name="MpAxisBasic_1" RecursiveEnable="2" />
-        <Variable Name="AxisBrake" RecursiveEnable="2" />
-        <Variable Name="AxisParId" RecursiveEnable="2" />
-        <Variable Name="MpAxisBasicPar" RecursiveEnable="2" />
-      </Task>
     </Module>
   </DefaultView>
 </OpcUaSource>
