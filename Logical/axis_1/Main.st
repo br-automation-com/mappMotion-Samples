@@ -22,6 +22,12 @@ PROGRAM _INIT
 	AxisParId.ParIds[1].VariableAddress := ADR(mcACPAX_UDINT);
 	AxisParId.ParIds[1].DataType := mcACPAX_PARTYPE_UDINT;
 	AxisParId.CmdSetPar := TRUE;
+	
+	// --------------------------------------------------------------------------
+	// Motor configuration
+	AxisMotorCfg.ParAxis := gAxis_1;
+	AxisMotorCfg.ParMotorType := AX_MOTOR_TYPE_SYNCHRONOUS;
+	Motor_8LVB13_B1030F300_00;
 	 
 END_PROGRAM
 
@@ -33,16 +39,19 @@ PROGRAM _CYCLIC
 	MpAxisBasic_1.MpLink := ADR(gAxis_1);
 	MpAxisBasic_1.Parameters := ADR(MpAxisBasicPar);
 	MpAxisBasic_1();
-	
+
 	// --------------------------------------------------------------------------
 	// Call axis actions used for this drive
 	Brake;
 	ParID;
+	MotorCfg;
 	
 END_PROGRAM
 
 PROGRAM _EXIT
-	(* Insert code here *)
+	MpAxisBasic_1.Enable := 0;
+	MpAxisBasic_1.MpLink := ADR(gAxis_1);
+	MpAxisBasic_1();
 	 
 END_PROGRAM
 

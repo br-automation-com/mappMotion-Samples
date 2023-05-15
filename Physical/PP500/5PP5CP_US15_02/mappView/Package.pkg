@@ -10,5 +10,6 @@
     <Object Type="File">contentBrake.eventbinding</Object>
     <Object Type="File">contentMotion.binding</Object>
     <Object Type="File">contentMotion.eventbinding</Object>
+    <Object Type="File">main.binding</Object>
   </Objects>
 </Package>

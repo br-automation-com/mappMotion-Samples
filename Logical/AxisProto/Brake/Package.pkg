@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File" Description="Local data types" Private="true">AxisProtoBrake.typ</Object>
+    <Object Type="File" Description="Local variables" Private="true">AxisProtoBrake.var</Object>
+    <Object Type="File">AxisProtoBrake.st</Object>
+  </Objects>
+</Package>

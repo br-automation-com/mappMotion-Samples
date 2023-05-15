@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File" Description="Local data types" Private="true">AxisProtoMotorCfg.typ</Object>
+    <Object Type="File" Description="Local variables" Private="true">AxisProtoMotorCfg.var</Object>
+    <Object Type="File">AxisProtoMotorCfg.st</Object>
+    <Object Type="File">Motor_8LVB13_B1030F300_00.st</Object>
+  </Objects>
+</Package>
