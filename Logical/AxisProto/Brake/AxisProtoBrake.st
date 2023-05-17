@@ -5,7 +5,7 @@ ACTION Brake:
 	IF AxisBrake.CmdSetPar THEN
 		// Preset function block
 		MC_BR_BrakeSetPar_AcpAx_1.Execute := 1;
-		MC_BR_BrakeSetPar_AcpAx_1.Axis := ADR(AxisBrake.ParAxis);
+		MC_BR_BrakeSetPar_AcpAx_1.Axis := AxisBrake.MpLink;
 		MC_BR_BrakeSetPar_AcpAx_1.Parameters := AxisBrake.ParBrake;
 		
 		// Finish when done

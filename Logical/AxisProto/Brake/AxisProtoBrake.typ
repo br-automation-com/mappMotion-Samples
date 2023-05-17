@@ -4,7 +4,7 @@ TYPE
 		CmdClose : BOOL;
 		CmdOpen : BOOL;
 		CmdSetPar : BOOL;
-		ParAxis : McAxisType;
+		MpLink : REFERENCE TO McAxisType;
 		ParBrake : McAcpAxBrakeParType;
 		StaBrake : McBrakeStatusEnum;
 		ErrId : DINT;
