@@ -1,0 +1,30 @@
+site_name: mappMotion sample
+use_directory_urls: false
+
+extra_css: [extra.css]
+    
+nav:
+  - Start: index.md
+  - Structure: structure.md
+  - Par ID: par_id.md
+  - Brake: brake.md
+  - Motor Configuration: motor_cfg.md
+  - Revision: revision.md
+
+theme:
+    name: material
+    logo: images/bur.png
+
+    palette:
+      scheme: default
+      primary: orange
+      accent: orange
+
+    features: toc.integrate
+
+plugins:
+  - search
+      
+repo_url: https://github.com/br-automation-com/mappMotion-Samples
+repo_name: GitHub Repo
+
