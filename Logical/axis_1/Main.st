@@ -8,22 +8,6 @@ PROGRAM _INIT
 	MpAxisBasicPar.Velocity := 500;
 
 	// --------------------------------------------------------------------------
-	// Set brake parameters, disable brake restrictions
-	AxisBrake.ParAxis := gAxis_1;
-	AxisBrake.ParBrake.RestrictedBrakeControl := mcSWITCH_OFF;
-	AxisBrake.CmdSetPar := TRUE;
-	
-	// --------------------------------------------------------------------------
-	// Acknoledge encoder battery error
-	mcACPAX_UDINT[1] := 1;
-	AxisParId.ParAxis := gAxis_1;
-	AxisParId.ParNum := 1;
-	AxisParId.ParIds[1].ParID := 719;
-	AxisParId.ParIds[1].VariableAddress := ADR(mcACPAX_UDINT);
-	AxisParId.ParIds[1].DataType := mcACPAX_PARTYPE_UDINT;
-	AxisParId.CmdSetPar := TRUE;
-	
-	// --------------------------------------------------------------------------
 	// Motor configuration
 	AxisMotorCfg.ParAxis := gAxis_1;
 	AxisMotorCfg.ParMotorType := AX_MOTOR_TYPE_SYNCHRONOUS;
@@ -43,8 +27,6 @@ PROGRAM _CYCLIC
 	// --------------------------------------------------------------------------
 	// Call axis actions used for this drive
 	Common;
-	Brake;
-	ParID;
 	MotorCfg;
 	
 END_PROGRAM
