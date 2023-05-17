@@ -4,10 +4,6 @@
   <Objects>
     <Object Type="File">Visualizat.vis</Object>
     <Object Type="File">Config.mappviewcfg</Object>
-    <Object Type="File">contentParId.binding</Object>
-    <Object Type="File">contentParId.eventbinding</Object>
-    <Object Type="File">contentBrake.binding</Object>
-    <Object Type="File">contentBrake.eventbinding</Object>
     <Object Type="File">contentMotion.binding</Object>
     <Object Type="File">contentMotion.eventbinding</Object>
   </Objects>

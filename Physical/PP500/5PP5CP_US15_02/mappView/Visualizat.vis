@@ -1,30 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <vdef:Visualization id="Visu" autoUpdate="true" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
-	<StartPage pageRefId="pageStart" />
+	<StartPage pageRefId="pageMotion" />
 	<Pages>
-		<Page refId="pageStart" />
 		<Page refId="pageMotion" />
-		<Page refId="pageParID" />
-		<Page refId="pageBrake" />
 	</Pages>
 	<Navigations />
 	<BindingsSets>
 		<BindingsSet refId="contentMotion_binding" />
-		<BindingsSet refId="contentParId_binding" />
-		<BindingsSet refId="contentBrake_binding" />
 	</BindingsSets>
 	<EventBindingsSets>
 		<EventBindingsSet refId="contentMotion_eventbinding" />
-		<EventBindingsSet refId="contentParId_eventbinding" />
-		<EventBindingsSet refId="contentBrake_eventbinding" />
 	</EventBindingsSets>
 	<Dialogs />
 	<Contents>
-		<Content refId="main" />
 		<Content refId="contentHeader" />
 		<Content refId="contentNavigation" />
-		<Content refId="contentParId" />
-		<Content refId="contentBrake" />
 		<Content refId="contentMotion" />
 	</Contents>
 	<SnippetsSets />
