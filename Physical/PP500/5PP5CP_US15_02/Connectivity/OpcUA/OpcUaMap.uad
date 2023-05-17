@@ -13,7 +13,6 @@
         <Variable Name="gAxis_1" />
       </GlobalVariables>
       <Task Name="Axis_1">
-        <Variable Name="AxisBrake" RecursiveEnable="2" />
         <Variable Name="AxisParId" RecursiveEnable="2" />
         <Variable Name="AxisParNum" />
         <Variable Name="mcACPAX_BOOL" RecursiveEnable="2" />
@@ -26,7 +25,6 @@
         <Variable Name="mcACPAX_USINT" RecursiveEnable="2" />
         <Variable Name="MpAxisBasic_1" RecursiveEnable="2" />
         <Variable Name="MpAxisBasicPar" RecursiveEnable="2" />
-        <Variable Name="AxisMotorCfg" RecursiveEnable="2" />
         <Variable Name="AxisCommon" RecursiveEnable="2" />
       </Task>
     </Module>
