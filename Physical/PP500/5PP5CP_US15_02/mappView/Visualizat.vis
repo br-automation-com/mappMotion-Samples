@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <vdef:Visualization id="Visu" autoUpdate="true" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
-  <StartPage pageRefId="pageStart" />
+  <StartPage pageRefId="pageMotion" />
   <Pages>
-    <Page refId="pageStart" />
+    <Page refId="pageMotorCfg" />
     <Page refId="pageMotion" />
     <Page refId="pageParID" />
     <Page refId="pageBrake" />
@@ -12,7 +12,7 @@
     <BindingsSet refId="contentMotion_binding" />
     <BindingsSet refId="contentParId_binding" />
     <BindingsSet refId="contentBrake_binding" />
-    <BindingsSet refId="main_binding" />
+    <BindingsSet refId="contentMotorCfg_binding" />
   </BindingsSets>
   <EventBindingsSets>
     <EventBindingsSet refId="contentMotion_eventbinding" />
