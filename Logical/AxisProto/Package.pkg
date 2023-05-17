@@ -4,7 +4,5 @@
   <Objects>
     <Object Type="Package">Common</Object>
     <Object Type="Package">Brake</Object>
-    <Object Type="Package">ParID</Object>
-    <Object Type="Package">MotorCfg</Object>
   </Objects>
 </Package>

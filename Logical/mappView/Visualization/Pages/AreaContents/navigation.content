@@ -1,9 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="contentNavigation" height="650" width="200" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.NavigationButton" id="navStart" top="160" left="10" width="180" height="40" zIndex="0" pageId="pageMotorCfg" text="Motor Configuration" />
-    <Widget xsi:type="widgets.brease.NavigationButton" id="navParID" top="60" left="10" width="180" height="40" zIndex="1" pageId="pageParID" text="Par ID" />
-    <Widget xsi:type="widgets.brease.NavigationButton" id="navBrake" top="110" left="10" width="180" height="40" zIndex="2" pageId="pageBrake" text="Brake" />
-    <Widget xsi:type="widgets.brease.NavigationButton" id="navMotion" top="10" left="10" width="180" height="40" zIndex="3" pageId="pageMotion" text="Motion" />
+    <Widget xsi:type="widgets.brease.NavigationButton" id="navBrake" top="60" left="10" width="180" height="40" zIndex="0" pageId="pageBrake" text="Brake" />
+    <Widget xsi:type="widgets.brease.NavigationButton" id="navMotion" top="10" left="10" width="180" height="40" zIndex="1" pageId="pageMotion" text="Motion" />
   </Widgets>
 </Content>
