@@ -6,8 +6,8 @@ extra_css: [extra.css]
 nav:
   - Start: index.md
   - Structure: structure.md
-  - Par ID: par_id.md
   - Brake: brake.md
+  - Par ID: par_id.md
   - Motor Configuration: motor_cfg.md
   - Revision: revision.md
 

@@ -10,12 +10,9 @@ The sample uses a variable structure to communicate with the outside world that 
 | Command | Function |
 |---|---|---|
 | CmdClose | Close brake |
-| CmdOpen | Open brake |
-| CmdSetPar | Set brake parameter |
-| MpLink | The axis reference establishes the connection between the function block and an axis |
-| ParBrake | Configuration parameters |
-| StaBrake | Configuration parameters |
-| ErrId | Error ID |
+
+
+## programm structure
 
 ## Revision
 

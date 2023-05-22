@@ -1,30 +1,24 @@
-The brake sample provides an easy interface to control the brake parameters and function.
+The brake sample provides an easy interface to control the brake parameters and function. Also see Automation Studio help (00ef9572-f1d5-43b5-9815-90e510eaeb7f)
 
 ## Repo Link
 [Here](https://github.com/br-automation-com/mappMotion-Samples/tree/brake) is the link to the repository.
 
 ## Command structure
 
-The sample uses a variable structure to communicate with the outside world that ca| ParBrake | Configuration parameters |n also be used to interact with other tasks. The structure looks as follows:
+The sample uses a variable structure to communicate with the outside world that can also be used to interact with other tasks. The structure looks as follows:
 
-<table>
-    <tr>
-        <th width=100>Level 1</td>
-        <th>Level Description</td>
-    </tr>
-    <tr>
-        <td>CMD</td>
-        <td>CMD</td>
-    </tr>
-
-## Error handling
-
-The task generates the following list of error messages. All other error numbers are generated from included libraries that can be found in the Automation Studio help.
-
-| No | Constant | Text |
+| Command | Function |
 |---|---|---|
-| 50010 | ERR_REC_TOO_MANY_CLIENTS  | More than 3 clients try to connect to user management |
+| CmdClose | Close brake |
+| CmdOpen | Open brake |
+| CmdSetPar | Set brake parameter |
+| MpLink | The axis reference establishes the connection between the function block and an axis |
+| ParBrake | Configuration parameters |
+| StaBrake | Configuration parameters |
+| ErrId | Error ID |
 
+## Program structure
+The program consists of a state machine where the commands are executed. When a brake open or close command is executed the status of the brake is checked in an additional step.
 
 ## Revision
 
