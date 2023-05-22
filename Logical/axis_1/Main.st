@@ -8,14 +8,14 @@ PROGRAM _INIT
 	MpAxisBasicPar.Velocity := 500;
 
 	// --------------------------------------------------------------------------
-	// Acknoledge encoder battery error
-	mcACPAX_UDINT[1] := 1;
-	AxisParId.ParAxis := gAxis_1;
-	AxisParId.ParNum := 1;
-	AxisParId.ParIds[1].ParID := 719;
-	AxisParId.ParIds[1].VariableAddress := ADR(mcACPAX_UDINT);
-	AxisParId.ParIds[1].DataType := mcACPAX_PARTYPE_UDINT;
-	AxisParId.CmdSetPar := TRUE;
+	// Acknowledge encoder battery error
+	mcACPAX_UDINT[1] := 1;											// Par ID value: Reset encoder error
+	AxisParId.MpLink := ADR(gAxis_1);								// MpLink for axis
+	AxisParId.ParNum := 1;											// Number of parameter IDs
+	AxisParId.ParIds[1].ParID := 719;								// Encoder1: Encoder command
+	AxisParId.ParIds[1].VariableAddress := ADR(mcACPAX_UDINT[1]);	// Pointer to predefined variable
+	AxisParId.ParIds[1].DataType := mcACPAX_PARTYPE_UDINT;			// Data type of predefined variable
+	AxisParId.CmdSetPar := TRUE;									// Execute command
 	 
 END_PROGRAM
 

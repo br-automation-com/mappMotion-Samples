@@ -3,7 +3,7 @@ TYPE
 	AxisParIdType : 	STRUCT 
 		CmdSetPar : BOOL;
 		CmdGetPar : BOOL;
-		ParAxis : McAxisType;
+		MpLink : REFERENCE TO McAxisType;
 		ParIds : ARRAY[1..AxisParNum]OF McAcpAxProcessParIDType;
 		ParNum : UDINT;
 		ErrId : DINT;

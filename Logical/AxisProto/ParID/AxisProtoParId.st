@@ -4,7 +4,7 @@ ACTION ParID:
 	IF AxisParId.CmdGetPar OR AxisParId.CmdSetPar THEN
 		// Preset function block
 		MC_BR_ProcessParID_AcpAx_1.Execute := 1;
-		MC_BR_ProcessParID_AcpAx_1.Axis := ADR(AxisParId.ParAxis);
+		MC_BR_ProcessParID_AcpAx_1.Axis := AxisParId.MpLink;
 		MC_BR_ProcessParID_AcpAx_1.DataAddress := ADR(AxisParId.ParIds);
 		MC_BR_ProcessParID_AcpAx_1.NumberOfParIDs := AxisParId.ParNum;
 		IF AxisParId.CmdSetPar THEN
