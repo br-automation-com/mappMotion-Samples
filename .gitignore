@@ -1,6 +1,8 @@
 # Git Repository File Ignore Specifications
 # B&R Automation Studio project directory files
  
+# Ignore mkdocs folder
+/mkdocs/
 # Ignore AR versions as those are not considered part of the project
 /AS/System/
 # Ignore build results
