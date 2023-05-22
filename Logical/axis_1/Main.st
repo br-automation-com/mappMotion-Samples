@@ -9,7 +9,7 @@ PROGRAM _INIT
 
 	// --------------------------------------------------------------------------
 	// Motor configuration
-	AxisMotorCfg.ParAxis := gAxis_1;
+	AxisMotorCfg.MpLink := ADR(gAxis_1);
 	AxisMotorCfg.ParMotorType := AX_MOTOR_TYPE_SYNCHRONOUS;
 	Motor_8LVB13_B1030F300_00;
 	 

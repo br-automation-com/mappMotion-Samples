@@ -15,7 +15,7 @@ ACTION MotorCfg:
 		// Generate address and channel string
 		STATE_MOTOR_CFG_PRE_SET:
 			MC_BR_GetHardwareInfo_1.Execute := TRUE;
-			MC_BR_GetHardwareInfo_1.Axis := ADR(AxisMotorCfg.ParAxis);
+			MC_BR_GetHardwareInfo_1.Axis := AxisMotorCfg.MpLink;
 			
 			// Finish when done
 			IF MC_BR_GetHardwareInfo_1.Done OR MC_BR_GetHardwareInfo_1.Error THEN

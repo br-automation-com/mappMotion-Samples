@@ -3,7 +3,7 @@ TYPE
 	AxisMotorCfgType : 	STRUCT 
 		CmdSetMotor : BOOL;
 		CmdGetMotor : BOOL;
-		ParAxis : McAxisType;
+		MpLink : REFERENCE TO McAxisType;
 		ParMotorType : UDINT;
 		ParMotorSynchronous : McCfgMotSynType;
 		StaMotorSynchronous : McCfgMotSynType;
