@@ -9,9 +9,9 @@ PROGRAM _INIT
 
 	// --------------------------------------------------------------------------
 	// Set brake parameters, disable brake restrictions
-	AxisBrake.MpLink := ADR(gAxis_1);
-	AxisBrake.ParBrake.RestrictedBrakeControl := mcSWITCH_OFF;
-	AxisBrake.CmdSetPar := TRUE;
+	AxisBrake.MpLink := ADR(gAxis_1);								// MpLink reference for axis					
+	AxisBrake.ParBrake.RestrictedBrakeControl := mcSWITCH_OFF;		// Allow brake to be turned off
+	AxisBrake.CmdSetPar := TRUE;									// Call parameter set command
 	 
 END_PROGRAM
 
