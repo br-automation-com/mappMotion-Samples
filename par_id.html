@@ -13,7 +13,7 @@
     
     
       
-        <title>Par ID - mappMotion sample</title>
+        <title>Par ID - mappMotion samples</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#command-structure" class="md-skip">
+        <a href="#repo-link" class="md-skip">
           Skip to content
         </a>
       
@@ -80,7 +80,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="index.html" title="mappMotion sample" class="md-header__button md-logo" aria-label="mappMotion sample" data-md-component="logo">
+    <a href="index.html" title="mappMotion samples" class="md-header__button md-logo" aria-label="mappMotion samples" data-md-component="logo">
       
   <img src="images/bur.png" alt="logo">
 
@@ -92,7 +92,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            mappMotion sample
+            mappMotion samples
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -179,12 +179,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="index.html" title="mappMotion sample" class="md-nav__button md-logo" aria-label="mappMotion sample" data-md-component="logo">
+    <a href="index.html" title="mappMotion samples" class="md-nav__button md-logo" aria-label="mappMotion samples" data-md-component="logo">
       
   <img src="images/bur.png" alt="logo">
 
     </a>
-    mappMotion sample
+    mappMotion samples
   </label>
   
     <div class="md-nav__source">
@@ -237,6 +237,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="brake.html" class="md-nav__link">
+        Brake
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -269,6 +284,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#repo-link" class="md-nav__link">
+    Repo Link
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#command-structure" class="md-nav__link">
     Command structure
   </a>
@@ -276,29 +298,42 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pre-configuration" class="md-nav__link">
-    Pre-Configuration
+  <a href="#program-structure" class="md-nav__link">
+    Program structure
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#performance" class="md-nav__link">
-    Performance
+  <a href="#sample-code" class="md-nav__link">
+    Sample code
   </a>
+  
+    <nav class="md-nav" aria-label="Sample code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#program-init" class="md-nav__link">
+    Program init
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#program-cyclic" class="md-nav__link">
+    Program cyclic
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
-    Error handling
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    Limitations
+  <a href="#revision" class="md-nav__link">
+    Revision
   </a>
   
 </li>
@@ -307,21 +342,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="brake.html" class="md-nav__link">
-        Brake
-      </a>
     </li>
   
 
@@ -376,439 +396,65 @@
 
   <h1>Par ID</h1>
 
-<p>The sample consists of two main components. The sample page is used to operate the recipe management. The task Recipe_01 drives the recipe management. Ideally this task should not be changed to make future updates easier. All additional code should be added to 'YourTask'. The following functions are currently supported.</p>
+<p>The par ID sample provides an easy interface to control the ACOPOS parameter IDs. </p>
+<p><img alt="" src="images/par_id_screenshot.png" /></p>
+<p>Also see Automation Studio help </p>
 <ul>
-<li>Load and Save recipes</li>
-<li>View recipes</li>
-<li>Create new recipes</li>
-<li>Delete recipes</li>
-<li>Rename recipes</li>
-<li>Download and upload recipes</li>
+<li>(64f032b8-d12d-4fdf-a118-179256305dcf) for a complete list of parameter IDs.</li>
+<li>(89221e8a-e9dd-427b-a12b-2b75d6f5fe83) for a description MC_BR_ProcessParID_AcpAx</li>
 </ul>
-<p>Recipes can be downloaded directly from the web client. To support this function the recipes must be loaded into memory. A buffer of the size REC_UPLOAD_DOWNLOAD_SIZE is used to hold the data into the memory. If the recipes exceed REC_UPLOAD_DOWNLOAD_SIZE the constant must be increased. Recipe upload is supported for ASCII recipe mode (REC_USE_UNICODE=false).</p>
-<p>Up to 3 web clients can connect at the same time. While the task itself can only execute one command at a time the commands are executed so fast that this should not be an issue. The init command may take longer but the response data is distributed to all sessions. </p>
+<h2 id="repo-link">Repo Link</h2>
+<p><a href="https://github.com/br-automation-com/mappMotion-Samples/tree/par_id">Here</a> is the link to the repository.</p>
 <h2 id="command-structure">Command structure</h2>
-<p>The task uses a variable structure to communicate with the outside world that can also be used to interact with other tasks. The structure <em>Recipe_01</em> looks as follows:</p>
-<table>
-    <tr>
-        <th width=100>Level 1</td>
-        <th>Level 2</td>
-        <th>Level Description</td>
-    </tr>
-    <tr ">
-        <td>CMD</td>
-    <td colspan=" 3">Used to trigger commands like load, save, delete, ... A command is triggered by setting it to
-        true, when the command is finished the task will reset the command. This indicates that the command is finished.
-        Do not change any parameters or set another command until the previous command is finished.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>Init</td>
-        <td colspan="3">Initializes the recipe management and reads the names of all recipes.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>New</td>
-        <td colspan="3">Create a new recipe, triggers an error message if the recipe name already exists.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>Load</td>
-        <td colspan="3">Loads the recipe data.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>Save</td>
-        <td colspan="3">Saves the recipe data.</td>
-    </tr>
-    <td></td>
-    <td>View</td>
-    <td colspan="3">View selected recipe.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>Rename</td>
-        <td colspan="3">Renames the selected recipe.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>Delete</td>
-        <td colspan="3">Deletes the selected recipe.</td>
-    </tr>
-    <td></td>
-    <td>Download</td>
-    <td colspan="3">Download selected recipe.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>Upload</td>
-        <td colspan="3">Upload a recipe via web browser to the taret.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>ErrorReset</td>
-        <td colspan="3">Resets pending errors.</td>
-    </tr>
-        <td> PAR </td>
-    <td colspan="3">Parameters like recipe name, file path, ...</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>RecipeName</td>
-        <td colspan="3">The name of the recipe used with the current command.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>RecipeNameNew</td>
-        <td colspan="3">New name used with the command rename.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>RecipeID</td>
-        <td colspan="3">File name of the recipe. With standard strings this equal the recipe name. Increasing numbers
-            are used for Unicode recipe names. The recipe name is then stored as Unicode inside the recipe itself.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>Initialized</td>
-        <td colspan="3">Shows that the recipe management was initialized correct.</td>
-    </tr>
-    <td></td>
-    <td>VisuSlotID</td>
-    <td colspan="3">This is the session ID for the current command. This is used to identify where to send response
-        messages.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>VisuEnableCommand</td>
-        <td colspan="3">Enable or disable commands when number of recipes is 0 or command is running.</td>
-    </tr>
-    <tr>
-        <td> DAT </td>
-        <td colspan="3">Recipe lists as well as status information.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>RecipeNames</td>
-        <td colspan="3">List with all recipe names.</td>
-    </tr>
-    <td></td>
-    <td>RecipeIDs</td>
-    <td colspan="3">File names for the corresponding recipe name.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>RecipeNum</td>
-        <td colspan="3">Number of recipes in the list.</td>
-    </tr>
-    <tr>
-        <td> VIS </td>
-        <td colspan="3">Data specific for the visualization. The structure is an array, one for each client session.
-        </td>
-    <tr>
-        <td></td>
-        <td>RecipeNames</td>
-        <td colspan="3">List with all recipes formatted as data provider for the mappView listbox.</td>
-    </tr>
-    <tr>
-    </tr>
-    <tr>
-        <td></td>
-        <td>RecipeNum</td>
-        <td colspan="3">Number of visible recipes in the list. Depending on the filter this number can be lower than the
-            total number of recipes stored under DAT.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>RecipeFilter</td>
-        <td colspan="3">Only show recipes that contain this string pattern.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>RecipeSelect</td>
-        <td colspan="3">Used to select the recipe name after command new or rename.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>DownloadFileUrl</td>
-        <td colspan="3">Url containing the file name that is downloaded.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>UploadOverwriteRequest</td>
-        <td colspan="3">Show message box to overwrite file.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>UploadOverwriteResponse</td>
-        <td colspan="3">Response from message box overwrite file.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>ReloadUpload</td>
-        <td colspan="3">Reload upload button.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>RecipeDoubleClick</td>
-        <td colspan="3">Helper variable to detect a double click on a record. When a double click is detected, the
-            recipe is opened.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>ViewFilePath</td>
-        <td colspan="3">File path used for the web widget that shows the file content.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>ViewFile</td>
-        <td colspan="3">Trigger to open the fly out window and view the file content.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>ShowMessageBoxError</td>
-        <td colspan="3">Show a message box when command was not successful.</td>
-    </tr>
-    <tr>
-        <td> ERR </td>
-        <td colspan="3">Information about errors.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>State</td>
-        <td colspan="3">State where the error occurred.</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>Text</td>
-        <td colspan="3">Error text.</td>
-    </tr>
-    <tr>
-        <td>StatusText</td>
-        <td colspan="3">Shows the result for the last command.</td>
-    </tr>
-    <tr>
-        <td>StatusNo</td>
-        <td colspan="3">Shows the status as number</td>
-    </tr>
-</table>
-
-<h2 id="pre-configuration">Pre-Configuration</h2>
-<p>The task communicates with the outside world via the global structure 'Recipe_01'. If more than one recipe management is needed the complete package 'mappRecipe' should be duplicated. It is important that the new task name and new global structure use the same name. </p>
-<p>After importing the sample go to the package 'mappRecipe' and edit the file 'RecVariables.var'. The variable array 'REC_VAR_LIST' contains the name of the variables that contain the recipe data. The default variable has a few sample values. After importing the task these can be replaced with "real" variables that should be saved. The variables can be standard type but also arrays or structures.</p>
-<p>The following constants can be adjusted if necessary.</p>
-<table>
-<thead>
-<tr>
-<th>Constant</th>
-<th>Default</th>
-<th>Text</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>REC_USE_UNICODE</td>
-<td>TRUE</td>
-<td>When set the to false the recipe name equals the file name. Use this setting for better performance when no special characters are needed. When set to true an increasing number is used for the file name instead. The recipe name is then stored as Unicode inside the recipe itself. Execute a clean configuration and rebuilt the project after changing this value. When set to to TRUE recipe upload is not supported.</td>
-</tr>
-<tr>
-<td>REC_SORT_NUMERIC</td>
-<td>FALSE</td>
-<td>Sort recipe names as numeric values instead of alphabetic.</td>
-</tr>
-<tr>
-<td>REC_RECIPE_TYPE</td>
-<td>typeCSV</td>
-<td>Select typeCSV for recipes in CSV file format or select typeXML for XML format. Execute a clean configuration and rebuilt the project after changing this value.</td>
-</tr>
-<tr>
-<td>REC_MPLINK</td>
-<td>gRecipeCsv_01</td>
-<td>mappRecipe link name from configuration view. Use gRecipeCsv_01 for CSV and gRecipeXml_01 for XML in this demo.</td>
-</tr>
-<tr>
-<td>REC_DEVICE</td>
-<td>RECIPE_DEVICE</td>
-<td>Device name for the recipe data defined under File Devices in the CPU configuration.</td>
-</tr>
-<tr>
-<td>REC_DIRECTORY</td>
-<td>Recipe_01</td>
-<td>Directory where the recipes are stored.</td>
-</tr>
-<tr>
-<td>REC_THIS_TASK</td>
-<td>Recipe_01</td>
-<td>Name of this task and the global variable's structure.</td>
-</tr>
-<tr>
-<td>REC_REC_NUM</td>
-<td>100</td>
-<td>Maximum number of recipes.</td>
-</tr>
-<tr>
-<td>REC_VAR_NUM</td>
-<td>10</td>
-<td>Maximum number of variables that can be registered.</td>
-</tr>
-<tr>
-<td>REC_NAME_LENGTH</td>
-<td>40</td>
-<td>Maximum length for a recipe name.</td>
-</tr>
-<tr>
-<td>REC_UPLOAD_DOWNLOAD_SIZE</td>
-<td>100000</td>
-<td>Maximum size of files that can be uploaded or downloaded</td>
-</tr>
-<tr>
-<td>REC_VIS_LENGTH</td>
-<td>120</td>
-<td>Make this REC_NAME_LENGTH x 3.</td>
-</tr>
-<tr>
-<td>REC_MAX_CLIENTS_ID</td>
-<td>2</td>
-<td>Maximum number of concurrent web client connections. Do not change this number.</td>
-</tr>
-<tr>
-<td>REC_VIEW_FILTER</td>
-<td>csv, xml</td>
-<td>File extensions that can be used with the view command. The filter is case sensitive.</td>
-</tr>
-<tr>
-<td>REC_VAR_LIST</td>
-<td></td>
-<td>List of variables to be included in a recipe.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="performance">Performance</h2>
-<p>When calling the init command the task needs some time to generate the list of recipe names. On a X20CP1583 running the task in a 10ms task class the init command needs about 20ms per recipe plus 150ms. So for 100 recipes the task needs 2.15 seconds to read all recipe names when using standard strings.</p>
-<p>When using Unicode strings the task needs 70ms per recipe name plus 200ms. So for 100 recipes the task needs 7.20 seconds to read all recipe names when using Unicode strings.</p>
-<h2 id="error-handling">Error handling</h2>
-<p>The task generates the following list of error messages. All other error numbers are generated from included libraries that can be found in the Automation Studio help.</p>
-<table>
-<thead>
-<tr>
-<th>No</th>
-<th>Constant</th>
-<th>Text</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>50010</td>
-<td>ERR_REC_TOO_MANY_CLIENTS</td>
-<td>More than 3 clients try to connect to user management</td>
-</tr>
-<tr>
-<td>50100</td>
-<td>ERR_REC_NAME_EMPTY</td>
-<td>Recipe name is empty</td>
-</tr>
-<tr>
-<td>50101</td>
-<td>ERR_REC_NAME_EXISTS</td>
-<td>Recipe name already exists</td>
-</tr>
-<tr>
-<td>50102</td>
-<td>ERR_REC_NAME_LOST</td>
-<td>Recipe name was not found</td>
-</tr>
-<tr>
-<td>50103</td>
-<td>ERR_REC_NAME_LENGTH</td>
-<td>One or more recipe names exceeds maximum length</td>
-</tr>
-<tr>
-<td>50110</td>
-<td>ERR_REC_DEV_NAME_EMPTY</td>
-<td>Device name is empty</td>
-</tr>
-<tr>
-<td>50120</td>
-<td>ERR_REC_VAR_NAME_EMPTY</td>
-<td>Variable name is empty</td>
-</tr>
-<tr>
-<td>50130</td>
-<td>ERR_REC_NOT_INITIALIZED</td>
-<td>Recipe management is not initialized</td>
-</tr>
-<tr>
-<td>50140</td>
-<td>ERR_REC_MAX_NUM</td>
-<td>Maximum number of recipes reached</td>
-</tr>
-<tr>
-<td>50150</td>
-<td>ERR_REC_TASK_NAME</td>
-<td>Task name is incorrect. Make sure task name and global variable structure share the same name and that the string "this" is correct in the init task.</td>
-</tr>
-<tr>
-<td>50300</td>
-<td>ERR_MEM_ALLOC</td>
-<td>Memory allocation for file upload and download failed</td>
-</tr>
-<tr>
-<td>50310</td>
-<td>ERR_MEM_DOWNLOAD</td>
-<td>Size of download file exceeds maximum</td>
-</tr>
-<tr>
-<td>50320</td>
-<td>ERR_TIMEOUT_DOWNLOAD</td>
-<td>Download response timed out</td>
-</tr>
-<tr>
-<td>50330</td>
-<td>ERR_DIR_DOWNLOAD</td>
-<td>Directories cannot be downloaded</td>
-</tr>
-<tr>
-<td>50400</td>
-<td>ERR_SIZE_NAME_UPLOAD</td>
-<td>Cannot find filename in upload response</td>
-</tr>
-<tr>
-<td>50401</td>
-<td>ERR_POS_NAME_UPLOAD</td>
-<td>Cannot determine end of filename in upload response</td>
-</tr>
-<tr>
-<td>50402</td>
-<td>ERR_LEN_NAME_UPLOAD</td>
-<td>Filename is too long in upload response</td>
-</tr>
-<tr>
-<td>50403</td>
-<td>ERR_POS_DATA_UPLOAD</td>
-<td>Cannot find data in upload response</td>
-</tr>
-<tr>
-<td>50404</td>
-<td>ERR_SIZE_DATA_UPLOAD</td>
-<td>Cannot determine end of data in upload response</td>
-</tr>
-<tr>
-<td>50410</td>
-<td>ERR_MEM_UPLOAD</td>
-<td>Size of upload file exceeds maximum size</td>
-</tr>
-<tr>
-<td>50420</td>
-<td>ERR_UNICODE_UPLOAD</td>
-<td>Upload is not supported when Unicode is used</td>
-</tr>
-</tbody>
-</table>
-<h2 id="limitations">Limitations</h2>
+<p>The sample uses a variable structure to communicate with the outside world that can also be used to interact with other tasks. The structure looks as follows:</p>
+<p>| Command | Function |
+|---|---|---|
+| CmdSetPar | Set the parameter IDs from the list ParIds |
+| CmdGetPar | Get the parameter IDs from the list ParIds |
+| MpLink | The axis reference establishes the connection between the function block and an axis |
+| ParIds | Array of parameters IDs, variable addresses and data types |
+| ParNum | Number of parameter IDs that are used within array |
+| ErrId | Error ID |</p>
+<h2 id="program-structure">Program structure</h2>
+<p>The program consists of a a simple clause that executes the two commands. The sample provides the following predefined variables that can be used to read or write parameters IDs.</p>
 <ul>
-<li>Viewing a recipe only works for CSV files.</li>
-<li>Downloading and uploading currently does not work for Unicode recipes.</li>
+<li>mcACPAX_BOOL</li>
+<li>mcACPAX_SINT</li>
+<li>mcACPAX_INT</li>
+<li>mcACPAX_DINT</li>
+<li>mcACPAX_USINT</li>
+<li>mcACPAX_UINT</li>
+<li>mcACPAX_UDINT</li>
+<li>mcACPAX_REAL</li>
 </ul>
+<h2 id="sample-code">Sample code</h2>
+<p>Here is a sample snippet that can be used as a starting point.</p>
+<h5 id="program-init">Program init</h5>
+<pre><code>PROGRAM _INIT
+    // --------------------------------------------------------------------------
+    // Acknowledge encoder battery error
+    mcACPAX_UDINT[1] := 1;                      // Par ID value: Reset encoder error
+    AxisParId.MpLink := ADR(gAxis_1);               // MpLink for axis
+    AxisParId.ParNum := 1;                      // Number of parameter IDs
+    AxisParId.ParIds[1].ParID := 719;               // Encoder1: Encoder command
+    AxisParId.ParIds[1].VariableAddress := ADR(mcACPAX_UDINT[1]);   // Pointer to predefined variable
+    AxisParId.ParIds[1].DataType := mcACPAX_PARTYPE_UDINT;      // Data type of predefined variable
+    AxisParId.CmdSetPar := TRUE;                                    // Execute command
+
+END_PROGRAM
+</code></pre>
+<h5 id="program-cyclic">Program cyclic</h5>
+<pre><code>PROGRAM _CYCLIC
+    // --------------------------------------------------------------------------
+    // Call axis actions used for this drive
+    Common;
+    ParID;
+
+END_PROGRAM
+</code></pre>
+<h2 id="revision">Revision</h2>
+<p>Version 1
+- First release</p>
 
               
             </article>
@@ -824,7 +470,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="structure.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Structure" rel="prev">
+        <a href="brake.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Brake" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -833,20 +479,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Structure
+              Brake
             </div>
           </div>
         </a>
       
       
         
-        <a href="brake.html" class="md-footer__link md-footer__link--next" aria-label="Next: Brake" rel="next">
+        <a href="motor_cfg.html" class="md-footer__link md-footer__link--next" aria-label="Next: Motor Configuration" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Brake
+              Motor Configuration
             </div>
           </div>
           <div class="md-footer__button md-icon">
