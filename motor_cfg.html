@@ -396,7 +396,7 @@
 
   <h1>Motor Configuration</h1>
 
-<p>The motor configuration sample provides an example how to change a motor during runtime. If there is no preferred motor during development or the motor parameters are unknown the motor type "MotorSynchronous_any" or "MotorInduction_any" can be used in the hardware tree. After changing the motor parameters the PLC must be reboot for the changes to take affect.</p>
+<p>The motor configuration sample provides an example how to change a motor during runtime. If there is no preferred motor during development or the motor parameters are unknown the motor type "MotorSynchronous_any" or "MotorInduction_any" can be used in the hardware tree. <strong>After changing the motor parameters the PLC must be reboot for the changes to take affect.</strong></p>
 <p><img alt="" src="images/motor_cfg_screenshot.png" /></p>
 <p>Also see Automation Studio help </p>
 <ul>
@@ -461,9 +461,9 @@
 <pre><code>PROGRAM _INIT
     // --------------------------------------------------------------------------
     // Motor configuration
-    AxisMotorCfg.MpLink := ADR(gAxis_1);                // MpLink for axis
+    AxisMotorCfg.MpLink := ADR(gAxis_1);                    // MpLink for axis
     AxisMotorCfg.ParMotorType := AX_MOTOR_TYPE_SYNCHRONOUS;     // Use AX_MOTOR_TYPE_SYNCHRONOUS for synchronous motors and AX_MOTOR_TYPE_INDUCTION for induction motors
-    Motor_8LVB13_B1030F300_00;                  // This action contains the new motor parameters (see additional file with the same name)
+    Motor_8LVB13_B1030F300_00;                          // This action contains the new motor parameters (see additional file with the same name)
 
 END_PROGRAM
 </code></pre>
