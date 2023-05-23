@@ -406,17 +406,52 @@
 <p><a href="https://github.com/br-automation-com/mappMotion-Samples/tree/motor_cfg">Here</a> is the link to the repository.</p>
 <h2 id="command-structure">Command structure</h2>
 <p>The sample uses a variable structure to communicate with the outside world that can also be used to interact with other tasks. The structure looks as follows:</p>
-<p>| Command | Function |
-|---|---|---|
-| CmdSetMotor | Set the new motor parameters |
-| CmdGetMotor | Get the active motor parameters |
-| MpLink | The axis reference establishes the connection between the function block and an axis |
-| ParMotorType | There are two types of possible motor configuration. Use AX_MOTOR_TYPE_SYNCHRONOUS for synchronous motors and AX_MOTOR_TYPE_INDUCTION for induction motors |
-| ParMotorSynchronous | Parameters for synchronous motor for set command |
-| StaMotorSynchronous | Parameters for synchronous motor for get command |
-| ParMotorInduction | Parameters for induction motor for set command |
-| StaMotorInduction | Parameters for induction motor for get command |
-| ErrId | Error ID |</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CmdSetMotor</td>
+<td>Set the new motor parameters</td>
+</tr>
+<tr>
+<td>CmdGetMotor</td>
+<td>Get the active motor parameters</td>
+</tr>
+<tr>
+<td>MpLink</td>
+<td>The axis reference establishes the connection between the function block and an axis</td>
+</tr>
+<tr>
+<td>ParMotorType</td>
+<td>There are two types of possible motor configuration. Use AX_MOTOR_TYPE_SYNCHRONOUS for synchronous motors and AX_MOTOR_TYPE_INDUCTION for induction motors</td>
+</tr>
+<tr>
+<td>ParMotorSynchronous</td>
+<td>Parameters for synchronous motor for set command</td>
+</tr>
+<tr>
+<td>StaMotorSynchronous</td>
+<td>Parameters for synchronous motor for get command</td>
+</tr>
+<tr>
+<td>ParMotorInduction</td>
+<td>Parameters for induction motor for set command</td>
+</tr>
+<tr>
+<td>StaMotorInduction</td>
+<td>Parameters for induction motor for get command</td>
+</tr>
+<tr>
+<td>ErrId</td>
+<td>Error ID</td>
+</tr>
+</tbody>
+</table>
 <h2 id="program-structure">Program structure</h2>
 <p>The program consists of a state machine to execute the commands. The B&amp;R function block that changed the motor configuration needs a name path and not just the MpLink. This name is constructed automatically in the step STATE_MOTOR_CFG_PRE_SET. From this step the state machine goes to the read or write state. The motor parameter can be  provided as a separate file and action (see example). It is also possible to set the parameters directly in the structure ParMotorSynchronous or StaMotorInduction.</p>
 <p>After changing the motor parameters the PLC must be reboot for the changes to take affect.</p>
