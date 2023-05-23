@@ -1,1 +1,3 @@
-# PP500_1
+This is project contains several samples for mappMotion.
+
+For a detailed description follow this link
