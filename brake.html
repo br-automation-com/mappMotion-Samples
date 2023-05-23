@@ -401,15 +401,44 @@
 <p><a href="https://github.com/br-automation-com/mappMotion-Samples/tree/brake">Here</a> is the link to the repository.</p>
 <h2 id="command-structure">Command structure</h2>
 <p>The sample uses a variable structure to communicate with the outside world that can also be used to interact with other tasks. The structure looks as follows:</p>
-<p>| Command | Function |
-|---|---|---|
-| CmdClose | Close brake |
-| CmdOpen | Open brake |
-| CmdSetPar | Set brake parameter |
-| MpLink | The axis reference establishes the connection between the function block and an axis |
-| ParBrake | Configuration parameters |
-| StaBrake | Configuration parameters |
-| ErrId | Error ID |</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CmdClose</td>
+<td>Close brake</td>
+</tr>
+<tr>
+<td>CmdOpen</td>
+<td>Open brake</td>
+</tr>
+<tr>
+<td>CmdSetPar</td>
+<td>Set brake parameter</td>
+</tr>
+<tr>
+<td>MpLink</td>
+<td>The axis reference establishes the connection between the function block and an axis</td>
+</tr>
+<tr>
+<td>ParBrake</td>
+<td>Configuration parameters</td>
+</tr>
+<tr>
+<td>StaBrake</td>
+<td>Configuration parameters</td>
+</tr>
+<tr>
+<td>ErrId</td>
+<td>Error ID</td>
+</tr>
+</tbody>
+</table>
 <h2 id="program-structure">Program structure</h2>
 <p>The program consists of a state machine where the commands are executed. When a brake open or close command is executed the status of the brake is checked in an additional step.</p>
 <h2 id="sample-code">Sample code</h2>
