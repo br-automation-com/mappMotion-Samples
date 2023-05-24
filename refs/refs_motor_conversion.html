@@ -513,7 +513,7 @@
 <td>.Motor.Default.MomentOfInertia</td>
 <td>MOTOR_INERTIA</td>
 <td>62</td>
-<td></td>
+<td>Value is no in kgcm^2</td>
 </tr>
 <tr>
 <td>Synchronous&rarr;Motor&rarr;Nominal ambient temperature</td>
@@ -523,11 +523,263 @@
 <td></td>
 </tr>
 <tr>
-<td>Synchronous&rarr;Motor&rarr;</td>
-<td>.Motor.Default.</td>
-<td>MOTOR_TEMPSENS_LIM</td>
-<td>xx</td>
+<td>Synchronous&rarr;Motor&rarr;Voltage limitation&rarr;Maximum DC bus voltage</td>
+<td>.Motor.Default.MaximumDCBusVoltage</td>
+<td>MOTOR_UDC_MAX</td>
+<td>1641</td>
 <td></td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Encoder mounting&rarr;Angle;&rarr;Commutation offset</td>
+<td>.Motor.Default.EncoderMounting.Angle.UserDefined.CommutationOffset</td>
+<td>MOTOR_COMMUT_OFFSET</td>
+<td>63</td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Encoder mounting&rarr;Angle&rarr;Automatic identification</td>
+<td>.Motor.Default.EncoderMounting.Angle.Undefined.AutomaticIdentification.Saturation.PhasingCurrent</td>
+<td>PHASING_CURR</td>
+<td>275</td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Encoder mounting&rarr;Angle&rarr;Automatic identification</td>
+<td>.Motor.Default.EncoderMounting.Angle.Undefined.AutomaticIdentification.Dither.PhasingCurrent</td>
+<td>PHASING_CURR</td>
+<td>275</td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Encoder mounting&rarr;Angle&rarr;Automatic identification</td>
+<td>.Motor.Default.EncoderMounting.Angle.Undefined.AutomaticIdentification.Dither.PhasingTime</td>
+<td>PHASING_TIME</td>
+<td>874</td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;Limit temperature</td>
+<td>.Motor.Default.TemperatureSensor.Thermistor.LimitTemperature</td>
+<td>MOTOR_TEMPSENS_LIM</td>
+<td>1216</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;Temperature sensor interface</td>
+<td>.Motor.Default.TemperatureSensor.Thermistor.TemperatureSensorInterface</td>
+<td></td>
+<td></td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;ResistanceR0</td>
+<td>.Motor.Default.TemperatureSensor.Thermistor.ResistanceR0</td>
+<td>MOTOR_TEMPSENS_PAR1</td>
+<td>64</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;ResistanceR7</td>
+<td>.Motor.Default.TemperatureSensor.Thermistor.ResistanceR7</td>
+<td>MOTOR_TEMPSENS_PAR2</td>
+<td>65</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;TemperatureT0</td>
+<td>.Motor.Default.TemperatureSensor.Thermistor.TemperatureT0</td>
+<td>MOTOR_TEMPSENS_PAR3</td>
+<td>66</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;TemperatureT1</td>
+<td>.Motor.Default.TemperatureSensor.Thermistor.TemperatureT1</td>
+<td>MOTOR_TEMPSENS_PAR4</td>
+<td>67</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;TemperatureT2</td>
+<td>.Motor.Default.TemperatureSensor.Thermistor.TemperatureT2</td>
+<td>MOTOR_TEMPSENS_PAR5</td>
+<td>68</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;TemperatureT3</td>
+<td>.Motor.Default.TemperatureSensor.Thermistor.TemperatureT3</td>
+<td>MOTOR_TEMPSENS_PAR6</td>
+<td>69</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;TemperatureT4</td>
+<td>.Motor.Default.TemperatureSensor.Thermistor.TemperatureT4</td>
+<td>MOTOR_TEMPSENS_PAR7</td>
+<td>70</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;TemperatureT5</td>
+<td>.Motor.Default.TemperatureSensor.Thermistor.TemperatureT5</td>
+<td>MOTOR_TEMPSENS_PAR8</td>
+<td>71</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;TemperatureT6</td>
+<td>.Motor.Default.TemperatureSensor.Thermistor.TemperatureT6</td>
+<td>MOTOR_TEMPSENS_PAR9</td>
+<td>72</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;TemperatureT7</td>
+<td>.Motor.Default.TemperatureSensor.Thermistor.TemperatureT7</td>
+<td>MOTOR_TEMPSENS_PAR10</td>
+<td>73</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;Temperature sensor interface</td>
+<td>.Motor.Default.TemperatureSensor.Thermistor.TemperatureSensorInterface</td>
+<td></td>
+<td></td>
+<td>Switching PTC thermistor</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;Nominal response resistance</td>
+<td>.Motor.Default.TemperatureSensor.SwitchingPTCThermistor.NominalResponseTemperature</td>
+<td>MOTOR_TEMPSENS_PAR1</td>
+<td>64</td>
+<td>Switching PTC thermistor</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;Minimum resistance</td>
+<td>.Motor.Default.TemperatureSensor.SwitchingPTCThermistor.MinimumResistance</td>
+<td>MOTOR_TEMPSENS_PAR2</td>
+<td>65</td>
+<td>Switching PTC thermistor</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;TemperaNominal response temperature</td>
+<td>.Motor.Default.TemperatureSensor.SwitchingPTCThermistor.NominalResponseTemperature</td>
+<td>MOTOR_TEMPSENS_PAR3</td>
+<td>66</td>
+<td>Switching PTC thermistor</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;Temperature sensor interface</td>
+<td>.Motor.Default.TemperatureSensor.Thermoswitches.TemperatureSensorInterface</td>
+<td></td>
+<td></td>
+<td>Thermoswitches</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;Nominal response resistance</td>
+<td>.Motor.Default.TemperatureSensor.Thermoswitches.NominalResponseTemperature</td>
+<td>MOTOR_TEMPSENS_PAR1</td>
+<td>64</td>
+<td>Thermoswitches</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature sensor&rarr;Minimum resistance</td>
+<td>.Motor.Default.TemperatureSensor.Thermoswitches.SwitchingStateOnOvertemperature</td>
+<td>MOTOR_TEMPSENS_PAR10</td>
+<td>73</td>
+<td>Thermoswitches</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature model&rarr;Current-based&rarr;Limit temperature</td>
+<td>.Motor.Default.TemperatureModel.CurrentBased.LimitTemperature</td>
+<td>MOTOR_WIND_TEMP_MAX</td>
+<td>74</td>
+<td>Current-based</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature model&rarr;Current-based&rarr;Winding cross section</td>
+<td>.Motor.Default.TemperatureModel.CurrentBased.WindingCrossSection</td>
+<td>MOTOR_WIND_TEMP_MAX</td>
+<td>59</td>
+<td>Current-based</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature model&rarr;Current-based&rarr;Thermal tripping time</td>
+<td>.Motor.Default.TemperatureModel.CurrentBased.ThermalTrippingTime</td>
+<td>PIDENT_THERM_TRIP_TIME</td>
+<td>1283</td>
+<td>Current-based</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Motor&rarr;Temperature model&rarr;Current-based&rarr;Thermal time constant</td>
+<td>.Motor.Default.TemperatureModel.CurrentBased.ThermalTimeConstant</td>
+<td>MOTOR_TAU_THERM</td>
+<td>849</td>
+<td>Current-based</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Brake&rarr;Nominal current</td>
+<td>.Brake.Used.NominalCurrent</td>
+<td>MOTOR_BRAKE_CURR_RATED</td>
+<td>42</td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Brake&rarr;Nominal torque</td>
+<td>.Brake.Used.NominalTorque</td>
+<td>MOTOR_BRAKE_TORQ_RATED</td>
+<td>43</td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Brake&rarr;Activation delay</td>
+<td>.Brake.Used.ActivationDelay</td>
+<td>MOTOR_BRAKE_ON_TIME</td>
+<td>44</td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Brake&rarr;Release delay</td>
+<td>.Brake.Used.ReleaseDelay</td>
+<td>MOTOR_BRAKE_OFF_TIME</td>
+<td>45</td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Brake&rarr;Moment of inertia</td>
+<td>.Brake.Used.MomentOfInertia</td>
+<td>MOTOR_BRAKE_INERTIA</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Brake&rarr;Control mode</td>
+<td>.Brake.Used.ControlMode</td>
+<td></td>
+<td></td>
+<td>Voltage controlled</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Brake&rarr;Control mode&rarr;Release voltage</td>
+<td>.Brake.Used.ControlMode.VoltageControlled.ReleaseVoltage</td>
+<td>MOTOR_BRAKE_VOLT_REL</td>
+<td>1504</td>
+<td>Voltage controlled</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Brake&rarr;Control mode&rarr;Hold voltage</td>
+<td>.Brake.Used.ControlMode.VoltageControlled.HoldVoltage</td>
+<td>MOTOR_BRAKE_VOLT_HOLD</td>
+<td>1505</td>
+<td>Voltage controlled</td>
+</tr>
+<tr>
+<td>Synchronous&rarr;Brake&rarr;Limits&rarr;Maximum voltage</td>
+<td>.Brake.Used.Limits.Used.MaximumVoltage</td>
+<td>MOTOR_BRAKE_VOLT_MAX</td>
+<td>1506</td>
+<td>Voltage controlled</td>
 </tr>
 </tbody>
 </table>
