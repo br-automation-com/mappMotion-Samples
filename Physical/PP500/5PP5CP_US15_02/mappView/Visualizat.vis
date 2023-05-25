@@ -18,8 +18,8 @@
   <Contents>
     <Content refId="contentHeader" />
     <Content refId="contentNavigation" />
-    <Content refId="contentParId" />
     <Content refId="contentMotion" />
+    <Content refId="contentParId" />
   </Contents>
   <SnippetsSets />
   <VariablesSets />

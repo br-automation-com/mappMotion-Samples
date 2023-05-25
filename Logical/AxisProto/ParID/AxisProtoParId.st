@@ -1,5 +1,5 @@
 
-ACTION ParID:
+ACTION ParIDAction:
 	// Call parameter ID read and write
 	IF AxisParId.CmdGetPar OR AxisParId.CmdSetPar THEN
 		// Preset function block

@@ -30,8 +30,7 @@ PROGRAM _CYCLIC
 
 	// --------------------------------------------------------------------------
 	// Call axis actions used for this drive
-	Common;
-	ParID;
+	ParIDAction;
 	
 END_PROGRAM
 
