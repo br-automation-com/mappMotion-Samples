@@ -5,8 +5,8 @@
     <File Description="Init, cyclic, exit code">Main.st</File>
     <File Description="Local data types" Private="true">Types.typ</File>
     <File Description="Local variables" Private="true">Variables.var</File>
-    <File Reference="true">C:\Temp\TestRack1\PP500_1\Logical\AxisProto\Common\AxisProtoCommon.st</File>
-    <File Description="Local data types" Private="true" Reference="true">C:\Temp\TestRack1\PP500_1\Logical\AxisProto\Common\AxisProtoCommon.typ</File>
-    <File Description="Local variables" Private="true" Reference="true">C:\Temp\TestRack1\PP500_1\Logical\AxisProto\Common\AxisProtoCommon.var</File>
+    <File Reference="true">\Logical\AxisProto\Common\AxisProtoCommon.st</File>
+    <File Description="Local data types" Private="true" Reference="true">\Logical\AxisProto\Common\AxisProtoCommon.typ</File>
+    <File Description="Local variables" Private="true" Reference="true">\Logical\AxisProto\Common\AxisProtoCommon.var</File>
   </Files>
 </Program>

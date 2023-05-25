@@ -20,7 +20,7 @@ PROGRAM _CYCLIC
 
 	// --------------------------------------------------------------------------
 	// Call axis actions used for this drive
-	Common;
+	CommonAction;
 	
 END_PROGRAM
 
