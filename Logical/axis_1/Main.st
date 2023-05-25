@@ -8,10 +8,9 @@ PROGRAM _INIT
 	MpAxisBasicPar.Velocity := 500;
 
 	// --------------------------------------------------------------------------
-	// Motor configuration
-	AxisMotorCfg.MpLink := ADR(gAxis_1);
-	AxisMotorCfg.ParMotorType := AX_MOTOR_TYPE_SYNCHRONOUS;
-	Motor_8LVB13_B1030F300_00;
+	// Axis configuration
+	AxisCfg.MpLink := ADR(gAxis_1);			// MpLink for axis
+	AxisConfigSample;						// Axis sample configuration
 	 
 END_PROGRAM
 
@@ -20,14 +19,14 @@ PROGRAM _CYCLIC
 	// --------------------------------------------------------------------------
 	// Call axis main function block
 	MpAxisBasic_1.Enable := 1;
-	MpAxisBasic_1.MpLink := ADR(gAxis_1);
-	MpAxisBasic_1.Parameters := ADR(MpAxisBasicPar);
+	MpAxisBasic_1.MpLink := ADR(gAxis_1);				
+	MpAxisBasic_1.Parameters := ADR(MpAxisBasicPar);	
 	MpAxisBasic_1();
 
 	// --------------------------------------------------------------------------
 	// Call axis actions used for this drive
 	Common;
-	MotorCfg;
+	AxisCfgAction;
 	
 END_PROGRAM
 

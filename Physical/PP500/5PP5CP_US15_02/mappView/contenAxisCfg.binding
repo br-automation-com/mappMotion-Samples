@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="contentAxisCfg_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Bindings>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisCfg.ErrId" attribute="value" />
+			<Target xsi:type="brease" contentRefId="main" widgetRefId="numMotion_Error1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisCfg.StaAxis.MovementLimits.Internal.Velocity.Basic.Velocity" attribute="value" />
+			<Target xsi:type="brease" contentRefId="main" widgetRefId="numAxisCfg1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisCfg.StaAxis.MovementLimits.Internal.Acceleration.Basic.Acceleration" attribute="value" />
+			<Target xsi:type="brease" contentRefId="main" widgetRefId="numAxisCfg2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisCfg.StaAxis.MovementLimits.Internal.Deceleration.Basic.Deceleration" attribute="value" />
+			<Target xsi:type="brease" contentRefId="main" widgetRefId="numAxisCfg3" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisCfg.CmdSetAxis" attribute="value" />
+			<Target xsi:type="brease" contentRefId="main" widgetRefId="btnAxisCfg_Save" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisCfg.CmdGetAxis" attribute="value" />
+			<Target xsi:type="brease" contentRefId="main" widgetRefId="btnAxisCfg_Load" attribute="value" />
+		</Binding>
+	<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Axis_1:AxisCommon.CmdReboot" attribute="value" />
+<Target xsi:type="brease" contentRefId="main" widgetRefId="btnAxisCfg_Reboot" attribute="value" />
+</Binding>
+</Bindings>
+</BindingsSet>

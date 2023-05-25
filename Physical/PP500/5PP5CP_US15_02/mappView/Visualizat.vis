@@ -3,12 +3,12 @@
   <StartPage pageRefId="pageMotion" />
   <Pages>
     <Page refId="pageMotion" />
-    <Page refId="pageMotorCfg" />
+    <Page refId="pageAxisCfg" />
   </Pages>
   <Navigations />
   <BindingsSets>
     <BindingsSet refId="contentMotion_binding" />
-    <BindingsSet refId="contentMotorCfg_binding" />
+    <BindingsSet refId="contentAxisCfg_binding" />
   </BindingsSets>
   <EventBindingsSets>
     <EventBindingsSet refId="contentMotion_eventbinding" />

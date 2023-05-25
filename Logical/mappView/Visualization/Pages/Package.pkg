@@ -4,6 +4,6 @@
   <Objects>
     <Object Type="Package" Description="AreaContents">AreaContents</Object>
     <Object Type="Package">Motion</Object>
-    <Object Type="Package">MotorCfg</Object>
+    <Object Type="Package">AxisCfg</Object>
   </Objects>
 </Package>
