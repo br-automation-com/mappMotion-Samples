@@ -1,5 +1,5 @@
 
-ACTION Brake:
+ACTION BrakeAction:
 	// --------------------------------------------------------------------------
 	// Set brake parameters
 	IF AxisBrake.CmdSetPar THEN
@@ -41,7 +41,7 @@ ACTION Brake:
 			STATE_BRAKE_OPEN_CLOSE:
 				// Preset function block
 				MC_BR_BrakeOperation_1.Execute := TRUE;
-				MC_BR_BrakeOperation_1.Axis := ADR(AxisBrake.ParAxis);
+				MC_BR_BrakeOperation_1.Axis := AxisBrake.MpLink;
 		
 				// Finish when done
 				IF MC_BR_BrakeOperation_1.Done OR MC_BR_BrakeOperation_1.Error THEN
@@ -65,7 +65,7 @@ ACTION Brake:
 			STATE_BRAKE_STATUS:
 				// Preset function block
 				MC_BR_BrakeOperation_1.Execute := 1;
-				MC_BR_BrakeOperation_1.Axis := ADR(AxisBrake.ParAxis);
+				MC_BR_BrakeOperation_1.Axis := AxisBrake.MpLink;
 				MC_BR_BrakeOperation_1.Command := mcBRAKE_GET_STATUS;
 				MC_BR_BrakeOperation_1();
 		

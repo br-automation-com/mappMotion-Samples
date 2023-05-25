@@ -16,7 +16,6 @@
         <Variable Name="AxisBrake" RecursiveEnable="2" />
         <Variable Name="MpAxisBasic_1" RecursiveEnable="2" />
         <Variable Name="MpAxisBasicPar" RecursiveEnable="2" />
-        <Variable Name="AxisCommon" RecursiveEnable="2" />
       </Task>
     </Module>
   </DefaultView>

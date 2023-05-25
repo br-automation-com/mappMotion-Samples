@@ -5,5 +5,6 @@
     <Object Type="File" Description="Local data types" Private="true">AxisProtoBrake.typ</Object>
     <Object Type="File" Description="Local variables" Private="true">AxisProtoBrake.var</Object>
     <Object Type="File">AxisProtoBrake.st</Object>
+    <Object Type="File">revision.txt</Object>
   </Objects>
 </Package>
