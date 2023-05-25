@@ -1,5 +1,5 @@
 
-ACTION MotorCfg: 
+ACTION MotorCfgAction: 
 	CASE AxisMotorCfgState OF
 		// --------------------------------------------------------------------------
 		// Wait for new command
