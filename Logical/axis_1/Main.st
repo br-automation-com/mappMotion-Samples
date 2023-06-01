@@ -18,15 +18,11 @@ PROGRAM _CYCLIC
 	MpAxisBasic_1.Parameters := ADR(MpAxisBasicPar);
 	MpAxisBasic_1();
 
-	// --------------------------------------------------------------------------
-	// Call axis actions used for this drive
-	CommonAction;
-	
 END_PROGRAM
 
 PROGRAM _EXIT
+	// Disable function block before updating task
 	MpAxisBasic_1.Enable := 0;
-	MpAxisBasic_1.MpLink := ADR(gAxis_1);
 	MpAxisBasic_1();
 	 
 END_PROGRAM
