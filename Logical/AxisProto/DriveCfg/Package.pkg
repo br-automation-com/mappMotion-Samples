@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File" Description="Local data types" Private="true">AxisProtoDriveCfg.typ</Object>
+    <Object Type="File" Description="Local variables" Private="true">AxisProtoDriveCfg.var</Object>
+    <Object Type="File">AxisProtoDriveCfg.st</Object>
+    <Object Type="File">DriveConfigSample.st</Object>
+    <Object Type="File">revision.txt</Object>
+  </Objects>
+</Package>

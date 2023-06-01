@@ -1,5 +1,5 @@
 
-ACTION Common:
+ACTION AxisCommonAction:
 	// --------------------------------------------------------------------------
 	// Reboot PLC
 	IF AxisCommon.CmdReboot THEN

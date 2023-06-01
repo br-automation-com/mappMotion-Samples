@@ -1,0 +1,17 @@
+(*Axis par id structure, use this structure in your program*)
+VAR
+	AxisDriveCfg : AxisDriveCfgType;
+	AxisDriveCfgState : AxisDriveCfgStateEnum;
+	AxisCommonCfgAddress : STRING[64];
+	AxisCommonCfgChannel : STRING[64];
+END_VAR
+(*Generic functions*)
+VAR
+	AxisDriveCfgProcessConfig : MC_BR_ProcessConfig;
+	AxisDriveCfgGetHardwareInfo : MC_BR_GetHardwareInfo;
+END_VAR
+(*Generic error numbers*)
+VAR
+	ERR_AXISDRIVECFG_LOC_EMPTY : UINT := 10000; (*Axis location is empty*)
+	ERR_AXISDRIVECFG_LOC_INVALID : UINT := 10001; (*Axis location is invalid*)
+END_VAR

@@ -20,5 +20,6 @@
     <Object Type="Library" Language="binary" Description="[mapp Motion] PLCopen axis library">McAxis</Object>
     <Object Type="Library" Language="Binary" Description="Core library for mapp components">MpBase</Object>
     <Object Type="Library" Language="binary" Description="The SYS_LIB library contains functions for memory management and operating system manipulation as well as hardware-specific functions.">sys_lib</Object>
+    <Object Type="Library" Language="IEC">IecCheck</Object>
   </Objects>
 </Package>

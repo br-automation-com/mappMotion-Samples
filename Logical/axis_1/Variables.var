@@ -1,4 +1,5 @@
 VAR
 	MpAxisBasic_1 : MpAxisBasic;
 	MpAxisBasicPar : MpAxisBasicParType;
+	cmdChangeDriveConfig : BOOL;
 END_VAR
