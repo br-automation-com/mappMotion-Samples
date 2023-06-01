@@ -1,5 +1,5 @@
 
-ACTION BrakeAction:
+ACTION AxisBrakeAction:
 	// --------------------------------------------------------------------------
 	// Set brake parameters
 	IF AxisBrake.CmdSetPar THEN

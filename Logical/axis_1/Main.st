@@ -26,7 +26,7 @@ PROGRAM _CYCLIC
 
 	// --------------------------------------------------------------------------
 	// Call axis actions used for this drive
-	BrakeAction;
+	AxisBrakeAction;
 	
 END_PROGRAM
 
