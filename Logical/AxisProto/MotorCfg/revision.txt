@@ -1,3 +1,8 @@
+Version 3
+- Renamed function block 
+- Dont read before write
+- Minor tweaks
+
 Version 2
 - Renamed action
 
