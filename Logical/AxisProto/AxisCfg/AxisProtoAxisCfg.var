@@ -4,8 +4,8 @@ VAR
 END_VAR
 (*Local functions and variables*)
 VAR
-	MC_BR_ProcessConfig_1 : MC_BR_ProcessConfig;
-	MC_BR_GetHardwareInfo_1 : MC_BR_GetHardwareInfo;
+	AxisCfgProcessConfig : MC_BR_ProcessConfig;
+	AxisCfgGetHardwareInfo : MC_BR_GetHardwareInfo;
 	AxisCfgState : AxisCfgStateEnum;
 	AxisCfgName : STRING[32];
 END_VAR

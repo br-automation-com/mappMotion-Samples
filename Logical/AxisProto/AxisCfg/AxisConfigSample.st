@@ -8,6 +8,6 @@ ACTION AxisConfigSample:
 	// Movement limits
 	AxisCfg.ParAxis.MovementLimits.Internal.Acceleration.Basic.Acceleration := 10000;
 	AxisCfg.ParAxis.MovementLimits.Internal.Deceleration.Basic.Deceleration := 10000;
-	AxisCfg.ParAxis.MovementLimits.Internal.Velocity.Basic.Velocity := 500;
+	AxisCfg.ParAxis.MovementLimits.Internal.Velocity.Basic.Velocity := 200;
 	
 END_ACTION
