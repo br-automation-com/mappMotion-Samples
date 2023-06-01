@@ -1,3 +1,6 @@
+Version 3
+- Renamed function block
+
 Version 2
 - Renamed action
 
