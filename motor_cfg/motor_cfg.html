@@ -383,22 +383,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../drive_cfg/drive_cfg.html" class="md-nav__link">
+        Drive Configuration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_7">
+        <label class="md-nav__link" for="__nav_8">
           References
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="References" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           References
         </label>
@@ -491,6 +506,7 @@
 <p>Also see </p>
 <ul>
 <li>Automation Studio help for a description of MC_BR_ProcessConfig (9c2eadae-8494-4e9a-b305-0afa2dabf1d4)</li>
+<li>Automation Studio help for a description of the motor parameters (ce78daa2-e6a6-448c-af72-7b19a7f7ef82)</li>
 <li><a href="../refs/refs_motor_conv_sync.html">Conversion list of synchronous motor parameters</a></li>
 <li><a href="../refs/refs_motor_conv_ind.html">Conversion list of induction motor parameters</a></li>
 </ul>
@@ -563,12 +579,15 @@ END_PROGRAM
 <pre><code>PROGRAM _CYCLIC
     // --------------------------------------------------------------------------
     // Call axis actions used for this drive
-    CommonAction;       // Includes the reboot command
     MotorCfgAction; // Call motor configuration code
 
 END_PROGRAM
 </code></pre>
 <h2 id="revision">Revision</h2>
+<p>Version 3
+- Renamed function block 
+- Dont read before write
+- Minor tweaks</p>
 <p>Version 2
 - Renamed action</p>
 <p>Version 1

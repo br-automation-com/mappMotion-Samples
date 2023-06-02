@@ -383,22 +383,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../drive_cfg/drive_cfg.html" class="md-nav__link">
+        Drive Configuration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_7">
+        <label class="md-nav__link" for="__nav_8">
           References
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="References" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           References
         </label>
@@ -491,6 +506,7 @@
 <p>Also see </p>
 <ul>
 <li>Automation Studio help for a description of MC_BR_ProcessConfig (9c2eadae-8494-4e9a-b305-0afa2dabf1d4)</li>
+<li>Automation Studio help for a description of the axis parameter (18353d93-e907-436f-90d9-d2a80bd7f7ac)</li>
 </ul>
 <h2 id="repo-link">Repo Link</h2>
 <p><a href="https://github.com/br-automation-com/mappMotion-Samples/tree/axis_cfg">Here</a> is the link to the repository.</p>
@@ -548,12 +564,15 @@ END_PROGRAM
 <pre><code>PROGRAM _CYCLIC
     // --------------------------------------------------------------------------
     // Call axis actions used for this drive
-    CommonAction;       // Includes the reboot command
     AxisCfgAction;  // Call axis configuration code
 
 END_PROGRAM
 </code></pre>
 <h2 id="revision">Revision</h2>
+<p>Version 2
+- Renamed function block 
+- Dont read before write
+- Minor tweaks</p>
 <p>Version 1
 - First release</p>
 
@@ -587,13 +606,13 @@ END_PROGRAM
       
       
         
-        <a href="../refs/refs_motor_conv_sync.html" class="md-footer__link md-footer__link--next" aria-label="Next: Synchronous motor table conversion" rel="next">
+        <a href="../drive_cfg/drive_cfg.html" class="md-footer__link md-footer__link--next" aria-label="Next: Drive Configuration" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Synchronous motor table conversion
+              Drive Configuration
             </div>
           </div>
           <div class="md-footer__button md-icon">
