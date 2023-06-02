@@ -558,7 +558,7 @@
 END_PROGRAM
 </code></pre>
 <h5 id="program-cyclic">Program cyclic</h5>
-<p><code>// --------------------------------------------------------------------------
+<pre><code>    // --------------------------------------------------------------------------
     // When drive configuration command was triggered
     // - Read configuration first to get all actual values
     // - Copy the actual values into the parameter structure to get a template
@@ -578,7 +578,9 @@ END_PROGRAM
     IF EDGENEG(AxisDriveCfg.CmdSetDrive) THEN
         cmdChangeDriveConfig := FALSE;          // Reset local command
     END_IF
-    AxisDriveCfgAction;                         // Call drive configuration action used for this drive</code></p>
+    AxisCommonAction;
+    AxisDriveCfgAction;                         // Call drive configuration action used for this drive
+</code></pre>
 <h2 id="revision">Revision</h2>
 <p>Version 1
 - First release</p>
