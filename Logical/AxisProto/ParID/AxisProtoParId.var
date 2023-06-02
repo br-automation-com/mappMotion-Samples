@@ -4,7 +4,9 @@ VAR
 END_VAR
 (*Local functions and variables*)
 VAR
-	AxisParIdProcessParID_AcpAx : MC_BR_ProcessParID_AcpAx;
+	AxisParIdProcessParID : MC_BR_ProcessParID_AcpAx;
+	AxisParIdCyclicProcessParID : MC_BR_CyclicProcessParID_AcpAx;
+	AxisParIdData : ARRAY[1..AxisParNum] OF McAcpAxProcessParIDType;
 	mcACPAX_BOOL : ARRAY[1..AxisParNum] OF BOOL;
 	mcACPAX_SINT : ARRAY[1..AxisParNum] OF SINT;
 	mcACPAX_INT : ARRAY[1..AxisParNum] OF INT;
