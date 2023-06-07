@@ -1,2 +1,6 @@
+Version 2
+- Removed dependency from common
+- New internal structure
+
 Version 1
 - First release

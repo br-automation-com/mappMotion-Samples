@@ -1,71 +1,79 @@
 
 ACTION AxisDriveCfgAction:
-	CASE AxisDriveCfgState OF
+	// --------------------------------------------------------------------------
+	// Reboot PLC
+	IF AxisDriveCfg.CmdReboot THEN
+		SYSreset(TRUE, SYSLIB_WARMSTART);
+	END_IF
+	
+	// --------------------------------------------------------------------------
+	// State machine for axis configuration
+	CASE AxisDriveCfgInternal.State OF
 		// --------------------------------------------------------------------------
 		// Wait for new command
 		STATE_DRIVE_CFG_WAIT:
 			IF AxisDriveCfg.CmdGetDrive OR AxisDriveCfg.CmdSetDrive THEN
 				// Reset function blocks and erros
-				AxisDriveCfgProcessConfig.Execute := FALSE;
+				AxisDriveCfgInternal.ProcessConfig.Execute := FALSE;
 				AxisDriveCfg.ErrId := ERR_OK;
 
-				AxisDriveCfgState := STATE_DRIVE_CFG_PRE_SET;
+				AxisDriveCfgInternal.State := STATE_DRIVE_CFG_PRE_SET;
 			END_IF
 
 			// --------------------------------------------------------------------------
 			// Generate address and channel string
 		STATE_DRIVE_CFG_PRE_SET:
-			AxisDriveCfgGetHardwareInfo.Execute := TRUE;
-			AxisDriveCfgGetHardwareInfo.Axis := AxisDriveCfg.MpLink;
+			AxisDriveCfgInternal.GetHardwareInfo.Execute := TRUE;
+			AxisDriveCfgInternal.GetHardwareInfo.Axis := AxisDriveCfg.MpLink;
 			
 			// Finish when done
-			IF AxisDriveCfgGetHardwareInfo.Done OR AxisDriveCfgGetHardwareInfo.Error THEN
+			IF AxisDriveCfgInternal.GetHardwareInfo.Done OR AxisDriveCfgInternal.GetHardwareInfo.Error THEN
 				// Transfer error id, reset function block
-				AxisDriveCfg.ErrId := AxisDriveCfgGetHardwareInfo.ErrorID;		
-				AxisDriveCfgGetHardwareInfo.Execute := FALSE;
+				AxisDriveCfg.ErrId := AxisDriveCfgInternal.GetHardwareInfo.ErrorID;		
+				AxisDriveCfgInternal.GetHardwareInfo.Execute := FALSE;
 			
 				// Abort when error or command was read
-				IF AxisDriveCfgGetHardwareInfo.Error THEN
+				IF AxisDriveCfgInternal.GetHardwareInfo.Error THEN
 					AxisDriveCfg.CmdSetDrive := FALSE;					
 					AxisDriveCfg.CmdGetDrive := FALSE;
 					
-					AxisDriveCfgState := STATE_DRIVE_CFG_WAIT;
+					AxisDriveCfgInternal.State := STATE_DRIVE_CFG_WAIT;
 				ELSE
 					// Make sure location is not empty
-					IF AxisDriveCfgGetHardwareInfo.HardwareInfo.Axis.ConfigElementLocation <> '' THEN
+					IF AxisDriveCfgInternal.GetHardwareInfo.HardwareInfo.Axis.ConfigElementLocation <> '' THEN
 						// Extract location string
-						n := FIND(AxisDriveCfgGetHardwareInfo.HardwareInfo.Axis.ConfigElementLocation, '/');
-						IF n > 0 THEN
-							AxisCommonCfgAddress := LEFT(AxisDriveCfgGetHardwareInfo.HardwareInfo.Axis.ConfigElementLocation, n - 1);
-							AxisCommonCfgChannel := RIGHT(AxisDriveCfgGetHardwareInfo.HardwareInfo.Axis.ConfigElementLocation, 8);
-							IF AxisCommonCfgChannel = 'Channel1' THEN
-								AxisCommonCfgAddress := CONCAT(AxisCommonCfgAddress, '/DriveConfiguration/Channel1');
-							ELSIF AxisCommonCfgChannel = 'Channel2' THEN
-								AxisCommonCfgAddress := CONCAT(AxisCommonCfgAddress, '/DriveConfiguration/Channel2');
+						AxisDriveCfgInternal.n := FIND(AxisDriveCfgInternal.GetHardwareInfo.HardwareInfo.Axis.ConfigElementLocation, '/');
+						IF AxisDriveCfgInternal.n > 0 THEN
+							AxisDriveCfgInternal.Address := LEFT(AxisDriveCfgInternal.GetHardwareInfo.HardwareInfo.Axis.ConfigElementLocation, AxisDriveCfgInternal.n - 1);
+							AxisDriveCfgInternal.Channel := RIGHT(AxisDriveCfgInternal.GetHardwareInfo.HardwareInfo.Axis.ConfigElementLocation, 8);
+							IF AxisDriveCfgInternal.Channel = 'Channel1' THEN
+								AxisDriveCfgInternal.Address := CONCAT(AxisDriveCfgInternal.Address, '/DriveConfiguration/Channel1');
+							ELSIF AxisDriveCfgInternal.Channel = 'Channel2' THEN
+								AxisDriveCfgInternal.Address := CONCAT(AxisDriveCfgInternal.Address, '/DriveConfiguration/Channel2');
 							ELSE
-								AxisCommonCfgAddress := CONCAT(AxisCommonCfgAddress, '/DriveConfiguration/Channel3');
+								AxisDriveCfgInternal.Address := CONCAT(AxisDriveCfgInternal.Address, '/DriveConfiguration/Channel3');
 							END_IF
 							
 							// Proceed with command is get
 							IF AxisDriveCfg.CmdGetDrive THEN
-								AxisDriveCfgState := STATE_DRIVE_CFG_READ;
+								AxisDriveCfgInternal.State := STATE_DRIVE_CFG_READ;
 								// Proceed with command is set
 							ELSE
-								AxisDriveCfgState := STATE_DRIVE_CFG_WRITE;
+								AxisDriveCfgInternal.State := STATE_DRIVE_CFG_WRITE;
 							END_IF
 							// Cannot extract location string
 						ELSE
 							AxisDriveCfg.ErrId := ERR_AXISDRIVECFG_LOC_INVALID;			
 							AxisDriveCfg.CmdSetDrive := FALSE;					
 							AxisDriveCfg.CmdGetDrive := FALSE;					
-							AxisDriveCfgState := STATE_DRIVE_CFG_WAIT;
+							AxisDriveCfgInternal.State := STATE_DRIVE_CFG_WAIT;
 						END_IF
 						// Location is not empty
 					ELSE
 						AxisDriveCfg.ErrId := ERR_AXISDRIVECFG_LOC_EMPTY;			
 						AxisDriveCfg.CmdSetDrive := FALSE;					
 						AxisDriveCfg.CmdGetDrive := FALSE;					
-						AxisDriveCfgState := STATE_DRIVE_CFG_WAIT;
+						AxisDriveCfgInternal.State := STATE_DRIVE_CFG_WAIT;
 					END_IF
 				END_IF
 			END_IF	
@@ -74,46 +82,46 @@ ACTION AxisDriveCfgAction:
 			// Read drive data
 		STATE_DRIVE_CFG_READ:
 			// Read Axis configuration
-			AxisDriveCfgProcessConfig.Execute := TRUE; 
-			AxisDriveCfgProcessConfig.Name := AxisCommonCfgAddress;
-			AxisDriveCfgProcessConfig.DataType := mcCFG_ACP_AX; 
-			AxisDriveCfgProcessConfig.DataAddress := ADR(AxisDriveCfg.StaDrive);
-			AxisDriveCfgProcessConfig.Mode := mcPCM_LOAD;
+			AxisDriveCfgInternal.ProcessConfig.Execute := TRUE; 
+			AxisDriveCfgInternal.ProcessConfig.Name := AxisDriveCfgInternal.Address;
+			AxisDriveCfgInternal.ProcessConfig.DataType := mcCFG_ACP_AX; 
+			AxisDriveCfgInternal.ProcessConfig.DataAddress := ADR(AxisDriveCfg.StaDrive);
+			AxisDriveCfgInternal.ProcessConfig.Mode := mcPCM_LOAD;
 
 			// Finish when done
-			IF AxisDriveCfgProcessConfig.Done OR AxisDriveCfgProcessConfig.Error THEN
+			IF AxisDriveCfgInternal.ProcessConfig.Done OR AxisDriveCfgInternal.ProcessConfig.Error THEN
 				// Transfer error id, reset function block
-				AxisDriveCfg.ErrId := AxisDriveCfgProcessConfig.ErrorID;		
-				AxisDriveCfgProcessConfig.Execute := FALSE;
+				AxisDriveCfg.ErrId := AxisDriveCfgInternal.ProcessConfig.ErrorID;		
+				AxisDriveCfgInternal.ProcessConfig.Execute := FALSE;
 				AxisDriveCfg.CmdGetDrive := FALSE;
 					
-				AxisDriveCfgState := STATE_DRIVE_CFG_WAIT;
+				AxisDriveCfgInternal.State := STATE_DRIVE_CFG_WAIT;
 			END_IF
 
 			// --------------------------------------------------------------------------
 			// Write drive data
 		STATE_DRIVE_CFG_WRITE:
 			// Read axis configuration
-			AxisDriveCfgProcessConfig.Execute := TRUE; 
-			AxisDriveCfgProcessConfig.Name := AxisCommonCfgAddress;
-			AxisDriveCfgProcessConfig.DataType := mcCFG_ACP_AX; 
-			AxisDriveCfgProcessConfig.DataAddress := ADR(AxisDriveCfg.ParDrive);
-			AxisDriveCfgProcessConfig.Mode := mcPCM_SAVE;
+			AxisDriveCfgInternal.ProcessConfig.Execute := TRUE; 
+			AxisDriveCfgInternal.ProcessConfig.Name := AxisDriveCfgInternal.Address;
+			AxisDriveCfgInternal.ProcessConfig.DataType := mcCFG_ACP_AX; 
+			AxisDriveCfgInternal.ProcessConfig.DataAddress := ADR(AxisDriveCfg.ParDrive);
+			AxisDriveCfgInternal.ProcessConfig.Mode := mcPCM_SAVE;
 
 			// Finish when done
-			IF AxisDriveCfgProcessConfig.Done OR AxisDriveCfgProcessConfig.Error THEN
+			IF AxisDriveCfgInternal.ProcessConfig.Done OR AxisDriveCfgInternal.ProcessConfig.Error THEN
 				// Transfer error id, reset function block
-				AxisDriveCfg.ErrId := AxisDriveCfgProcessConfig.ErrorID;		
-				AxisDriveCfgProcessConfig.Execute := FALSE;
+				AxisDriveCfg.ErrId := AxisDriveCfgInternal.ProcessConfig.ErrorID;		
+				AxisDriveCfgInternal.ProcessConfig.Execute := FALSE;
 				AxisDriveCfg.CmdSetDrive := FALSE;					
 						
-				AxisDriveCfgState := STATE_DRIVE_CFG_WAIT;
+				AxisDriveCfgInternal.State := STATE_DRIVE_CFG_WAIT;
 			END_IF
 	END_CASE
 
 	// --------------------------------------------------------------------------
 	// Cyclic function calls
-	AxisDriveCfgProcessConfig();
-	AxisDriveCfgGetHardwareInfo();
+	AxisDriveCfgInternal.ProcessConfig();
+	AxisDriveCfgInternal.GetHardwareInfo();
 
 END_ACTION

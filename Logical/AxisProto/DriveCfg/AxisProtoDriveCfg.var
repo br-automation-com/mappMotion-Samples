@@ -1,14 +1,10 @@
 (*Axis par id structure, use this structure in your program*)
 VAR
 	AxisDriveCfg : AxisDriveCfgType;
-	AxisDriveCfgState : AxisDriveCfgStateEnum;
-	AxisCommonCfgAddress : STRING[64];
-	AxisCommonCfgChannel : STRING[64];
 END_VAR
-(*Generic functions*)
+(*Internal structure*)
 VAR
-	AxisDriveCfgProcessConfig : MC_BR_ProcessConfig;
-	AxisDriveCfgGetHardwareInfo : MC_BR_GetHardwareInfo;
+	AxisDriveCfgInternal : AxisDriveCfgInternalType;
 END_VAR
 (*Generic error numbers*)
 VAR

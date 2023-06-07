@@ -42,7 +42,7 @@ PROGRAM _CYCLIC
 	IF EDGENEG(AxisDriveCfg.CmdSetDrive) THEN
 		cmdChangeDriveConfig := FALSE;			// Reset local command
 	END_IF
-	AxisCommonAction;
+	
 	AxisDriveCfgAction;							// Call drive configuration action used for this drive
 	
 END_PROGRAM

@@ -15,7 +15,6 @@
       <Task Name="Axis_1">
         <Variable Name="MpAxisBasic_1" RecursiveEnable="2" />
         <Variable Name="MpAxisBasicPar" RecursiveEnable="2" />
-        <Variable Name="AxisCommon" RecursiveEnable="2" />
         <Variable Name="AxisDriveCfg" RecursiveEnable="2" />
         <Variable Name="cmdChangeDriveConfig" />
       </Task>

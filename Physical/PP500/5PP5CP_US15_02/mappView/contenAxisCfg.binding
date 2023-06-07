@@ -5,10 +5,7 @@
 			<Source xsi:type="opcUa" refId="::Axis_1:AxisDriveCfg.ErrId" attribute="value" />
 			<Target xsi:type="brease" contentRefId="main" widgetRefId="numMotion_Error1" attribute="value" />
 		</Binding>
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::Axis_1:AxisCommon.CmdReboot" attribute="value" />
-			<Target xsi:type="brease" contentRefId="main" widgetRefId="btnAxisDriveCfg_Reboot" attribute="value" />
-		</Binding>
+		
 		
 		
 		
@@ -32,6 +29,10 @@
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::Axis_1:cmdChangeDriveConfig" attribute="value" />
 <Target xsi:type="brease" contentRefId="main" widgetRefId="btnAxisDriveCfg_Save" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Axis_1:AxisDriveCfg.CmdReboot" attribute="value" />
+<Target xsi:type="brease" contentRefId="main" widgetRefId="btnAxisDriveCfg_Reboot" attribute="value" />
 </Binding>
 </Bindings>
 </BindingsSet>
