@@ -1,9 +1,0 @@
-Version 3
-- Renamed action
-- Avoid compiler warnings
-
-Version 2
-- Renamed action
-
-Version 1
-- First release
