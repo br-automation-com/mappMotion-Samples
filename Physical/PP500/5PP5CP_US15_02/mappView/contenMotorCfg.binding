@@ -27,8 +27,9 @@
 <Source xsi:type="opcUa" refId="::Axis_1:AxisMotorCfg.StaMotorSynchronous.Motor.Default.MaximumSpeed" attribute="value" />
 <Target xsi:type="brease" contentRefId="main" widgetRefId="numMotorCfg3" attribute="value" />
 </Binding>
+
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::Axis_1:AxisCommon.CmdReboot" attribute="value" />
+<Source xsi:type="opcUa" refId="::Axis_1:AxisMotorCfg.CmdReboot" attribute="value" />
 <Target xsi:type="brease" contentRefId="main" widgetRefId="btnMotorCfg_Reboot" attribute="value" />
 </Binding>
 </Bindings>

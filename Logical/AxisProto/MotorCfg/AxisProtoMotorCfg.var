@@ -2,13 +2,9 @@
 VAR
 	AxisMotorCfg : AxisMotorCfgType;
 END_VAR
-(*Local functions and variables*)
+(*Interal variables*)
 VAR
-	AxisMotorCfgProcessConfig : MC_BR_ProcessConfig;
-	AxisMotorCfgGetHardwareInfo : MC_BR_GetHardwareInfo;
-	AxisMotorCfgState : AxisMotorCfgStateEnum;
-	AxisMotorCfgAddress : STRING[32];
-	AxisMotorCfgChannel : STRING[32];
+	AxisMotorCfgInternal : AxisMotorCfgInternalType;
 END_VAR
 (*Local Errors*)
 VAR

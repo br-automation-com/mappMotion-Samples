@@ -1,5 +1,0 @@
-Version 2
-- Renamed action
-
-Version 1
-- First release
