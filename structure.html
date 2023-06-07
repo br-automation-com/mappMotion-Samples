@@ -447,7 +447,7 @@
 
   <h1>Structure</h1>
 
-<p>All functions are collected in the axis prototype package. The proto type package consists of a common part and the axis function that is demonstrated. The common part contains code and variables that are used in multiple examples. </p>
+<p>All functions are collected in the axis proto type package. The proto type package consists only of the one axis function that is demonstrated. If multiple functions are used in one project the additional proto type packages can be copied and pasted into the existing proto type package.</p>
 <p>Each axis function is build in way that it can be used independently from other functions. Each axis function comes with its own variable and type definitions. All code is in structure text language and encapsulated in an action. </p>
 <h3 id="adding-a-function-to-a-task">Adding a function to a task</h3>
 <p>To add a function to a specific task follow this procedure.</p>
@@ -478,8 +478,8 @@
 <p>Here are some general coding guidelines used to develop the samples.</p>
 <ul>
 <li>All axis functions come with its own type and variable declaration and code file.</li>
-<li>All variables names must be unique because all variables are shared within one task in the end. All function specific variables should therefore start with function name itself. For example the state machine variable for the AxisBrake function is called AxisBrakeState.</li>
-<li>The only allowed dependency to other modules is to the common module.</li>
+<li>All variables that are not relevant for the outside world are added to an internal structure [FunctionName]Internal.</li>
+<li>There is no dependency to any other module.</li>
 <li>All data exchange is done through one structure.</li>
 </ul>
 <p>The structure for the data exchange follows the following guidelines</p>

@@ -291,8 +291,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#command-structure" class="md-nav__link">
-    Command structure
+  <a href="#interface-structure" class="md-nav__link">
+    Interface structure
   </a>
   
 </li>
@@ -488,7 +488,7 @@
 
   <h1>Par ID</h1>
 
-<p>The par ID sample provides an easy interface to control the ACOPOS parameter IDs. </p>
+<p>The par ID sample provides a simplified interface to control the ACOPOS parameter IDs. Parameter IDs can be read or written once or cyclic. In addition there is a cyclic multiplexed mode where data is accessed continuously but not every cycle.</p>
 <p><img alt="" src="screenshot_web.png" /></p>
 <p>Also see Automation Studio help </p>
 <ul>
@@ -497,67 +497,82 @@
 </ul>
 <h2 id="repo-link">Repo Link</h2>
 <p><a href="https://github.com/br-automation-com/mappMotion-Samples/tree/par_id">Here</a> is the link to the repository.</p>
-<h2 id="command-structure">Command structure</h2>
+<h2 id="interface-structure">Interface structure</h2>
 <p>The sample uses a variable structure to communicate with the outside world that can also be used to interact with other tasks. The structure looks as follows:</p>
 <table>
 <thead>
 <tr>
-<th>Command</th>
+<th>Parameter</th>
 <th>Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>CmdSetPar</td>
-<td>Set the parameter IDs from the list ParIds</td>
-</tr>
-<tr>
-<td>CmdGetPar</td>
-<td>Get the parameter IDs from the list ParIds</td>
+<td>CmdResetError</td>
+<td>Reset the error ID.</td>
 </tr>
 <tr>
 <td>MpLink</td>
-<td>The axis reference establishes the connection between the function block and an axis</td>
+<td>The axis reference establishes the connection between the function block and an axis.</td>
 </tr>
 <tr>
 <td>ParIds</td>
-<td>Array of parameters IDs, variable addresses and data types</td>
-</tr>
-<tr>
-<td>ParNum</td>
-<td>Number of parameter IDs that are used within array</td>
+<td>Array of parameters ID configurations. See details below.</td>
 </tr>
 <tr>
 <td>ErrId</td>
-<td>Error ID</td>
+<td>Shows the first error that occurred in a parameter configuration. Data access will continue for all parameter IDs that are configured correct. The error ID must be reset with CmdResetError.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="program-structure">Program structure</h2>
-<p>The program consists of a a simple clause that executes the two commands. The sample provides the following predefined variables that can be used to read or write parameters IDs.</p>
-<ul>
-<li>mcACPAX_BOOL</li>
-<li>mcACPAX_SINT</li>
-<li>mcACPAX_INT</li>
-<li>mcACPAX_DINT</li>
-<li>mcACPAX_USINT</li>
-<li>mcACPAX_UINT</li>
-<li>mcACPAX_UDINT</li>
-<li>mcACPAX_REAL</li>
-</ul>
+<p>Parameter access is configured in the sub structure ParIds</p>
+<table>
+<thead>
+<tr>
+<th>ParIds Structure</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Execute</td>
+<td>This variable defines how the parameter ID is accessed. DONE indicates that one time access was finished. ONCE triggers as one time access. CYCLIC access transfers the data every task cycle. Keep in mind that the amount of data that can be transferred every cycle is limited. MULTI access transfers the data continuously as fast as possible but does not guaranty data access in every cycle.<br><br>- mcACPAX_PARID_DONE<br>- mcACPAX_PARID_GET_ONCE<br>- mcACPAX_PARID_SET_ONCE<br>- mcACPAX_PARID_GET_CYCLIC<br>-       mcACPAX_PARID_SET_CYCLIC<br>- mcACPAX_PARID_GET_MULTI<br>-mcACPAX_PARID_SET_MULTI</td>
+</tr>
+<tr>
+<td>Variable</td>
+<td>Variable name as string. Use 'VariableName' for global variables and 'TaskName:VariableName' for local variables.</td>
+</tr>
+<tr>
+<td>ParID</td>
+<td>Parameter ID number</td>
+</tr>
+</tbody>
+</table>
 <h2 id="sample-code">Sample code</h2>
 <p>Here is a sample snippet that can be used as a starting point.</p>
 <h5 id="program-init">Program init</h5>
-<pre><code>PROGRAM _INIT
-    // --------------------------------------------------------------------------
+<pre><code>    // --------------------------------------------------------------------------
+    // Preset ParID module
+    AxisParId.MpLink := ADR(gAxis_1);                               // MpLink for axis
+
     // Acknowledge encoder battery error
-    mcACPAX_UDINT[1] := 1;                          // Par ID value: Reset encoder error
-    AxisParId.MpLink := ADR(gAxis_1);               // MpLink for axis
-    AxisParId.ParNum := 1;                          // Number of parameter IDs
-    AxisParId.ParIds[1].ParID := 719;               // Encoder1: Encoder command
-    AxisParId.ParIds[1].VariableAddress := ADR(mcACPAX_UDINT[1]);   // Pointer to predefined variable
-    AxisParId.ParIds[1].DataType := mcACPAX_PARTYPE_UDINT;          // Data type of predefined variable
-    AxisParId.CmdSetPar := TRUE;                                    // Execute command
+    mcACPAX_UDINT := 1;                                             // Par ID value: Reset encoder error
+    AxisParId.ParIds[1].Execute := mcACPAX_PARID_SET_ONCE;          // Execute write command once
+    AxisParId.ParIds[1].ParID := 719;                               // Encoder1: Encoder command
+    AxisParId.ParIds[1].Variable := 'Axis_1:mcACPAX_UDINT';         // Variable as string
+
+    // Read actual speed cyclic
+    mcSPEED_ACTUAL := 0;                                            // Par ID value: Actual speed
+    AxisParId.ParIds[2].Execute := mcACPAX_PARID_GET_CYCLIC;        // Execute write command cyclic
+    AxisParId.ParIds[2].ParID := 251;                               // Encoder1: Encoder command
+    AxisParId.ParIds[2].Variable := 'Axis_1:mcSPEED_ACTUAL';        // Variable as string
+
+    // Write maximum speed
+    mcSPEED_MAX := 0;                                               // Par ID value: Maximum speed
+    AxisParId.ParIds[3].Execute := mcACPAX_PARID_DONE;              // Dont execute command automatically
+    AxisParId.ParIds[3].ParID := 687;                               // Encoder1: Encoder command
+    AxisParId.ParIds[3].Variable := 'Axis_1:mcSPEED_MAX';           // Variable as string
 
 END_PROGRAM
 </code></pre>
@@ -565,12 +580,15 @@ END_PROGRAM
 <pre><code>PROGRAM _CYCLIC
     // --------------------------------------------------------------------------
     // Call axis actions used for this drive
-    CommonAction;
     ParIDAction;
 
 END_PROGRAM
 </code></pre>
 <h2 id="revision">Revision</h2>
+<p>Version 4
+- Removed dependency from common
+- Added cyclic par id exchange
+- Simplified interface</p>
 <p>Version 3
 - Renamed function block</p>
 <p>Version 2
