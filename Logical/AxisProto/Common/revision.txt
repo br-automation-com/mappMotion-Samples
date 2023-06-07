@@ -1,5 +1,0 @@
-Version 2
-- Avoid compiler warnings
-
-Version 1
-- First release

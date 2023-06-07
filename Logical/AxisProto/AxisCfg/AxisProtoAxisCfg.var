@@ -2,10 +2,7 @@
 VAR
 	AxisCfg : AxisCfgType;
 END_VAR
-(*Local functions and variables*)
+(*Internal structure*)
 VAR
-	AxisCfgProcessConfig : MC_BR_ProcessConfig;
-	AxisCfgGetHardwareInfo : MC_BR_GetHardwareInfo;
-	AxisCfgState : AxisCfgStateEnum;
-	AxisCfgName : STRING[32];
+	AxisCfgInternal : AxisCfgInternalType;
 END_VAR

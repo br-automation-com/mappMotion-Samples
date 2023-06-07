@@ -25,7 +25,6 @@ PROGRAM _CYCLIC
 
 	// --------------------------------------------------------------------------
 	// Call axis actions used for this drive
-	AxisCommonAction;
 	AxisCfgAction;
 	
 END_PROGRAM

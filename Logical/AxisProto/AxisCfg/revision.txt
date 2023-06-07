@@ -1,3 +1,7 @@
+Version 3
+- Removed dependency from common
+- New internal structure
+
 Version 2
 - Renamed function block 
 - Dont read before write

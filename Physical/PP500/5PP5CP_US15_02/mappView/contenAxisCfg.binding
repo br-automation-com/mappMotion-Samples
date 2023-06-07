@@ -25,8 +25,9 @@
 			<Source xsi:type="opcUa" refId="::Axis_1:AxisCfg.CmdGetAxis" attribute="value" />
 			<Target xsi:type="brease" contentRefId="main" widgetRefId="btnAxisCfg_Load" attribute="value" />
 		</Binding>
-	<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::Axis_1:AxisCommon.CmdReboot" attribute="value" />
+	
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Axis_1:AxisCfg.CmdReboot" attribute="value" />
 <Target xsi:type="brease" contentRefId="main" widgetRefId="btnAxisCfg_Reboot" attribute="value" />
 </Binding>
 </Bindings>

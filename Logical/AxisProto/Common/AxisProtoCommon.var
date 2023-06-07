@@ -1,5 +1,0 @@
-(*Generic variables used in multiple actions*)
-VAR
-	AxisCommon : AxisCommonType;
-	n : UINT;
-END_VAR
