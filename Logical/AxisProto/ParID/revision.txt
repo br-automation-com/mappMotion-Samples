@@ -1,3 +1,8 @@
+Version 4
+- Removed dependency from common
+- Added cyclic par id exchange
+- Simplified interface
+
 Version 3
 - Renamed function block
 

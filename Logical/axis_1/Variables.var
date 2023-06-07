@@ -1,4 +1,7 @@
 VAR
 	MpAxisBasic_1 : MpAxisBasic;
 	MpAxisBasicPar : MpAxisBasicParType;
+	mcACPAX_UDINT : UDINT;
+	mcSPEED_MAX : REAL;
+	mcSPEED_ACTUAL : REAL;
 END_VAR

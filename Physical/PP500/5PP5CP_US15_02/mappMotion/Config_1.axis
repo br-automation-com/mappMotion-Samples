@@ -3,9 +3,8 @@
 <Configuration>
   <Element ID="gAxis_1" Type="axis">
     <Property ID="BaseTypeIsReadOnly" Value="0" />
-    <Selector ID="BaseType" Value="Rotary">
-      <Property ID="MeasurementUnitIsReadOnly" Value="0" />
-      <Property ID="MeasurementUnit" Value="17476" />
+    <Selector ID="BaseType" Value="Linear">
+      <Property ID="MeasurementUnit" Value="5066068" />
       <Property ID="MeasurementResolutionIsReadOnly" Value="0" />
       <Property ID="MeasurementResolution" Value="0.010000" />
       <Property ID="CountDirectionIsReadOnly" Value="0" />

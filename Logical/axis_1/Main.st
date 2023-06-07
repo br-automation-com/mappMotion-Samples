@@ -8,15 +8,27 @@ PROGRAM _INIT
 	MpAxisBasicPar.Velocity := 500;
 
 	// --------------------------------------------------------------------------
-	// Acknowledge encoder battery error
-	mcACPAX_UDINT[1] := 1;											// Par ID value: Reset encoder error
+	// Preset ParID module
 	AxisParId.MpLink := ADR(gAxis_1);								// MpLink for axis
-	AxisParId.ParNum := 1;											// Number of parameter IDs
+	
+	// Acknowledge encoder battery error
+	mcACPAX_UDINT := 1;												// Par ID value: Reset encoder error
+	AxisParId.ParIds[1].Execute := mcACPAX_PARID_SET_ONCE;			// Execute write command once
 	AxisParId.ParIds[1].ParID := 719;								// Encoder1: Encoder command
-	AxisParId.ParIds[1].VariableAddress := ADR(mcACPAX_UDINT[1]);	// Pointer to predefined variable
-	AxisParId.ParIds[1].DataType := mcACPAX_PARTYPE_UDINT;			// Data type of predefined variable
-	AxisParId.CmdSetPar := TRUE;									// Execute command
-	 
+	AxisParId.ParIds[1].Variable := 'Axis_1:mcACPAX_UDINT';			// Variable as string
+
+	// Read actual speed cyclic
+	mcSPEED_ACTUAL := 0;											// Par ID value: Actual speed
+	AxisParId.ParIds[2].Execute := mcACPAX_PARID_GET_CYCLIC;		// Execute write command cyclic
+	AxisParId.ParIds[2].ParID := 251;								// Encoder1: Encoder command
+	AxisParId.ParIds[2].Variable := 'Axis_1:mcSPEED_ACTUAL';		// Variable as string
+
+	// Write maximum speed
+	mcSPEED_MAX := 0;												// Par ID value: Maximum speed
+	AxisParId.ParIds[3].Execute := mcACPAX_PARID_DONE;				// Dont execute command automatically
+	AxisParId.ParIds[3].ParID := 687;								// Encoder1: Encoder command
+	AxisParId.ParIds[3].Variable := 'Axis_1:mcSPEED_MAX';			// Variable as string
+
 END_PROGRAM
 
 PROGRAM _CYCLIC
