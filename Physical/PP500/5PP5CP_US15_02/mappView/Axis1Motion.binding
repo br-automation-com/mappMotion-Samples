@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="contentAxis1_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Bindings>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.StatusID" attribute="node" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="numMotion_Error1" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.ErrorReset" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="btnMotion_ResetError1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.Power" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="btnMotion_Power1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.PowerOn" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="btnMotion_Powered1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.IsHomed" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="btnMotion_Homed1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.InVelocity" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="btnMotion_InVelocity1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.InPosition" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="btnMotion_InPosition1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.MoveActive" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="btnMotion_MoveActive1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.MoveDone" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="btnMotion_MoveDone1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.Stopped" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="btnMotion_MoveStopped1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.Error" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="btnMotion_MoveError1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.Velocity" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="numMotion_VelocityAct1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.Position" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="numMotion_PositionAct1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasicPar.Direction" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="ddbMotion_Direction1" attribute="selectedIndex" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasicPar.Distance" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="numMotion_AdditiveSet1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasicPar.Deceleration" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="numMotion_DeccelerationSet1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasicPar.Acceleration" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="numMotion_AccelerationSet1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasicPar.Velocity" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="numMotion_VelocitySet1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasicPar.Position" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="numMotion_PositionSet1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.Stop" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="btnMotion_Stop1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.MoveAdditive" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="btnMotion_MoveAdditive1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.MoveAbsolute" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="btnMotion_MovePosition1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.MoveVelocity" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="btnMotion_MoveVelocity1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.Home" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="btnMotion_Home1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.Update" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="btnMotion_Update1" attribute="value" />
+		</Binding>
+	</Bindings>
+</BindingsSet>

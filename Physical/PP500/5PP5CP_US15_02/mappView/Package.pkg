@@ -4,7 +4,9 @@
   <Objects>
     <Object Type="File">Visualizat.vis</Object>
     <Object Type="File">Config.mappviewcfg</Object>
-    <Object Type="File">contentMotion.binding</Object>
-    <Object Type="File">contentMotion.eventbinding</Object>
+    <Object Type="File">Axis1Motion.binding</Object>
+    <Object Type="File">Axis1Motion.eventbinding</Object>
+    <Object Type="File">Axis2Motion.binding</Object>
+    <Object Type="File">Axis2Motion.eventbinding</Object>
   </Objects>
 </Package>

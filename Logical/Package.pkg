@@ -8,5 +8,6 @@
     <Object Type="Package">mappView</Object>
     <Object Type="Package">AxisProto</Object>
     <Object Type="Program" Language="IEC">Axis_1</Object>
+    <Object Type="Program" Language="IEC">Axis_2</Object>
   </Objects>
 </Package>

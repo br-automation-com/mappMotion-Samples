@@ -3,9 +3,8 @@
 <Configuration>
   <Element ID="gAxis_2" Type="axis">
     <Property ID="BaseTypeIsReadOnly" Value="0" />
-    <Selector ID="BaseType" Value="Rotary">
-      <Property ID="MeasurementUnitIsReadOnly" Value="0" />
-      <Property ID="MeasurementUnit" Value="17476" />
+    <Selector ID="BaseType" Value="Linear">
+      <Property ID="MeasurementUnit" Value="5066068" />
       <Property ID="MeasurementResolutionIsReadOnly" Value="0" />
       <Property ID="MeasurementResolution" Value="0.010000" />
       <Property ID="CountDirectionIsReadOnly" Value="0" />
@@ -22,17 +21,17 @@
       <Property ID="VelocityIsReadOnly" Value="0" />
       <Selector ID="Velocity">
         <Property ID="VelocityMax" Value="339999995214436424907732413799364296704.000000" />
-        <Property ID="Velocity" Value="60000" />
+        <Property ID="Velocity" Value="2800" />
       </Selector>
       <Property ID="AccelerationIsReadOnly" Value="0" />
       <Selector ID="Acceleration">
         <Property ID="AccelerationMax" Value="339999995214436424907732413799364296704.000000" />
-        <Property ID="Acceleration" Value="360000" />
+        <Property ID="Acceleration" Value="10000" />
       </Selector>
       <Property ID="DecelerationIsReadOnly" Value="0" />
       <Selector ID="Deceleration">
         <Property ID="DecelerationMax" Value="339999995214436424907732413799364296704.000000" />
-        <Property ID="Deceleration" Value="360000" />
+        <Property ID="Deceleration" Value="10000" />
       </Selector>
     </Selector>
     <Selector ID="Alarms" Value="None" />

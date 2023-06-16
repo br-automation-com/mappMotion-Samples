@@ -16,6 +16,10 @@
         <Variable Name="MpAxisBasic_1" RecursiveEnable="2" />
         <Variable Name="MpAxisBasicPar" RecursiveEnable="2" />
       </Task>
+      <Task Name="Axis_2">
+        <Variable Name="MpAxisBasic_1" RecursiveEnable="2" />
+        <Variable Name="MpAxisBasicPar" RecursiveEnable="2" />
+      </Task>
     </Module>
   </DefaultView>
 </OpcUaSource>

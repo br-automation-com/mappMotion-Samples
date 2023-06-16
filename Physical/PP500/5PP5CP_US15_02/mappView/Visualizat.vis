@@ -6,10 +6,12 @@
 	</Pages>
 	<Navigations />
 	<BindingsSets>
-		<BindingsSet refId="contentMotion_binding" />
+		<BindingsSet refId="contentAxis1_binding" />
+		<BindingsSet refId="contentAxis2_binding" />
 	</BindingsSets>
 	<EventBindingsSets>
-		<EventBindingsSet refId="contentMotion_eventbinding" />
+		<EventBindingsSet refId="contentAxis1_eventbinding" />
+		<EventBindingsSet refId="contentAxis2_eventbinding" />
 	</EventBindingsSets>
 	<Dialogs />
 	<Contents>

@@ -2,10 +2,10 @@
 PROGRAM _INIT
 	// --------------------------------------------------------------------------
 	// Set standard motion parameters
-	MpAxisBasicPar.Acceleration := 10000;
-	MpAxisBasicPar.Deceleration := 10000;
-	MpAxisBasicPar.Stop.Deceleration := 10000;
-	MpAxisBasicPar.Velocity := 500;
+	MpAxisBasicPar.Acceleration := 5000;
+	MpAxisBasicPar.Deceleration := 5000;
+	MpAxisBasicPar.Stop.Deceleration := 5000;
+	MpAxisBasicPar.Velocity := 250;
 
 END_PROGRAM
 
