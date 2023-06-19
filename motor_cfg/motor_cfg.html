@@ -565,6 +565,20 @@
 </tbody>
 </table>
 <h2 id="program-structure">Program structure</h2>
+<table style="width: 100%">
+    <colgroup>
+       <col span="1" style="width: 40%;">
+    </colgroup>
+    <tr>
+        <td>
+            <img src="./screenshot_package.png" />
+        </td>
+        <td>
+            The motor parameter can be outsourced into an extra file with just the motor parameters. This has the advantage that new motors can be added easily without changing any source code in the proto type.
+        </td>
+    </tr>
+</table>
+
 <p>The program consists of a state machine to execute the commands. The B&amp;R function block that changed the motor configuration needs a name path and not just the MpLink. This name is constructed automatically in the step STATE_MOTOR_CFG_PRE_SET. From this step the state machine goes to the read or write state. The motor parameter can be provided as a separate file and action (see example). It is also possible to set the parameters directly in the structure ParMotorSynchronous or StaMotorInduction.</p>
 <p>After changing the motor parameters the PLC must be reboot for the changes to take affect.</p>
 <h2 id="sample-code">Sample code</h2>
