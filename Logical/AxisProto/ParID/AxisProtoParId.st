@@ -15,11 +15,14 @@ ACTION ParIDAction:
 			IF AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_GET_ONCE THEN
 				AxisParIdInternal.DataOnceGetIdx := AxisParIdInternal.DataOnceGetIdx + 1;
 				GetVarData;
-				IF AxisParId.ErrId = 0 THEN
+				// Variable data is valid
+				IF AxisParIdInternal.VariableStatus = 0 THEN
 					AxisParIdInternal.DataOnceGet[AxisParIdInternal.DataOnceGetIdx].ParID := AxisParId.ParIds[AxisParIdInternal.n].ParID;
 					AxisParIdInternal.DataOnceGet[AxisParIdInternal.DataOnceGetIdx].VariableAddress := AxisParIdInternal.McVariableAdr[AxisParIdInternal.n];
 					AxisParIdInternal.DataOnceGet[AxisParIdInternal.DataOnceGetIdx].DataType := AxisParIdInternal.McVariableType[AxisParIdInternal.n];
+				// Error reading variable data
 				ELSE
+					AxisParId.ErrId := AxisParIdInternal.VariableStatus;
 					AxisParId.ParIds[AxisParIdInternal.n].Execute := mcACPAX_PARID_DONE;
 				END_IF
 			END_IF
@@ -65,13 +68,17 @@ ACTION ParIDAction:
 			IF AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_SET_ONCE THEN
 				AxisParIdInternal.DataOnceSetIdx := AxisParIdInternal.DataOnceSetIdx + 1;
 				GetVarData;
-				IF AxisParId.ErrId = 0 THEN
+				// Variable data is valid
+				IF AxisParIdInternal.VariableStatus = 0 THEN
 					AxisParIdInternal.DataOnceSet[AxisParIdInternal.DataOnceSetIdx].ParID := AxisParId.ParIds[AxisParIdInternal.n].ParID;
 					AxisParIdInternal.DataOnceSet[AxisParIdInternal.DataOnceSetIdx].VariableAddress := AxisParIdInternal.McVariableAdr[AxisParIdInternal.n];
 					AxisParIdInternal.DataOnceSet[AxisParIdInternal.DataOnceSetIdx].DataType := AxisParIdInternal.McVariableType[AxisParIdInternal.n];
+				// Error reading variable data
 				ELSE
+					AxisParId.ErrId := AxisParIdInternal.VariableStatus;
 					AxisParId.ParIds[AxisParIdInternal.n].Execute := mcACPAX_PARID_DONE;
 				END_IF
+
 			END_IF
 		END_FOR;
 	END_IF
@@ -116,7 +123,8 @@ ACTION ParIDAction:
 		IF AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_GET_CYCLIC OR AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_GET_MULTI THEN
 			AxisParIdInternal.DataCyclicGetIdx := AxisParIdInternal.DataCyclicGetIdx + 1;
 			GetVarData;
-			IF AxisParId.ErrId = 0 THEN
+			// Variable data is valid
+			IF AxisParIdInternal.VariableStatus = 0 THEN
 				AxisParIdInternal.DataCylicGet[AxisParIdInternal.DataCyclicGetIdx].ParID := AxisParId.ParIds[AxisParIdInternal.n].ParID;
 				AxisParIdInternal.DataCylicGet[AxisParIdInternal.DataCyclicGetIdx].VariableAddress := AxisParIdInternal.McVariableAdr[AxisParIdInternal.n];
 				AxisParIdInternal.DataCylicGet[AxisParIdInternal.DataCyclicGetIdx].DataType := AxisParIdInternal.McVariableType[AxisParIdInternal.n];
@@ -125,7 +133,9 @@ ACTION ParIDAction:
 				ELSE
 					AxisParIdInternal.DataCylicGet[AxisParIdInternal.DataCyclicGetIdx].RefreshMode := mcACPAX_CYCLIC_MULTIPLEXED;
 				END_IF
+			// Error reading variable data
 			ELSE
+				AxisParId.ErrId := AxisParIdInternal.VariableStatus;
 				AxisParId.ParIds[AxisParIdInternal.n].Execute := mcACPAX_PARID_DONE;
 			END_IF
 		END_IF
@@ -158,7 +168,8 @@ ACTION ParIDAction:
 		IF AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_SET_CYCLIC OR AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_SET_MULTI THEN
 			AxisParIdInternal.DataCyclicSetIdx := AxisParIdInternal.DataCyclicSetIdx + 1;
 			GetVarData;
-			IF AxisParId.ErrId = 0 THEN
+			// Variable data is valid
+			IF AxisParIdInternal.VariableStatus = 0 THEN
 				AxisParIdInternal.DataCylicSet[AxisParIdInternal.DataCyclicSetIdx].ParID := AxisParId.ParIds[AxisParIdInternal.n].ParID;
 				AxisParIdInternal.DataCylicSet[AxisParIdInternal.DataCyclicSetIdx].VariableAddress := AxisParIdInternal.McVariableAdr[AxisParIdInternal.n];
 				AxisParIdInternal.DataCylicSet[AxisParIdInternal.DataCyclicSetIdx].DataType := AxisParIdInternal.McVariableType[AxisParIdInternal.n];
@@ -167,9 +178,12 @@ ACTION ParIDAction:
 				ELSE
 					AxisParIdInternal.DataCylicSet[AxisParIdInternal.DataCyclicSetIdx].RefreshMode := mcACPAX_CYCLIC_MULTIPLEXED;
 				END_IF
+			// Error reading variable data
 			ELSE
+				AxisParId.ErrId := AxisParIdInternal.VariableStatus;
 				AxisParId.ParIds[AxisParIdInternal.n].Execute := mcACPAX_PARID_DONE;
 			END_IF
+
 		END_IF
 	END_FOR;
 	
@@ -209,27 +223,32 @@ ACTION GetVarData:
 		IF AxisParIdInternal.VariableStatus = 0 THEN
 			// Transfer address and translate variable type to mc type
 			AxisParIdInternal.McVariableAdr[AxisParIdInternal.n] := AxisParIdInternal.VariableAdr;
-			CASE AxisParIdInternal.VariableType OF
-				SYSLIB_IEC_TYPE_BOOL:
-		  			AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_BOOL;
-				SYSLIB_IEC_TYPE_REAL:
-					AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_REAL;
-				SYSLIB_IEC_TYPE_SINT:
-					AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_SINT;
-				SYSLIB_IEC_TYPE_USINT:
-					AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_USINT;
-				SYSLIB_IEC_TYPE_INT:
-					AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_INT;
-				SYSLIB_IEC_TYPE_UINT:
-					AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_UINT;
-				SYSLIB_IEC_TYPE_DINT:
-					AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_DINT;
-				SYSLIB_IEC_TYPE_UDINT:
-					AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_UDINT;
-				ELSE
-					AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_VOID;
-
-			END_CASE;
+			// If variable if structure or array, use void
+			IF AxisParIdInternal.VariableDimension > 1 THEN
+				AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_VOID;
+			// Assign type for standard types
+			ELSE
+				CASE AxisParIdInternal.VariableType OF
+					SYSLIB_IEC_TYPE_BOOL:
+			  			AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_BOOL;
+					SYSLIB_IEC_TYPE_REAL:
+						AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_REAL;
+					SYSLIB_IEC_TYPE_SINT:
+						AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_SINT;
+					SYSLIB_IEC_TYPE_USINT:
+						AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_USINT;
+					SYSLIB_IEC_TYPE_INT:
+						AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_INT;
+					SYSLIB_IEC_TYPE_UINT:
+						AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_UINT;
+					SYSLIB_IEC_TYPE_DINT:
+						AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_DINT;
+					SYSLIB_IEC_TYPE_UDINT:
+						AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_UDINT;
+					ELSE
+						AxisParIdInternal.McVariableType[AxisParIdInternal.n] := mcACPAX_PARTYPE_VOID;
+				END_CASE;
+			END_IF
 		ELSE
 			IF AxisParId.ErrId = 0 THEN
 				AxisParId.ErrId := AxisParIdInternal.VariableStatus;
