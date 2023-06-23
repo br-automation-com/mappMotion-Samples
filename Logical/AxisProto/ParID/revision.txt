@@ -1,3 +1,7 @@
+Version 5
+- Update to mappMotion 5.22.1
+- Improved error handling
+
 Version 4
 - Removed dependency from common
 - Added cyclic par id exchange

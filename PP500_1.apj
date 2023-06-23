@@ -9,7 +9,7 @@
   <Variables DefaultInitValue="0" DefaultRetain="false" DefaultVolatile="true" />
   <TechnologyPackages>
     <mappCockpit Version="5.22.0" />
-    <mappMotion McAcpDrv="5.22.0" McAcpSim="5.22.0" McAcpSys="5.22.0" McDriveLog="5.22.0" Version="5.22.0" />
-    <mappView Version="5.22.0" />
+    <mappMotion McAcpDrv="5.22.1" McAcpSim="5.22.1" McAcpSys="5.22.1" McDriveLog="5.22.1" Version="5.22.1" />
+    <mappView Version="5.22.1" />
   </TechnologyPackages>
 </Project>
