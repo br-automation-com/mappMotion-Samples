@@ -495,7 +495,7 @@
 
   <h1>Par ID</h1>
 
-<p>The par ID sample provides a simplified interface to control the ACOPOS parameter IDs. Parameter IDs can be read or written once or cyclic. In addition there is a cyclic multiplexed mode where data is accessed continuously but not every cycle.</p>
+<p>The par ID sample provides a simplified interface to control the ACOPOS parameter IDs. Parameter IDs can be read or written once or cyclic. In addition there is a cyclic multiplexed mode where data is accessed continuously but not every cycle. The data type is derived from variable data type. Make sure that the variable data type matches the parameter ID data type. If the variable is none standard type (ex. array or structure) then the data type mcACPAX_PARTYPE_VOID is used.</p>
 <p><img alt="" src="screenshot_web.png" /></p>
 <p>Also see Automation Studio help </p>
 <ul>
@@ -566,7 +566,7 @@
 </tr>
 <tr>
 <td>Variable</td>
-<td>Variable name as string. Use 'VariableName' for global variables and 'TaskName:VariableName' for local variables.</td>
+<td>Variable name as string. Use 'VariableName' for global variables and 'TaskName:VariableName' for local variables. Make sure that the variable data type matches the parameter ID data type.</td>
 </tr>
 <tr>
 <td>ParID</td>
