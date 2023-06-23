@@ -562,7 +562,7 @@
 <tbody>
 <tr>
 <td>Execute</td>
-<td>This variable defines how the parameter ID is accessed. DONE indicates that one time access was finished. ONCE triggers as one time access. CYCLIC access transfers the data every task cycle. Keep in mind that the amount of data that can be transferred every cycle is limited. MULTI access transfers the data continuously as fast as possible but does not guaranty data access in every cycle.<br><br>- mcACPAX_PARID_DONE<br>- mcACPAX_PARID_GET_ONCE<br>- mcACPAX_PARID_SET_ONCE<br>- mcACPAX_PARID_GET_CYCLIC<br>-       mcACPAX_PARID_SET_CYCLIC<br>- mcACPAX_PARID_GET_MULTI<br>-mcACPAX_PARID_SET_MULTI</td>
+<td>This variable defines how the parameter ID is accessed. DONE indicates that one time access was finished. ONCE triggers as one time access. CYCLIC access transfers the data every task cycle. Keep in mind that the amount of data that can be transferred every cycle is limited. MULTI access transfers the data continuously as fast as possible but does not guaranty data access in every cycle.<br><br>- mcACPAX_PARID_DONE<br>- mcACPAX_PARID_GET_ONCE<br>- mcACPAX_PARID_SET_ONCE<br>- mcACPAX_PARID_GET_CYCLIC<br>- mcACPAX_PARID_SET_CYCLIC<br>- mcACPAX_PARID_GET_MULTI<br>- mcACPAX_PARID_SET_MULTI</td>
 </tr>
 <tr>
 <td>Variable</td>
@@ -610,6 +610,11 @@ END_PROGRAM
 END_PROGRAM
 </code></pre>
 <h2 id="revision">Revision</h2>
+<p>Version 5</p>
+<ul>
+<li>Update to mappMotion 5.22.1</li>
+<li>Improved error handling</li>
+</ul>
 <p>Version 4</p>
 <ul>
 <li>Removed dependency from common</li>
