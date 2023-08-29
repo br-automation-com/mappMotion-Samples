@@ -2,7 +2,7 @@
 VAR
 	AxisMotorCfg : AxisMotorCfgType;
 END_VAR
-(*Interal variables*)
+(*Internal variables*)
 VAR
 	AxisMotorCfgInternal : AxisMotorCfgInternalType;
 END_VAR

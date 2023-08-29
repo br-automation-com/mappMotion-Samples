@@ -1,3 +1,6 @@
+Version 5
+- New flag StaCompareResult shows if parameters in Sta... and Par... are identical
+
 Version 4
 - Removed dependency from common
 - New internal structure

@@ -76,8 +76,7 @@ ACTION MotorCfgAction:
 						AxisMotorCfgInternal.State := STATE_MOTOR_CFG_WAIT;
 					END_IF
 				END_IF
-			END_IF
-			
+			END_IF	
 			
 			// --------------------------------------------------------------------------
 			// Read motor data
@@ -96,6 +95,13 @@ ACTION MotorCfgAction:
 
 			// Finish when done
 			IF AxisMotorCfgInternal.ProcessConfig.Done OR AxisMotorCfgInternal.ProcessConfig.Error THEN
+				// Check if Par and Sta structures are identical
+				IF AxisMotorCfg.ParMotorType = AX_MOTOR_TYPE_SYNCHRONOUS THEN
+					AxisMotorCfg.StaCompareResult := NOT DINT_TO_BOOL(brsmemcmp(ADR(AxisMotorCfg.StaMotorSynchronous), ADR(AxisMotorCfg.ParMotorSynchronous), SIZEOF(AxisMotorCfg.StaMotorSynchronous)));
+				ELSE
+					AxisMotorCfg.StaCompareResult := NOT DINT_TO_BOOL(brsmemcmp(ADR(AxisMotorCfg.StaMotorInduction), ADR(AxisMotorCfg.ParMotorInduction), SIZEOF(AxisMotorCfg.StaMotorInduction)));
+				END_IF
+				
 				// Transfer error id, reset function block
 				AxisMotorCfg.ErrId := AxisMotorCfgInternal.ProcessConfig.ErrorID;		
 				AxisMotorCfgInternal.ProcessConfig.Execute := FALSE;

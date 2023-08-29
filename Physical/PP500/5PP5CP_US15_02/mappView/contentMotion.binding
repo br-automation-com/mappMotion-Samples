@@ -101,5 +101,9 @@
 <Source xsi:type="opcUa" refId="::Axis_1:MpAxisBasic_1.Update" attribute="value" />
 <Target xsi:type="brease" contentRefId="contentMotion" widgetRefId="btnMotion_Update1" attribute="value" />
 </Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Axis_1:AxisMotorCfg.StaCompareResult" attribute="value" />
+<Target xsi:type="brease" contentRefId="main" widgetRefId="chkMotorCfg_Identical" attribute="value" />
+</Binding>
 </Bindings>
 </BindingsSet>

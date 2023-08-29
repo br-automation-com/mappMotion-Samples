@@ -10,6 +10,7 @@ TYPE
 		StaMotorSynchronous : McCfgMotSynType;
 		ParMotorInduction : McCfgMotInductType;
 		StaMotorInduction : McCfgMotInductType;
+		StaCompareResult : BOOL;
 		ErrId : DINT;
 	END_STRUCT;
 	AxisMotorCfgInternalType : 	STRUCT 
