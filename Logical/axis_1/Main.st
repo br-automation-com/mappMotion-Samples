@@ -5,7 +5,7 @@ PROGRAM _INIT
 	MpAxisBasicPar.Acceleration := 10000;
 	MpAxisBasicPar.Deceleration := 10000;
 	MpAxisBasicPar.Stop.Deceleration := 10000;
-	MpAxisBasicPar.Velocity := 500;
+	MpAxisBasicPar.Velocity := 200;
 
 	// --------------------------------------------------------------------------
 	// Preset ParID module
