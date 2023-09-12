@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version=4.12.3.127 FileVersion="4.9"?>
+<?AutomationStudio Version=4.12.4.107 FileVersion="4.9"?>
 <Hardware xmlns="http://br-automation.co.at/AS/Hardware">
   <Module Name="4XP0000.00-K76" Type="4XP0000.00-K76" Version="2.0.1.0">
     <Connection Connector="X2X1" TargetModule="X67SI8103a" TargetConnector="X2X2">
@@ -17,6 +17,7 @@
     <Connection Connector="SY" TargetModule="5PP520.0702-00" TargetConnector="SY1" />
     <Parameter ID="ConfigurationID" Value="PP500_1_PP500" />
     <Parameter ID="UserPartitionSize" Value="64" />
+    <Parameter ID="Simulation" Value="1" />
     <Parameter ID="EnableUsbRemoteInstall" Value="1" />
     <Parameter ID="TimerDeviceType" Value="EPLX2X" />
     <Parameter ID="TimerDevice" Value="5PP5IF.FPLM-00.IF1" />
@@ -110,7 +111,6 @@
     <Parameter ID="Input" Location="DriveConfiguration/Channel[1]/RealAxis/DigitalInputs/Quickstop" Value="Trigger2" />
     <Parameter ID="SimulationModeOnPLC" Location="DriveConfiguration/Channel[1]/RealAxis/Simulation" Value="SetValueGeneration" />
     <Parameter ID="SimulationModeOnACOPOS" Location="DriveConfiguration/Channel[1]/RealAxis/Simulation" Value="NotUsed" />
-    <Parameter ID="FeatureRef[1]" Location="DriveConfiguration/Channel[1]/RealAxis/AxisFeatures" Value="" />
     <Parameter ID="AxisReference" Location="DriveConfiguration/Channel[2]/RealAxis" Value="gAxis_2" />
     <Parameter ID="MechanicalElementsIsInvisible" Location="DriveConfiguration/Channel[2]/RealAxis" Value="0" />
     <Parameter ID="InputIsReadOnly" Location="DriveConfiguration/Channel[2]/RealAxis/MechanicalElements/Gearbox" Value="0" />
