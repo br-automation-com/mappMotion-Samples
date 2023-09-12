@@ -497,7 +497,7 @@
   <h1>Drive Configuration</h1>
 
 <p>The drive configuration sample provides an example how to change the drive parameters during runtime. A lot of times only a small portion of parameters needs to be changed out of the structure. Since the complete structure is written every time it is recommended to read the structure first, then copy the data to the parameter structure, change the parameters and then write the changes back to the drive.
-<strong>After changing the drive parameters the PLC must be reboot for the changes to take affect.</strong></p>
+<strong>After changing the drive parameters the PLC must be reboot for the changes to take affect.</strong> The function block MC_BR_ProcessConfig used in this example does not check parameter values for correctness. It is therefore necessary to check the axis for errors after writing new parameters through the PLC logger or the function block MC_ReadAxisError.</p>
 <table style="width: 100%">
     <colgroup>
        <col span="1" style="width: 60%;">

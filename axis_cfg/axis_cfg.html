@@ -496,7 +496,7 @@
 
   <h1>Axis Configuration</h1>
 
-<p>The axis configuration sample provides an example how to change a axis configuration during runtime.  <strong>After changing the axis parameters the PLC must be reboot for the changes to take affect.</strong></p>
+<p>The axis configuration sample provides an example how to change a axis configuration during runtime. <strong>After changing the axis parameters the PLC must be reboot for the changes to take affect.</strong> The function block MC_BR_ProcessConfig used in this example does not check parameter values for correctness. It is therefore necessary to check the axis for errors after writing new parameters through the PLC logger or the function block MC_ReadAxisError.</p>
 <table style="width: 100%">
     <colgroup>
        <col span="1" style="width: 60%;">

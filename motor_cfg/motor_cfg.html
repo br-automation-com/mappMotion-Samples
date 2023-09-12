@@ -496,7 +496,7 @@
 
   <h1>Motor Configuration</h1>
 
-<p>The motor configuration sample provides an example how to change a motor during runtime. If there is no preferred motor during development or the motor parameters are unknown the motor type "MotorSynchronous_any" or "MotorInduction_any" can be used in the hardware tree. <strong>After changing the motor parameters the PLC must be reboot for the changes to take affect.</strong></p>
+<p>The motor configuration sample provides an example how to change a motor during runtime. If there is no preferred motor during development or the motor parameters are unknown the motor type "MotorSynchronous_any" or "MotorInduction_any" can be used in the hardware tree. <strong>After changing the motor parameters the PLC must be reboot for the changes to take affect.</strong> The function block MC_BR_ProcessConfig used in this example does not check parameter values for correctness. It is therefore necessary to check the axis for errors after writing new parameters through the PLC logger or the function block MC_ReadAxisError.</p>
 <table style="width: 100%">
     <colgroup>
        <col span="1" style="width: 60%;">
@@ -615,6 +615,8 @@ END_PROGRAM
 END_PROGRAM
 </code></pre>
 <h2 id="revision">Revision</h2>
+<p>Version 6
+- Update to mapp 5.23</p>
 <p>Version 5</p>
 <ul>
 <li>New flag StaCompareResult shows if parameters in Sta... and Par... are identical</li>
