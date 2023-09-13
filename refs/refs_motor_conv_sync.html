@@ -939,27 +939,141 @@ If you find any errors or have any suggestions please create an <a href="https:/
 <td>1655</td>
 <td>Current- and speed-based<br/><br/>Fourth-order thermal network with couplings</td>
 </tr>
+<tr>
+<td>Synchronous<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Reference Temperature<br/>Temperature offset</td>
+<td>Motor<br/>Default<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderWithCouplings<br/>ReferenceTemperature<br/>EncoderTemperatureSensor<br/>TemperatureOffset</td>
+<td>MOTOR_TEMPMODEL_REF_OFF</td>
+<td>1706</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network with couplings<br/>Reference Temperature<br/>Encoder temperature sensor</td>
+</tr>
+<tr>
+<td>Synchronous<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Reference Temperature<br/>Time constant</td>
+<td>Motor<br/>Default<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderWithCouplings<br/>ReferenceTemperature<br/>EncoderTemperatureSensor<br/>TimeConstant</td>
+<td>MOTOR_TEMPMODEL_REF_TAU</td>
+<td>1707</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network with couplings<br/>Reference Temperature<br/>Encoder temperature sensor</td>
+</tr>
+<tr>
+<td>Synchronous<br/>Brake<br/>Nominal current</td>
+<td>Brake<br/>Used<br/>NominalCurrent</td>
+<td>MOTOR_BRAKE_CURR_RATED</td>
+<td>42</td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous<br/>Brake<br/>Nominal torque</td>
+<td>Brake<br/>Used<br/>NominalTorque</td>
+<td>MOTOR_BRAKE_TORQ_RATED</td>
+<td>43</td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous<br/>Brake<br/>Activation delay</td>
+<td>Brake<br/>Used<br/>ActivationDelay</td>
+<td>MOTOR_BRAKE_ON_TIME</td>
+<td>44</td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous<br/>Brake<br/>Release delay</td>
+<td>Brake<br/>Used<br/>ReleaseDelay</td>
+<td>MOTOR_BRAKE_OFF_TIME</td>
+<td>45</td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous<br/>Brake<br/>Moment of inertia</td>
+<td>Brake<br/>Used<br/>MomentOfInertia</td>
+<td>MOTOR_BRAKE_INERTIA</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous<br/>Brake<br/>Control mode<br/>Release voltage</td>
+<td>Brake<br/>Used<br/>ControlMode<br/>VoltageControlled<br/>ReleaseVoltage</td>
+<td>MOTOR_BRAKE_VOLT_REL</td>
+<td>1504</td>
+<td>Voltage controlled</td>
+</tr>
+<tr>
+<td>Synchronous<br/>Brake<br/>Control mode<br/>Hold voltage</td>
+<td>Brake<br/>Used<br/>ControlMode<br/>VoltageControlled<br/>HoldVoltage</td>
+<td>MOTOR_BRAKE_VOLT_HOLD</td>
+<td>1505</td>
+<td>Voltage controlled</td>
+</tr>
+<tr>
+<td>Synchronous<br/>Brake<br/>Limits<br/>Maximum voltage</td>
+<td>Brake<br/>Used<br/>Limits<br/>Used<br/>MaximumVoltage</td>
+<td>MOTOR_BRAKE_VOLT_MAX</td>
+<td>1506</td>
+<td>Voltage controlled</td>
+</tr>
+<tr>
+<td>Synchronous<br/>Encoder<br/>Proof of fatigue strength</td>
+<td></td>
+<td>MOTOR_ENCOD_ATTR</td>
+<td>652</td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous<br/>Encoder<br/>Moment of inertia</td>
+<td>Encoder<br/>Used<br/>MomentOfInertia</td>
+<td>MOTOR_ENCOD_INERTIA</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous<br/>Encoder<br/>Temperature sensor<br/>Limit temperature</td>
+<td>Encoder<br/>Used<br/>TemperatureSensor<br/>Used<br/>LimitTemperature</td>
+<td>MOTOR_ENCOD_TEMP_LIM</td>
+<td>1209</td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous<br/>Gearbox<br/>Gear ratio<br/>input</td>
+<td>Gearbox<br/>Used<br/>GearRatio</td>
+<td></td>
+<td></td>
+<td>Only one value in code</td>
+</tr>
+<tr>
+<td>Synchronous<br/>Gearbox<br/>Gear ratio<br/>output</td>
+<td>Gearbox<br/>Used<br/>GearRatio</td>
+<td></td>
+<td></td>
+<td>Only one value in code</td>
+</tr>
+<tr>
+<td>Synchronous<br/>Gearbox<br/>Maximum input speed</td>
+<td>Gearbox<br/>Used<br/>MaximumInputSpeed</td>
+<td>MOTORGEAR_SPEED_MAX</td>
+<td>1695</td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous<br/>Gearbox<br/>Nominal output torque</td>
+<td>Gearbox<br/>Used<br/>NominalOutputTorque</td>
+<td>MOTORGEAR_TORQ_NOM</td>
+<td>1693</td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous<br/>Gearbox<br/>Peak output torque</td>
+<td>Gearbox<br/>Used<br/>PeakOutputTorque</td>
+<td>MOTORGEAR_TORQ_MAX</td>
+<td>1694</td>
+<td></td>
+</tr>
+<tr>
+<td>Synchronous<br/>Gearbox<br/>Moment of inertia</td>
+<td>Gearbox<br/>Used<br/>MomentOfInertia</td>
+<td>MOTORGEAR_INERTIA</td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<p>| Synchronous<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Reference Temperature<br/>Temperature offset | Motor<br/>Default<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderWithCouplings<br/>ReferenceTemperature<br/>EncoderTemperatureSensor<br/>TemperatureOffset | MOTOR_TEMPMODEL_REF_OFF | 1706 | Current- and speed-based<br/><br/>Fourth-order thermal network with couplings<br/>Reference Temperature<br/>Encoder temperature sensor |
-| Synchronous<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Reference Temperature<br/>Time constant | Motor<br/>Default<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderWithCouplings<br/>ReferenceTemperature<br/>EncoderTemperatureSensor<br/>TimeConstant | MOTOR_TEMPMODEL_REF_TAU | 1707 | Current- and speed-based<br/><br/>Fourth-order thermal network with couplings<br/>Reference Temperature<br/>Encoder temperature sensor |</p>
-<p>| Synchronous<br/>Brake<br/>Nominal current | Brake<br/>Used<br/>NominalCurrent | MOTOR_BRAKE_CURR_RATED | 42 | |
-| Synchronous<br/>Brake<br/>Nominal torque | Brake<br/>Used<br/>NominalTorque | MOTOR_BRAKE_TORQ_RATED | 43 | |
-| Synchronous<br/>Brake<br/>Activation delay | Brake<br/>Used<br/>ActivationDelay | MOTOR_BRAKE_ON_TIME | 44 | |
-| Synchronous<br/>Brake<br/>Release delay | Brake<br/>Used<br/>ReleaseDelay | MOTOR_BRAKE_OFF_TIME | 45 | |
-| Synchronous<br/>Brake<br/>Moment of inertia | Brake<br/>Used<br/>MomentOfInertia | MOTOR_BRAKE_INERTIA | | |
-| Synchronous<br/>Brake<br/>Control mode<br/>Release voltage | Brake<br/>Used<br/>ControlMode<br/>VoltageControlled<br/>ReleaseVoltage | MOTOR_BRAKE_VOLT_REL | 1504 | Voltage controlled |
-| Synchronous<br/>Brake<br/>Control mode<br/>Hold voltage | Brake<br/>Used<br/>ControlMode<br/>VoltageControlled<br/>HoldVoltage | MOTOR_BRAKE_VOLT_HOLD | 1505 | Voltage controlled |
-| Synchronous<br/>Brake<br/>Limits<br/>Maximum voltage | Brake<br/>Used<br/>Limits<br/>Used<br/>MaximumVoltage | MOTOR_BRAKE_VOLT_MAX | 1506 | Voltage controlled |
-| Synchronous<br/>Encoder<br/>Proof of fatigue strength |  | MOTOR_ENCOD_ATTR | 652 | |
-| Synchronous<br/>Encoder<br/>Moment of inertia | Encoder<br/>Used<br/>MomentOfInertia | MOTOR_ENCOD_INERTIA | | |
-| Synchronous<br/>Encoder<br/>Temperature sensor<br/>Limit temperature | Encoder<br/>Used<br/>TemperatureSensor<br/>Used<br/>LimitTemperature | MOTOR_ENCOD_TEMP_LIM | 1209 | |
-| Synchronous<br/>Gearbox<br/>Gear ratio<br/>input | Gearbox<br/>Used<br/>GearRatio | | | Only one value in code |
-| Synchronous<br/>Gearbox<br/>Gear ratio<br/>output | Gearbox<br/>Used<br/>GearRatio | | | Only one value in code |
-| Synchronous<br/>Gearbox<br/>Maximum input speed | Gearbox<br/>Used<br/>MaximumInputSpeed | MOTORGEAR_SPEED_MAX | 1695 | |
-| Synchronous<br/>Gearbox<br/>Nominal output torque | Gearbox<br/>Used<br/>NominalOutputTorque | MOTORGEAR_TORQ_NOM | 1693 | |
-| Synchronous<br/>Gearbox<br/>Peak output torque | Gearbox<br/>Used<br/>PeakOutputTorque | MOTORGEAR_TORQ_MAX | 1694 | |
-| Synchronous<br/>Gearbox<br/>Moment of inertia | Gearbox<br/>Used<br/>MomentOfInertia | MOTORGEAR_INERTIA | | |</p>
 
 
 
