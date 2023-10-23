@@ -39,7 +39,7 @@ TYPE
 		Variable : STRING[250];
 	END_STRUCT;
 	AxisParIdType : 	STRUCT 
-		CmdResetError : BOOL;
+		CmdUpdate : BOOL;
 		MpLink : REFERENCE TO McAxisType;
 		ParIds : ARRAY[1..AxisParNum]OF AxisParIdDataType;
 		ErrId : DINT;

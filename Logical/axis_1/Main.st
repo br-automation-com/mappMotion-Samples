@@ -10,6 +10,7 @@ PROGRAM _INIT
 	// --------------------------------------------------------------------------
 	// Preset ParID module
 	AxisParId.MpLink := ADR(gAxis_1);								// MpLink for axis
+	AxisParId.CmdUpdate := TRUE;
 	
 	// Acknowledge encoder battery error
 	mcACPAX_UDINT := 1;												// Par ID value: Reset encoder error

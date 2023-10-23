@@ -8,5 +8,5 @@ VAR
 END_VAR
 (*Configuration*)
 VAR CONSTANT
-	AxisParNum : USINT := 10;
+	AxisParNum : USINT := 20;
 END_VAR

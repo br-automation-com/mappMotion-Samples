@@ -1,13 +1,6 @@
 
 ACTION ParIDAction:
 	// --------------------------------------------------------------------------
-	// Reset error
-	IF AxisParId.CmdResetError THEN
-		AxisParId.ErrId := 0;
-		AxisParId.CmdResetError := 0;
-	END_IF
-	
-	// --------------------------------------------------------------------------
 	// Create get once queue
 	IF AxisParIdInternal.DataOnceGetIdx = 0  THEN
 		FOR AxisParIdInternal.n:=1 TO AxisParNum DO
@@ -116,33 +109,36 @@ ACTION ParIDAction:
 	
 	// --------------------------------------------------------------------------
 	// Create get cylcic queue
-	AxisParIdInternal.DataCyclicGetIdx := 0;
-	brsmemset(ADR(AxisParIdInternal.DataCylicGet), 0, SIZEOF(AxisParIdInternal.DataCylicGet));
-	FOR AxisParIdInternal.n:=1 TO AxisParNum DO
-		// Transfer get cyclic data
-		IF AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_GET_CYCLIC OR AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_GET_MULTI THEN
-			AxisParIdInternal.DataCyclicGetIdx := AxisParIdInternal.DataCyclicGetIdx + 1;
-			GetVarData;
-			// Variable data is valid
-			IF AxisParIdInternal.VariableStatus = 0 THEN
-				AxisParIdInternal.DataCylicGet[AxisParIdInternal.DataCyclicGetIdx].ParID := AxisParId.ParIds[AxisParIdInternal.n].ParID;
-				AxisParIdInternal.DataCylicGet[AxisParIdInternal.DataCyclicGetIdx].VariableAddress := AxisParIdInternal.McVariableAdr[AxisParIdInternal.n];
-				AxisParIdInternal.DataCylicGet[AxisParIdInternal.DataCyclicGetIdx].DataType := AxisParIdInternal.McVariableType[AxisParIdInternal.n];
-				IF AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_GET_CYCLIC THEN
-					AxisParIdInternal.DataCylicGet[AxisParIdInternal.DataCyclicGetIdx].RefreshMode := mcACPAX_CYCLIC_EVERY_RECORD;
+	IF AxisParId.CmdUpdate THEN
+		AxisParIdInternal.DataCyclicGetIdx := 0;
+		brsmemset(ADR(AxisParIdInternal.DataCylicGet), 0, SIZEOF(AxisParIdInternal.DataCylicGet));
+		AxisParId.ErrId := 0;
+		FOR AxisParIdInternal.n:=1 TO AxisParNum DO
+			// Transfer get cyclic data
+			IF AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_GET_CYCLIC OR AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_GET_MULTI THEN
+				AxisParIdInternal.DataCyclicGetIdx := AxisParIdInternal.DataCyclicGetIdx + 1;
+				GetVarData;
+				// Variable data is valid
+				IF AxisParIdInternal.VariableStatus = 0 THEN
+					AxisParIdInternal.DataCylicGet[AxisParIdInternal.DataCyclicGetIdx].ParID := AxisParId.ParIds[AxisParIdInternal.n].ParID;
+					AxisParIdInternal.DataCylicGet[AxisParIdInternal.DataCyclicGetIdx].VariableAddress := AxisParIdInternal.McVariableAdr[AxisParIdInternal.n];
+					AxisParIdInternal.DataCylicGet[AxisParIdInternal.DataCyclicGetIdx].DataType := AxisParIdInternal.McVariableType[AxisParIdInternal.n];
+					IF AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_GET_CYCLIC THEN
+						AxisParIdInternal.DataCylicGet[AxisParIdInternal.DataCyclicGetIdx].RefreshMode := mcACPAX_CYCLIC_EVERY_RECORD;
+					ELSE
+						AxisParIdInternal.DataCylicGet[AxisParIdInternal.DataCyclicGetIdx].RefreshMode := mcACPAX_CYCLIC_MULTIPLEXED;
+					END_IF
+				// Error reading variable data
 				ELSE
-					AxisParIdInternal.DataCylicGet[AxisParIdInternal.DataCyclicGetIdx].RefreshMode := mcACPAX_CYCLIC_MULTIPLEXED;
+					AxisParId.ErrId := AxisParIdInternal.VariableStatus;
+					AxisParId.ParIds[AxisParIdInternal.n].Execute := mcACPAX_PARID_DONE;
 				END_IF
-			// Error reading variable data
-			ELSE
-				AxisParId.ErrId := AxisParIdInternal.VariableStatus;
-				AxisParId.ParIds[AxisParIdInternal.n].Execute := mcACPAX_PARID_DONE;
 			END_IF
-		END_IF
-	END_FOR;
+		END_FOR;
+	END_IF
 	
 	// --------------------------------------------------------------------------
-	// Execute get once queue
+	// Execute get cyclic queue
 	IF AxisParIdInternal.DataCyclicGetIdx > 0 THEN
 		// Preset function block
 		AxisParIdInternal.CyclicProcessParIDGet.Enable := TRUE;
@@ -161,34 +157,36 @@ ACTION ParIDAction:
 
 	// --------------------------------------------------------------------------
 	// Create set cylcic queue
-	AxisParIdInternal.DataCyclicSetIdx := 0;
-	brsmemset(ADR(AxisParIdInternal.DataCylicSet), 0, SIZEOF(AxisParIdInternal.DataCylicSet));
-	FOR AxisParIdInternal.n:=1 TO AxisParNum DO
-		// Transfer set cyclic data
-		IF AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_SET_CYCLIC OR AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_SET_MULTI THEN
-			AxisParIdInternal.DataCyclicSetIdx := AxisParIdInternal.DataCyclicSetIdx + 1;
-			GetVarData;
-			// Variable data is valid
-			IF AxisParIdInternal.VariableStatus = 0 THEN
-				AxisParIdInternal.DataCylicSet[AxisParIdInternal.DataCyclicSetIdx].ParID := AxisParId.ParIds[AxisParIdInternal.n].ParID;
-				AxisParIdInternal.DataCylicSet[AxisParIdInternal.DataCyclicSetIdx].VariableAddress := AxisParIdInternal.McVariableAdr[AxisParIdInternal.n];
-				AxisParIdInternal.DataCylicSet[AxisParIdInternal.DataCyclicSetIdx].DataType := AxisParIdInternal.McVariableType[AxisParIdInternal.n];
-				IF AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_SET_CYCLIC THEN
-					AxisParIdInternal.DataCylicSet[AxisParIdInternal.DataCyclicSetIdx].RefreshMode := mcACPAX_CYCLIC_EVERY_RECORD;
+	IF AxisParId.CmdUpdate THEN
+		AxisParIdInternal.DataCyclicSetIdx := 0;
+		brsmemset(ADR(AxisParIdInternal.DataCylicSet), 0, SIZEOF(AxisParIdInternal.DataCylicSet));
+		FOR AxisParIdInternal.n:=1 TO AxisParNum DO
+			// Transfer set cyclic data
+			IF AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_SET_CYCLIC OR AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_SET_MULTI THEN
+				AxisParIdInternal.DataCyclicSetIdx := AxisParIdInternal.DataCyclicSetIdx + 1;
+				GetVarData;
+				// Variable data is valid
+				IF AxisParIdInternal.VariableStatus = 0 THEN
+					AxisParIdInternal.DataCylicSet[AxisParIdInternal.DataCyclicSetIdx].ParID := AxisParId.ParIds[AxisParIdInternal.n].ParID;
+					AxisParIdInternal.DataCylicSet[AxisParIdInternal.DataCyclicSetIdx].VariableAddress := AxisParIdInternal.McVariableAdr[AxisParIdInternal.n];
+					AxisParIdInternal.DataCylicSet[AxisParIdInternal.DataCyclicSetIdx].DataType := AxisParIdInternal.McVariableType[AxisParIdInternal.n];
+					IF AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_SET_CYCLIC THEN
+						AxisParIdInternal.DataCylicSet[AxisParIdInternal.DataCyclicSetIdx].RefreshMode := mcACPAX_CYCLIC_EVERY_RECORD;
+					ELSE
+						AxisParIdInternal.DataCylicSet[AxisParIdInternal.DataCyclicSetIdx].RefreshMode := mcACPAX_CYCLIC_MULTIPLEXED;
+					END_IF
+				// Error reading variable data
 				ELSE
-					AxisParIdInternal.DataCylicSet[AxisParIdInternal.DataCyclicSetIdx].RefreshMode := mcACPAX_CYCLIC_MULTIPLEXED;
+					AxisParId.ErrId := AxisParIdInternal.VariableStatus;
+					AxisParId.ParIds[AxisParIdInternal.n].Execute := mcACPAX_PARID_DONE;
 				END_IF
-			// Error reading variable data
-			ELSE
-				AxisParId.ErrId := AxisParIdInternal.VariableStatus;
-				AxisParId.ParIds[AxisParIdInternal.n].Execute := mcACPAX_PARID_DONE;
+	
 			END_IF
-
-		END_IF
-	END_FOR;
+		END_FOR;
+	END_IF
 	
 	// --------------------------------------------------------------------------
-	// Execute set once queue
+	// Execute set cyclic queue
 	IF AxisParIdInternal.DataCyclicSetIdx > 0 THEN
 		// Preset function block
 		AxisParIdInternal.CyclicProcessParIDSet.Enable := TRUE;
@@ -203,13 +201,15 @@ ACTION ParIDAction:
 		END_IF
 	ELSE
 		AxisParIdInternal.CyclicProcessParIDSet.Enable := FALSE;
-	END_IF
+	END_IF	
 	
 	// Cyclic function calls
 	AxisParIdInternal.ProcessParIDGet();
 	AxisParIdInternal.ProcessParIDSet();
 	AxisParIdInternal.CyclicProcessParIDGet();
 	AxisParIdInternal.CyclicProcessParIDSet();
+	
+	AxisParId.CmdUpdate := FALSE;
 END_ACTION
 
 // --------------------------------------------------------------------------
