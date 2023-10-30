@@ -109,10 +109,14 @@ ACTION ParIDAction:
 	
 	// --------------------------------------------------------------------------
 	// Create get cylcic queue
-	IF AxisParId.CmdUpdate THEN
+	IF EDGEPOS(AxisParId.CmdUpdate) THEN
+		// Reset counter, internal queue and function block
 		AxisParIdInternal.DataCyclicGetIdx := 0;
 		brsmemset(ADR(AxisParIdInternal.DataCylicGet), 0, SIZEOF(AxisParIdInternal.DataCylicGet));
 		AxisParId.ErrId := 0;
+		AxisParIdInternal.CyclicProcessParIDGet.Enable := FALSE;
+		AxisParIdInternal.CyclicProcessParIDGet();
+		// Create new queue
 		FOR AxisParIdInternal.n:=1 TO AxisParNum DO
 			// Transfer get cyclic data
 			IF AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_GET_CYCLIC OR AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_GET_MULTI THEN
@@ -157,9 +161,14 @@ ACTION ParIDAction:
 
 	// --------------------------------------------------------------------------
 	// Create set cylcic queue
-	IF AxisParId.CmdUpdate THEN
+	IF EDGEPOS(AxisParId.CmdUpdate) THEN
+		// Reset counter, internal queue and function block
 		AxisParIdInternal.DataCyclicSetIdx := 0;
 		brsmemset(ADR(AxisParIdInternal.DataCylicSet), 0, SIZEOF(AxisParIdInternal.DataCylicSet));
+		AxisParId.ErrId := 0;
+		AxisParIdInternal.CyclicProcessParIDSet.Enable := FALSE;
+		AxisParIdInternal.CyclicProcessParIDSet();
+		// Create new queue
 		FOR AxisParIdInternal.n:=1 TO AxisParNum DO
 			// Transfer set cyclic data
 			IF AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_SET_CYCLIC OR AxisParId.ParIds[AxisParIdInternal.n].Execute = mcACPAX_PARID_SET_MULTI THEN
@@ -201,15 +210,45 @@ ACTION ParIDAction:
 		END_IF
 	ELSE
 		AxisParIdInternal.CyclicProcessParIDSet.Enable := FALSE;
-	END_IF	
+	END_IF
+	
+	// --------------------------------------------------------------------------
+	// Get cyclic pard id information
+	IF AxisParId.CmdUpdate THEN
+		// Preset function block
+		AxisParIdInternal.GetCyclicDataInfo.Execute := TRUE;
+		AxisParIdInternal.GetCyclicDataInfo.Axis := AxisParId.MpLink;
+			
+		// Finish when done
+		IF AxisParIdInternal.GetCyclicDataInfo.Done OR AxisParIdInternal.GetCyclicDataInfo.Error THEN
+			// Transfer error id, reset funtion block, reset command
+			IF AxisParId.ErrId = 0 THEN
+				AxisParId.ErrId := AxisParIdInternal.GetCyclicDataInfo.ErrorID;
+			END_IF			
+			
+			// Transfer bytes used
+			AxisParId.MaxWriteDataBytes := AxisParIdInternal.GetCyclicDataInfo.CyclicDataInfo.Write.Record.Size;
+			AxisParId.MaxReadDataBytes := 0;
+			IF AxisParIdInternal.GetCyclicDataInfo.CyclicDataInfo.Read.RecordCount > 0 THEN
+				FOR AxisParIdInternal.m:=0 TO AxisParIdInternal.GetCyclicDataInfo.CyclicDataInfo.Read.RecordCount - 1 DO
+					IF AxisParIdInternal.GetCyclicDataInfo.CyclicDataInfo.Read.Record[AxisParIdInternal.m].Size > AxisParId.MaxReadDataBytes THEN
+						AxisParId.MaxReadDataBytes := AxisParIdInternal.GetCyclicDataInfo.CyclicDataInfo.Read.Record[AxisParIdInternal.m].Size;
+					END_IF
+				END_FOR;
+			END_IF
+			
+			AxisParId.CmdUpdate := 0;
+			AxisParIdInternal.GetCyclicDataInfo.Execute := 0;
+		END_IF
+	END_IF
 	
 	// Cyclic function calls
 	AxisParIdInternal.ProcessParIDGet();
 	AxisParIdInternal.ProcessParIDSet();
 	AxisParIdInternal.CyclicProcessParIDGet();
 	AxisParIdInternal.CyclicProcessParIDSet();
+	AxisParIdInternal.GetCyclicDataInfo();
 	
-	AxisParId.CmdUpdate := FALSE;
 END_ACTION
 
 // --------------------------------------------------------------------------

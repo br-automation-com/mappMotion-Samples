@@ -5,42 +5,50 @@
 			<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParIds[1].ParID" attribute="value" />
 			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_1" attribute="value" />
 		</Binding>
-
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ErrId" attribute="value" />
 			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_Error1" attribute="value" />
 		</Binding>
-	
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParIds[3].Execute" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="ddbParID6" attribute="selectedIndex" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParIds[2].Execute" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="ddbParID5" attribute="selectedIndex" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParIds[1].Execute" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="ddbParID4" attribute="selectedIndex" />
+		</Binding>
 
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParIds[3].Execute" attribute="value" />
-<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="ddbParID6" attribute="selectedIndex" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParIds[2].Execute" attribute="value" />
-<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="ddbParID5" attribute="selectedIndex" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParIds[1].Execute" attribute="value" />
-<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="ddbParID4" attribute="selectedIndex" />
-</Binding>
-
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParIds[2].ParID" attribute="value" />
-<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_2" attribute="value" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParIds[3].ParID" attribute="value" />
-<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_3" attribute="value" />
-</Binding>
-
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::Axis_1:mcSPEED_MAX" attribute="value" />
-<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_UDINT3" attribute="value" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::Axis_1:mcSPEED_ACTUAL" attribute="value" />
-<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_UDINT2" attribute="value" />
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParIds[2].ParID" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.ParIds[3].ParID" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_3" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcSPEED_MAX" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_UDINT3" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:mcSPEED_ACTUAL" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_UDINT2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.MaxReadDataBytes" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_MaxRead" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Axis_1:AxisParId.MaxWriteDataBytes" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_MaxWrite" attribute="value" />
+		</Binding>
+	<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Axis_1:mcACPAX_UDINT" attribute="value" />
+<Target xsi:type="brease" contentRefId="contentParId" widgetRefId="numParID_UDINT" attribute="value" />
 </Binding>
 </Bindings>
 </BindingsSet>

@@ -15,6 +15,7 @@ TYPE
 		ProcessParIDSet : MC_BR_ProcessParID_AcpAx;
 		CyclicProcessParIDGet : MC_BR_CyclicProcessParID_AcpAx;
 		CyclicProcessParIDSet : MC_BR_CyclicProcessParID_AcpAx;
+		GetCyclicDataInfo : MC_BR_GetCyclicDataInfo_AcpAx;
 		DataOnceGet : ARRAY[1..AxisParNum]OF McAcpAxProcessParIDType;
 		DataOnceSet : ARRAY[1..AxisParNum]OF McAcpAxProcessParIDType;
 		DataCylicGet : ARRAY[1..AxisParNum]OF McAcpAxCycParIDType;
@@ -42,6 +43,8 @@ TYPE
 		CmdUpdate : BOOL;
 		MpLink : REFERENCE TO McAxisType;
 		ParIds : ARRAY[1..AxisParNum]OF AxisParIdDataType;
+		MaxWriteDataBytes : USINT;
+		MaxReadDataBytes : USINT;
 		ErrId : DINT;
 	END_STRUCT;
 END_TYPE
