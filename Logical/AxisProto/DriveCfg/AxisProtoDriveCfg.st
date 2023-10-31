@@ -12,16 +12,39 @@ ACTION AxisDriveCfgAction:
 		// --------------------------------------------------------------------------
 		// Wait for new command
 		STATE_DRIVE_CFG_WAIT:
-			IF AxisDriveCfg.CmdGetDrive OR AxisDriveCfg.CmdSetDrive THEN
+			// Command read configuration
+			IF AxisDriveCfg.CmdGetDrive THEN
 				// Reset function blocks and erros
 				AxisDriveCfgInternal.ProcessConfig.Execute := FALSE;
 				AxisDriveCfg.ErrId := ERR_OK;
+				
+				// Make correction for axis feature
+				IF AxisDriveCfg.StaDrive.AxisFeatures.FeatureReference.DataAddress = 0 THEN
+					AxisDriveCfg.StaDrive.AxisFeatures.FeatureReference.DataAddress := ADR(AxisDriveCfgInternal.myFeatures);
+					AxisDriveCfg.StaDrive.AxisFeatures.FeatureReference.NumberOfArrayElements := SIZEOF(AxisDriveCfgInternal.myFeatures)/SIZEOF(AxisDriveCfgInternal.myFeatures[0]);
+				END_IF
 
 				AxisDriveCfgInternal.State := STATE_DRIVE_CFG_PRE_SET;
 			END_IF
 
-			// --------------------------------------------------------------------------
-			// Generate address and channel string
+			// Command write configuration
+			IF AxisDriveCfg.CmdSetDrive THEN			
+				// Make axis feature has valid pointer
+				IF AxisDriveCfg.StaDrive.AxisFeatures.FeatureReference.DataAddress = 0 AND AxisDriveCfg.StaDrive.AxisFeatures.FeatureReference.NumberOfElements > 0 THEN
+					AxisDriveCfg.ErrId := ERR_AXISDRIVECFG_AX_FEATURE;
+					AxisDriveCfg.CmdSetDrive := 0;
+				ELSE
+					// Reset function blocks and erros
+					AxisDriveCfgInternal.ProcessConfig.Execute := FALSE;
+					AxisDriveCfg.ErrId := ERR_OK;
+
+					AxisDriveCfgInternal.State := STATE_DRIVE_CFG_PRE_SET;
+				END_IF
+
+			END_IF
+
+		// --------------------------------------------------------------------------
+		// Generate address and channel string
 		STATE_DRIVE_CFG_PRE_SET:
 			AxisDriveCfgInternal.GetHardwareInfo.Execute := TRUE;
 			AxisDriveCfgInternal.GetHardwareInfo.Axis := AxisDriveCfg.MpLink;
@@ -76,10 +99,10 @@ ACTION AxisDriveCfgAction:
 						AxisDriveCfgInternal.State := STATE_DRIVE_CFG_WAIT;
 					END_IF
 				END_IF
-			END_IF	
+			END_IF
 			
-			// --------------------------------------------------------------------------
-			// Read drive data
+		// --------------------------------------------------------------------------
+		// Read drive data
 		STATE_DRIVE_CFG_READ:
 			// Read Axis configuration
 			AxisDriveCfgInternal.ProcessConfig.Execute := TRUE; 
@@ -98,8 +121,8 @@ ACTION AxisDriveCfgAction:
 				AxisDriveCfgInternal.State := STATE_DRIVE_CFG_WAIT;
 			END_IF
 
-			// --------------------------------------------------------------------------
-			// Write drive data
+		// --------------------------------------------------------------------------
+		// Write drive data
 		STATE_DRIVE_CFG_WRITE:
 			// Read axis configuration
 			AxisDriveCfgInternal.ProcessConfig.Execute := TRUE; 

@@ -10,4 +10,5 @@ END_VAR
 VAR
 	ERR_AXISDRIVECFG_LOC_EMPTY : UINT := 10000; (*Axis location is empty*)
 	ERR_AXISDRIVECFG_LOC_INVALID : UINT := 10001; (*Axis location is invalid*)
+	ERR_AXISDRIVECFG_AX_FEATURE : UINT := 10002; (*Axis feature configuration is invalid*)
 END_VAR

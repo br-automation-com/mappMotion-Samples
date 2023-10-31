@@ -15,6 +15,7 @@ TYPE
 		State : AxisDriveCfgStateEnum;
 		Address : STRING[64];
 		Channel : STRING[64];
+		myFeatures : ARRAY[0..8]OF McCfgReferenceType;
 		n : UINT;
 	END_STRUCT;
 	AxisDriveCfgStateEnum : 

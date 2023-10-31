@@ -4,5 +4,6 @@
   <Objects>
     <Object Type="File">Config_1.axis</Object>
     <Object Type="File">Config_2.axis</Object>
+    <Object Type="File">Config_3.axisfeature</Object>
   </Objects>
 </Package>
