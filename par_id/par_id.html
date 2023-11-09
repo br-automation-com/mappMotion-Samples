@@ -668,21 +668,21 @@
     AxisParId.CmdUpdate := TRUE;
 
     // Acknowledge encoder battery error
-    mcACPAX_UDINT := 1;                                             // Par ID value: Reset encoder error
+    mcACPAX_UDINT := 1;                                             // Par ID value: reset encoder error
     AxisParId.ParIds[1].Execute := mcACPAX_PARID_SET_ONCE;          // Execute write command once
-    AxisParId.ParIds[1].ParID := 719;                               // Encoder1: Encoder command
+    AxisParId.ParIds[1].ParID := 719;                               // Par ID: encoder command
     AxisParId.ParIds[1].Variable := 'Axis_1:mcACPAX_UDINT';         // Variable as string
 
     // Read actual speed cyclic
-    mcSPEED_ACTUAL := 0;                                            // Par ID value: Actual speed
+    mcSPEED_ACTUAL := 0;                                            // Par ID value: actual speed
     AxisParId.ParIds[2].Execute := mcACPAX_PARID_GET_CYCLIC;        // Execute write command cyclic
-    AxisParId.ParIds[2].ParID := 251;                               // Encoder1: Encoder command
+    AxisParId.ParIds[2].ParID := 92;                                // Par ID: actual speed
     AxisParId.ParIds[2].Variable := 'Axis_1:mcSPEED_ACTUAL';        // Variable as string
 
     // Write maximum speed
-    mcSPEED_MAX := 0;                                               // Par ID value: Maximum speed
+    mcSPEED_MAX := 0;                                               // Par ID value: actul position
     AxisParId.ParIds[3].Execute := mcACPAX_PARID_DONE;              // Dont execute command automatically
-    AxisParId.ParIds[3].ParID := 687;                               // Encoder1: Encoder command
+    AxisParId.ParIds[3].ParID := 111;                               // Par ID: actul position
     AxisParId.ParIds[3].Variable := 'Axis_1:mcSPEED_MAX';           // Variable as string
 
 END_PROGRAM
@@ -696,6 +696,10 @@ END_PROGRAM
 END_PROGRAM
 </code></pre>
 <h2 id="revision">Revision</h2>
+<p>Version 8 
+* Fixed cyclic communication information 
+* Increased drop down box width 
+* Changed demo par ids</p>
 <p>Version 7
 * Update mappMotion to 5.24
 * Removed obsolete hardware
