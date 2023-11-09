@@ -1,3 +1,8 @@
+Version 8
+- Fixed cyclic communication information
+- Increased drop down box width
+- Changed demo par ids
+
 Version 7
 - Update mappMotion to 5.24
 - Removed obsolete hardware
