@@ -1,0 +1,1131 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+    
+    
+      
+        <title>Refs motor ind pp - mappMotion samples</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="orange">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#conversion-table-for-induction-motors-using" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="mappMotion samples" class="md-header__button md-logo" aria-label="mappMotion samples" data-md-component="logo">
+      
+  <img src="../images/bur.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            mappMotion samples
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Refs motor ind pp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/br-automation-com/mappMotion-Samples" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="mappMotion samples" class="md-nav__button md-logo" aria-label="mappMotion samples" data-md-component="logo">
+      
+  <img src="../images/bur.png" alt="logo">
+
+    </a>
+    mappMotion samples
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/br-automation-com/mappMotion-Samples" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../brake/brake.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Brake
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../par_id/par_id.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Par ID
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../motor_cfg/motor_cfg.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Motor Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../axis_cfg/axis_cfg.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Axis Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../drive_cfg/drive_cfg.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Drive Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            References
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="refs_motor_conv_sync.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Synchronous motor table conversion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="refs_motor_conv_ind.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Induction motor table conversion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../revision.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Revision
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Refs motor ind pp</h1>
+
+<h4 id="conversion-table-for-induction-motors-using">Conversion table for induction motors using</h4>
+<p>The conversion table was created to the best of our knowledge but there is no guaranty that it is 100% correct. Please double check critical values in the Automation Studio help before using them.
+If you find any errors or have any suggestions please create an <a href="https://github.com/br-automation-com/mappMotion-Samples/issues">issue</a> on github. </p>
+<p>The table uses the following notation:</p>
+<table style="width: 100%">
+    <colgroup>
+       <col span="1" style="width: 60%;">
+    </colgroup>
+    <tr>
+        <td>
+            <img src="../refs/ind_motor_1.png" />
+        </td>
+        <td>
+            The configuration column shows the Automation Studio configuration. Each branch in the tree is presented as a list. For example the value shown in the left picture is written as:
+            <br/><br/>
+            Induction<br/>Motor<br/>Number of pole pairs            
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="../refs/ind_motor_2.png" />
+        </td>
+        <td>
+            The structure column shows the same value in code. Each element of the structure is presented as a list. For example the value shown in the left picture is written as:
+            <br/><br/>
+            Motor<br/>PowerRatingPlate<br/>NumberOfPolePairs
+        </td>Switching<br/>PTC thermistor
+    </tr>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>Configuration name</th>
+<th>Structure name</th>
+<th>Constant</th>
+<th>Par ID</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Induction<br/>Motor<br/>Nominal speed</td>
+<td>Motor<br/>PowerRatingPlate<br/>NominalSpeed</td>
+<td>MOTOR_SPEED_RATED</td>
+<td>50</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Nominal frequency</td>
+<td>Motor<br/>PowerRatingPlate<br/>NominalFrequency</td>
+<td>MOTOR_FREQ_RATED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Nominal voltage</td>
+<td>Motor<br/>PowerRatingPlate<br/>NominalVoltage</td>
+<td>MOTOR_VOLTAGE_RATED</td>
+<td>48</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Nominal current</td>
+<td>Motor<br/>PowerRatingPlate<br/>NominalCurrent</td>
+<td>MOTOR_CURR_RATED</td>
+<td>57</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Power Factor</td>
+<td>Motor<br/>PowerRatingPlate<br/>PowerFactor</td>
+<td>MOTOR_POWER_FACTOR</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Nominal ambient temperature</td>
+<td>Motor<br/>PowerRatingPlate<br/>NominalAmbientTemperature</td>
+<td>MOTOR_AMB_TEMP_RATED</td>
+<td>865</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Optional Parameters<br/>Number of pole pairs</td>
+<td>Motor<br/>PowerRatingPlate<br/>OptionalParameter<br/>NumberOfPolePairs</td>
+<td>MOTOR_POLEPAIRS</td>
+<td>47</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Optional Parameters<br/>Maximum speed</td>
+<td>Motor<br/>PowerRatingPlate<br/>OptionalParameter<br/>MaximumSpeed</td>
+<td>MOTOR_SPEED_MAX</td>
+<td>51</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Optional Parameters<br/>Stall current</td>
+<td>Motor<br/>PowerRatingPlate<br/>OptionalParameter<br/>StallCurrent</td>
+<td>MOTOR_CURR_STALL</td>
+<td>56</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Optional Parameters<br/>Peak current</td>
+<td>Motor<br/>PowerRatingPlate<br/>OptionalParameter<br/>PeakCurrent</td>
+<td>MOTOR_CURR_MAX</td>
+<td>58</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Optional Parameters<br/>Magnetizing current</td>
+<td>Motor<br/>PowerRatingPlate<br/>OptionalParameter<br/>MagnetizingCurrent</td>
+<td>MOTOR_MAGNETIZING_CURR</td>
+<td>59</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Optional Parameters<br/>Nominal Power</td>
+<td>Motor<br/>PowerRatingPlate<br/>OptionalParameter<br/>NominalPower</td>
+<td>MOTOR_POWER_RATED</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Optional Parameters<br/>Nominal torque</td>
+<td>Motor<br/>PowerRatingPlate<br/>OptionalParameter<br/>NominalTorque</td>
+<td>MOTOR_TORQ_RATED</td>
+<td>53</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Optional Parameters<br/>Stall torque</td>
+<td>Motor<br/>PowerRatingPlate<br/>OptionalParameter<br/>StallTorque</td>
+<td>MOTOR_TORQ_STALL</td>
+<td>52</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Optional Parameters<br/>Peak torque</td>
+<td>Motor<br/>PowerRatingPlate<br/>OptionalParameter<br/>PeakTorque</td>
+<td>MOTOR_TORQ_MAX</td>
+<td>54</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Optional Parameters<br/>Moment of inertia</td>
+<td>Motor<br/>PowerRatingPlate<br/>OptionalParameter<br/>MomentOfInertia</td>
+<td>MOTOR_INERTIA</td>
+<td>62</td>
+<td><br/>AS uses kgcm<sup>2</sup><br/>PAR ID uses kgm<sup>2</sup></td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>Limit temperature</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>Thermistor<br/>LimitTemperature</td>
+<td>MOTOR_TEMPSENS_LIM</td>
+<td>1216</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>Temperature sensor interface</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>Thermistor<br/>TemperatureSensorInterface</td>
+<td></td>
+<td></td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>ResistanceR0</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>Thermistor<br/>ResistanceR0</td>
+<td>MOTOR_TEMPSENS_PAR1</td>
+<td>64</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>ResistanceR7</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>Thermistor<br/>ResistanceR7</td>
+<td>MOTOR_TEMPSENS_PAR2</td>
+<td>65</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>TemperatureT0</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>Thermistor<br/>TemperatureT0</td>
+<td>MOTOR_TEMPSENS_PAR3</td>
+<td>66</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>TemperatureT1</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>Thermistor<br/>TemperatureT1</td>
+<td>MOTOR_TEMPSENS_PAR4</td>
+<td>67</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>TemperatureT2</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>Thermistor<br/>TemperatureT2</td>
+<td>MOTOR_TEMPSENS_PAR5</td>
+<td>68</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>TemperatureT3</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>Thermistor<br/>TemperatureT3</td>
+<td>MOTOR_TEMPSENS_PAR6</td>
+<td>69</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>TemperatureT4</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>Thermistor<br/>TemperatureT4</td>
+<td>MOTOR_TEMPSENS_PAR7</td>
+<td>70</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>TemperatureT5</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>Thermistor<br/>TemperatureT5</td>
+<td>MOTOR_TEMPSENS_PAR8</td>
+<td>71</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>TemperatureT6</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>Thermistor<br/>TemperatureT6</td>
+<td>MOTOR_TEMPSENS_PAR9</td>
+<td>72</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>TemperatureT7</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>Thermistor<br/>TemperatureT7</td>
+<td>MOTOR_TEMPSENS_PAR10</td>
+<td>73</td>
+<td>Thermistor</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>Temperature sensor interface</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>Thermistor<br/>TemperatureSensorInterface</td>
+<td></td>
+<td></td>
+<td>Switching<br/>PTC thermistor</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>Nominal response resistance</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>SwitchingPTCThermistor<br/>NominalResponseTemperature</td>
+<td>MOTOR_TEMPSENS_PAR1</td>
+<td>64</td>
+<td>Switching<br/>PTC thermistor</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>Minimum resistance</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>SwitchingPTCThermistor<br/>MinimumResistance</td>
+<td>MOTOR_TEMPSENS_PAR2</td>
+<td>65</td>
+<td>Switching<br/>PTC thermistor</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>TemperaNominal response temperature</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>SwitchingPTCThermistor<br/>NominalResponseTemperature</td>
+<td>MOTOR_TEMPSENS_PAR3</td>
+<td>66</td>
+<td>Switching<br/>PTC thermistor</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>Temperature sensor interface</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>Thermoswitches<br/>TemperatureSensorInterface</td>
+<td></td>
+<td></td>
+<td>Thermoswitches</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>Nominal response resistance</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>Thermoswitches<br/>NominalResponseTemperature</td>
+<td>MOTOR_TEMPSENS_PAR1</td>
+<td>64</td>
+<td>Thermoswitches</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature sensor<br/>Minimum resistance</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureSensor<br/>Thermoswitches<br/>SwitchingStateOnOvertemperature</td>
+<td>MOTOR_TEMPSENS_PAR10</td>
+<td>73</td>
+<td>Thermoswitches</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current-based<br/>Limit temperature</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentBased<br/>LimitTemperature</td>
+<td>MOTOR_WIND_TEMP_MAX</td>
+<td>74</td>
+<td>Current-based</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel</td>
+<td>TEMP_MOTOR_MODEL_MODE</td>
+<td>373</td>
+<td>Current-based<br>Current- and speed-based</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current-based<br/>Winding cross section</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentBased<br/>WindingCrossSection</td>
+<td>MOTOR_WIND_CROSS_SECT</td>
+<td>59</td>
+<td>Current-based</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current-based<br/>Thermal tripping time</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentBased<br/>ThermalTrippingTime</td>
+<td>PIDENT_THERM_TRIP_TIME</td>
+<td>1283</td>
+<td>Current-based</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current-based<br/>Thermal time constant</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentBased<br/>ThermalTimeConstant</td>
+<td>MOTOR_TAU_THERM</td>
+<td>849</td>
+<td>Current-based</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Limit temperature</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>LimitTemperature</td>
+<td>MOTOR_WIND_TEMP_MAX</td>
+<td>74</td>
+<td>Current- and speed-based</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Winding cross section</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>SecondOrderThermalNetwork<br/>WindingCrossSection</td>
+<td>MOTOR_WIND_CROSS_SECT</td>
+<td>74</td>
+<td>Current- and speed-based<br/><br/>Second-order thermal network</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Thermal tripping time</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>SecondOrderThermalNetwork<br/>CalculationMethod<br/>SecondOrderThermalNetwork<br/>ThermalTrippingTime</td>
+<td>PIDENT_THERM_TRIP_TIME</td>
+<td>1283</td>
+<td>Current- and speed-based<br/><br/>Second-order thermal network</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Thermal time constant</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>SecondOrderThermalNetwork<br/>ThermalTimeConstant</td>
+<td>MOTOR_TAU_THERM</td>
+<td>849</td>
+<td>Current- and speed-based<br/><br/>Second-order thermal network</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Thermal resistance 1</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderThermalNetwork<br/>ThermalResistance1</td>
+<td>MOTOR_TEMPMODEL_RES1</td>
+<td>1211</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Thermal capacity 1</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderThermalNetwork<br/>ThermalCapacity1</td>
+<td>MOTOR_TEMPMODEL_CAP1</td>
+<td>1212</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Thermal resistance 2</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderThermalNetwork<br/>ThermalResistance2</td>
+<td>MOTOR_TEMPMODEL_RES2</td>
+<td>1213</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Thermal capacity 2</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderThermalNetwork<br/>ThermalCapacity2</td>
+<td>MOTOR_TEMPMODEL_CAP2</td>
+<td>1214</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Stator thermal loss 1</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderThermalNetwork<br/>StatorThermalLoss1</td>
+<td>MOTOR_TEMPMODEL_LOSS1</td>
+<td>1489</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Stator thermal loss 2</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderThermalNetwork<br/>StatorThermalLoss2</td>
+<td>MOTOR_TEMPMODEL_LOSS2</td>
+<td>1490</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Winding thermal loss 1</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderThermalNetwork<br/>WindingThermalLoss1</td>
+<td>MOTOR_TEMPMODEL_LOSS1_W</td>
+<td>1654</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Winding thermal loss 2</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderThermalNetwork<br/>WindingThermalLoss2</td>
+<td>MOTOR_TEMPMODEL_LOSS2_W</td>
+<td>1655</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Thermal resistance 1</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderWithCouplings<br/>ThermalResistance1</td>
+<td>MOTOR_TEMPMODEL_RES1</td>
+<td>1211</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network with couplings</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Thermal capacity 1</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderWithCouplings<br/>ThermalCapacity1</td>
+<td>MOTOR_TEMPMODEL_CAP1</td>
+<td>1212</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network with couplings</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Thermal resistance 2</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderWithCouplings<br/>ThermalResistance2</td>
+<td>MOTOR_TEMPMODEL_RES2</td>
+<td>1213</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network with couplings</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Thermal capacity 2</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderWithCouplings<br/>ThermalCapacity2</td>
+<td>MOTOR_TEMPMODEL_CAP2</td>
+<td>1214</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network with couplings</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Thermal resistance 3</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderWithCouplings<br/>ThermalResistance3</td>
+<td>MOTOR_TEMPMODEL_RES3</td>
+<td>1653</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network with couplings</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Stator thermal loss 1</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderWithCouplings<br/>StatorThermalLoss1</td>
+<td>MOTOR_TEMPMODEL_LOSS1</td>
+<td>1489</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network with couplings</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Stator thermal loss 2</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderWithCouplings<br/>StatorThermalLoss2</td>
+<td>MOTOR_TEMPMODEL_LOSS2</td>
+<td>1490</td>
+<td>Current- and speed-based<br/>Fourth-order thermal network with couplings</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Winding thermal loss 1</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderWithCouplings&lt;br/WindingThermalLoss1</td>
+<td>MOTOR_TEMPMODEL_LOSS1_W</td>
+<td>1654</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network with couplings</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Winding thermal loss 2</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderWithCouplings<br/>WindingThermalLoss2</td>
+<td>MOTOR_TEMPMODEL_LOSS2_W</td>
+<td>1655</td>
+<td>Current- and speed-based<br/>Fourth-order thermal network with couplings</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Reference Temperature<br/>Temperature offset</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderWithCouplings<br/>ReferenceTemperature<br/>EncoderTemperatureSensor<br/>TemperatureOffset</td>
+<td>MOTOR_TEMPMODEL_REF_OFF</td>
+<td>1706</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network with couplings<br/>Reference Temperature<br/>Encoder temperature sensor</td>
+</tr>
+<tr>
+<td>Induction<br/>Motor<br/>Temperature model<br/>Current- and speed-based<br/>Calculation method<br/>Reference Temperature<br/>Time constant</td>
+<td>Motor<br/>PowerRatingPlate<br/>TemperatureModel<br/>CurrentAndSpeedBased<br/>CalculationMethod<br/>FourthOrderWithCouplings<br/>ReferenceTemperature<br/>EncoderTemperatureSensor<br/>TimeConstant</td>
+<td>MOTOR_TEMPMODEL_REF_TAU</td>
+<td>1707</td>
+<td>Current- and speed-based<br/><br/>Fourth-order thermal network with couplings<br/>Reference Temperature<br/>Encoder temperature sensor</td>
+</tr>
+<tr>
+<td>Induction<br/>Brake<br/>Nominal current</td>
+<td>Brake<br/>Used<br/>NominalCurrent</td>
+<td>MOTOR_BRAKE_CURR_RATED</td>
+<td>42</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Brake<br/>Nominal torque</td>
+<td>Brake<br/>Used<br/>NominalTorque</td>
+<td>MOTOR_BRAKE_TORQ_RATED</td>
+<td>43</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Brake<br/>Activation delay</td>
+<td>Brake<br/>Used<br/>ActivationDelay</td>
+<td>MOTOR_BRAKE_ON_TIME</td>
+<td>44</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Brake<br/>Release delay</td>
+<td>Brake<br/>Used<br/>ReleaseDelay</td>
+<td>MOTOR_BRAKE_OFF_TIME</td>
+<td>45</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Brake<br/>Moment of inertia</td>
+<td>Brake<br/>Used<br/>MomentOfInertia</td>
+<td>MOTOR_BRAKE_INERTIA</td>
+<td></td>
+<td><br/>AS uses kgcm<sup>2</sup><br/>PAR ID uses kgm<sup>2</sup></td>
+</tr>
+<tr>
+<td>Induction<br/>Brake<br/>Control mode</td>
+<td>Brake<br/>Used<br/>ControlMode</td>
+<td></td>
+<td></td>
+<td>Voltage controlled</td>
+</tr>
+<tr>
+<td>Induction<br/>Brake<br/>Control mode<br/>Release voltage</td>
+<td>Brake<br/>Used<br/>ControlMode<br/>VoltageControlled<br/>ReleaseVoltage</td>
+<td>MOTOR_BRAKE_VOLT_REL</td>
+<td>1504</td>
+<td>Voltage controlled</td>
+</tr>
+<tr>
+<td>Induction<br/>Brake<br/>Control mode<br/>Hold voltage</td>
+<td>Brake<br/>Used<br/>ControlMode<br/>VoltageControlled<br/>HoldVoltage</td>
+<td>MOTOR_BRAKE_VOLT_HOLD</td>
+<td>1505</td>
+<td>Voltage controlled</td>
+</tr>
+<tr>
+<td>Induction<br/>Brake<br/>Limits<br/>Maximum voltage</td>
+<td>Brake<br/>Used<br/>Limits<br/>Used<br/>MaximumVoltage</td>
+<td>MOTOR_BRAKE_VOLT_MAX</td>
+<td>1506</td>
+<td>Voltage controlled</td>
+</tr>
+<tr>
+<td>Induction<br/>Encoder<br/>Proof of fatigue strength</td>
+<td></td>
+<td>MOTOR_ENCOD_ATTR</td>
+<td>652</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Encoder<br/>Moment of inertia</td>
+<td>Encoder<br/>Used<br/>MomentOfInertia</td>
+<td>MOTOR_ENCOD_INERTIA</td>
+<td></td>
+<td><br/>AS uses kgcm<sup>2</sup><br/>PAR ID uses kgm<sup>2</sup></td>
+</tr>
+<tr>
+<td>Induction<br/>Encoder<br/>Temperature sensor<br/>Limit temperature</td>
+<td>Encoder<br/>Used<br/>TemperatureSensor<br/>Used<br/>LimitTemperature</td>
+<td>MOTOR_ENCOD_TEMP_LIM</td>
+<td>1209</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Gearbox<br/>Gear ratio<br/>input</td>
+<td>Gearbox<br/>Used<br/>GearRatio</td>
+<td></td>
+<td></td>
+<td>Only one value in code</td>
+</tr>
+<tr>
+<td>Induction<br/>Gearbox<br/>Gear ratio<br/>output</td>
+<td>Gearbox<br/>Used<br/>GearRatio</td>
+<td></td>
+<td></td>
+<td>Only one value in code</td>
+</tr>
+<tr>
+<td>Induction<br/>Gearbox<br/>Maximum input speed</td>
+<td>Gearbox<br/>Used<br/>MaximumInputSpeed</td>
+<td>MOTORGEAR_SPEED_MAX</td>
+<td>1695</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Gearbox<br/>Nominal output torque</td>
+<td>Gearbox<br/>Used<br/>NominalOutputTorque</td>
+<td>MOTORGEAR_TORQ_NOM</td>
+<td>1693</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Gearbox<br/>Peak output torque</td>
+<td>Gearbox<br/>Used<br/>PeakOutputTorque</td>
+<td>MOTORGEAR_TORQ_MAX</td>
+<td>1694</td>
+<td></td>
+</tr>
+<tr>
+<td>Induction<br/>Gearbox<br/>Moment of inertia</td>
+<td>Gearbox<br/>Used<br/>MomentOfInertia</td>
+<td>MOTORGEAR_INERTIA</td>
+<td></td>
+<td><br/>AS uses kgcm<sup>2</sup><br/>PAR ID uses kgm<sup>2</sup></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": "toc.integrate", "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../javascripts/tablesort.js"></script>
+      
+    
+  </body>
+</html>
